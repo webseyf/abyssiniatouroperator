@@ -2,21 +2,25 @@
 /**
  * ==============================================================================
  * Abyssinian Tour Operator — Email & SMTP Configuration
- * Location on server: public_html/api/mail-config.php
+ * Location: public_html/api/mail-config.php
  * ==============================================================================
- * 
- * HOW EMAILS WORK:
+ *
+ * WHERE TO SET YOUR EMAIL PASSWORD:
  * ------------------------------------------------------------------------------
- * METHOD 1 (Recommended for cPanel — NO PASSWORD NEEDED):
- * Leave SMTP_AUTH_ENABLED set to false.
- * When the website is hosted on your cPanel account, PHP's built-in mail() 
- * system routes emails directly through your server without needing any password.
- * 
- * METHOD 2 (Authenticated SMTP with Username & Password):
- * If your hosting provider requires SMTP authentication, or if you are using an 
- * external SMTP service (Google Workspace, cPanel Webmail SMTP, SendGrid, etc.):
- * 1. Set SMTP_AUTH_ENABLED to true below.
- * 2. Fill in SMTP_HOST, SMTP_PORT, SMTP_USERNAME, and SMTP_PASSWORD.
+ * Look below at SECTION 2 ("SMTP PASSWORD & CREDENTIALS"):
+ *
+ * 1. Change:
+ *    define('SMTP_AUTH_ENABLED', true);
+ *
+ * 2. Put your cPanel / Webmail / Google password in:
+ *    define('SMTP_PASSWORD', 'YourActualPasswordHere');
+ *
+ * 3. Verify the username is your actual email address:
+ *    define('SMTP_USERNAME', 'info@abyssiniatouroperator.com');
+ *
+ * 4. Verify host and port:
+ *    Host: mail.abyssiniatouroperator.com
+ *    Port: 465 (SSL) or 587 (TLS)
  */
 
 // ==============================================================================
@@ -26,51 +30,57 @@ define('ABYSSINIAN_INFO_EMAIL',   'info@abyssiniatouroperator.com');
 define('ABYSSINIAN_B2B_EMAIL',    'b2b@abyssiniatouroperator.com');
 define('ABYSSINIAN_BACKUP_EMAIL', 'abyssiniantouroperator@gmail.com');
 
-// Sender branding
-define('ABYSSINIAN_FROM_EMAIL',   'noreply@abyssiniatouroperator.com');
-define('ABYSSINIAN_FROM_NAME',    'Abyssinian Tour Operator Web Desk');
+// Sender identity
+define('ABYSSINIAN_FROM_EMAIL',   'info@abyssiniatouroperator.com');
+define('ABYSSINIAN_FROM_NAME',    'Abyssinian Tour Operator');
 
 
 // ==============================================================================
-// 2. SMTP PASSWORD & CREDENTIALS (OPTIONAL)
+// 2. SMTP PASSWORD & CREDENTIALS (SET YOUR PASSWORD HERE)
 // ==============================================================================
-// Set to true if you want to use SMTP with password. Set to false for default cPanel mail().
+// Set to TRUE to use SMTP authentication with password.
+// Set to FALSE to use server native mail() without password.
 define('SMTP_AUTH_ENABLED', false);
 
-// Your mail server host (usually mail.yourdomain.com or smtp.yourdomain.com)
+// Your mail server hostname (e.g., mail.abyssiniatouroperator.com)
 define('SMTP_HOST', 'mail.abyssiniatouroperator.com');
 
-// SMTP Port: 465 (SSL) or 587 (TLS/STARTTLS)
+// SMTP Port: 465 (for SSL) or 587 (for TLS)
 define('SMTP_PORT', 465);
 
-// Encryption type: 'ssl' or 'tls'
+// Encryption mode: 'ssl' or 'tls'
 define('SMTP_ENCRYPTION', 'ssl');
 
-// Your mailbox email address (e.g. info@abyssiniatouroperator.com)
+// Mailbox username (the full email address in cPanel)
 define('SMTP_USERNAME', 'info@abyssiniatouroperator.com');
 
-// YOUR EMAIL PASSWORD (Enter the password for the email account above)
+// >>>>> ENTER YOUR EMAIL PASSWORD HERE <<<<<
 define('SMTP_PASSWORD', 'YOUR_EMAIL_PASSWORD_HERE');
 
 
 // ==============================================================================
-// 3. UNIVERSAL MAIL DISPATCH FUNCTION
+// 3. DISPATCH LOGIC & DEBUG LOGGING
 // ==============================================================================
+
 /**
- * Sends email via Authenticated SMTP if enabled, otherwise falls back to cPanel mail()
+ * Universal mail dispatch function with fallback and debug logging
  */
 function abyssinian_dispatch_mail($to, $subject, $body, $reply_name = '', $reply_email = '') {
     $recipients = is_array($to) ? $to : array_map('trim', explode(',', $to));
+    $log_file = __DIR__ . '/mail_debug.log';
     
-    // If SMTP authentication is enabled, attempt socket SMTP delivery
+    // 1. Try Authenticated SMTP if enabled and password is set
     if (defined('SMTP_AUTH_ENABLED') && SMTP_AUTH_ENABLED === true && SMTP_PASSWORD !== 'YOUR_EMAIL_PASSWORD_HERE') {
-        $smtp_sent = send_via_socket_smtp($recipients, $subject, $body, $reply_name, $reply_email);
-        if ($smtp_sent) {
+        $smtp_result = send_via_socket_smtp($recipients, $subject, $body, $reply_name, $reply_email);
+        if ($smtp_result['success']) {
+            @file_put_contents($log_file, "[" . date('Y-m-d H:i:s') . "] SUCCESS: SMTP email sent to " . implode(', ', $recipients) . "\n", FILE_APPEND | LOCK_EX);
             return true;
+        } else {
+            @file_put_contents($log_file, "[" . date('Y-m-d H:i:s') . "] SMTP FAILED: " . $smtp_result['error'] . ". Attempting fallback to mail()...\n", FILE_APPEND | LOCK_EX);
         }
     }
     
-    // Default cPanel mail() dispatch (no password required)
+    // 2. Fallback to PHP native mail()
     $to_string = implode(', ', $recipients);
     $headers = [];
     $headers[] = 'From: ' . ABYSSINIAN_FROM_NAME . ' <' . ABYSSINIAN_FROM_EMAIL . '>';
@@ -81,87 +91,113 @@ function abyssinian_dispatch_mail($to, $subject, $body, $reply_name = '', $reply
     $headers[] = 'MIME-Version: 1.0';
     $headers[] = 'Content-Type: text/plain; charset=UTF-8';
     
-    $extra_params = '-f ' . ABYSSINIAN_FROM_EMAIL;
+    $extra_params = '-f' . ABYSSINIAN_FROM_EMAIL;
     $sent = @mail($to_string, $subject, $body, implode("\r\n", $headers), $extra_params);
     if (!$sent) {
         $sent = @mail($to_string, $subject, $body, implode("\r\n", $headers));
+    }
+    
+    if ($sent) {
+        @file_put_contents($log_file, "[" . date('Y-m-d H:i:s') . "] SUCCESS: PHP mail() accepted email for " . $to_string . "\n", FILE_APPEND | LOCK_EX);
+    } else {
+        @file_put_contents($log_file, "[" . date('Y-m-d H:i:s') . "] ERROR: PHP mail() returned false for " . $to_string . ". (Host might have disabled mail() or requires SMTP auth)\n", FILE_APPEND | LOCK_EX);
     }
     
     return $sent;
 }
 
 /**
- * Lightweight pure-PHP SMTP client (no external library dependencies)
+ * Pure PHP SMTP socket implementation
  */
 function send_via_socket_smtp($recipients, $subject, $body, $reply_name, $reply_email) {
-    $host = (SMTP_ENCRYPTION === 'ssl' ? 'ssl://' : '') . SMTP_HOST;
+    $host_prefix = (SMTP_ENCRYPTION === 'ssl') ? 'ssl://' : '';
+    $host = $host_prefix . SMTP_HOST;
     $port = SMTP_PORT;
     $timeout = 15;
     
     $socket = @fsockopen($host, $port, $errno, $errstr, $timeout);
     if (!$socket) {
-        return false;
+        return ['success' => false, 'error' => "Cannot connect to $host on port $port: $errstr ($errno)"];
     }
     
-    $read = fgets($socket, 515);
+    $greeting = fgets($socket, 515);
     
-    // HELO / EHLO
     fputs($socket, "EHLO " . ($_SERVER['SERVER_NAME'] ?? 'localhost') . "\r\n");
     while ($line = fgets($socket, 515)) {
-        if (substr($line, 3, 1) == " ") break;
+        if (substr($line, 3, 1) === " ") break;
     }
     
     // STARTTLS if port 587
     if (SMTP_ENCRYPTION === 'tls') {
         fputs($socket, "STARTTLS\r\n");
         $res = fgets($socket, 515);
-        if (substr($res, 0, 3) != '220') {
+        if (substr($res, 0, 3) !== '220') {
             fclose($socket);
-            return false;
+            return ['success' => false, 'error' => "STARTTLS rejected: $res"];
         }
         stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
         fputs($socket, "EHLO " . ($_SERVER['SERVER_NAME'] ?? 'localhost') . "\r\n");
         while ($line = fgets($socket, 515)) {
-            if (substr($line, 3, 1) == " ") break;
+            if (substr($line, 3, 1) === " ") break;
         }
     }
     
     // AUTH LOGIN
     fputs($socket, "AUTH LOGIN\r\n");
     $res = fgets($socket, 515);
-    if (substr($res, 0, 3) != '334') { fclose($socket); return false; }
+    if (substr($res, 0, 3) !== '334') { 
+        fclose($socket); 
+        return ['success' => false, 'error' => "AUTH LOGIN rejected: $res"]; 
+    }
     
     fputs($socket, base64_encode(SMTP_USERNAME) . "\r\n");
     $res = fgets($socket, 515);
-    if (substr($res, 0, 3) != '334') { fclose($socket); return false; }
+    if (substr($res, 0, 3) !== '334') { 
+        fclose($socket); 
+        return ['success' => false, 'error' => "Username rejected: $res"]; 
+    }
     
     fputs($socket, base64_encode(SMTP_PASSWORD) . "\r\n");
     $res = fgets($socket, 515);
-    if (substr($res, 0, 3) != '235') { fclose($socket); return false; }
+    if (substr($res, 0, 3) !== '235') { 
+        fclose($socket); 
+        return ['success' => false, 'error' => "Password rejected: $res"]; 
+    }
     
     // MAIL FROM
     fputs($socket, "MAIL FROM: <" . SMTP_USERNAME . ">\r\n");
     $res = fgets($socket, 515);
-    if (substr($res, 0, 3) != '250') { fclose($socket); return false; }
+    if (substr($res, 0, 3) !== '250') { 
+        fclose($socket); 
+        return ['success' => false, 'error' => "MAIL FROM rejected: $res"]; 
+    }
     
     // RCPT TO
     foreach ($recipients as $to_addr) {
         fputs($socket, "RCPT TO: <" . $to_addr . ">\r\n");
-        fgets($socket, 515);
+        $res = fgets($socket, 515);
+        if (substr($res, 0, 3) !== '250' && substr($res, 0, 3) !== '251') {
+            fclose($socket);
+            return ['success' => false, 'error' => "RCPT TO <$to_addr> rejected: $res"];
+        }
     }
     
     // DATA
     fputs($socket, "DATA\r\n");
     $res = fgets($socket, 515);
-    if (substr($res, 0, 3) != '354') { fclose($socket); return false; }
+    if (substr($res, 0, 3) !== '354') { 
+        fclose($socket); 
+        return ['success' => false, 'error' => "DATA rejected: $res"]; 
+    }
     
-    // Headers & Payload
+    // Build Headers & Body
     $msg = "From: " . ABYSSINIAN_FROM_NAME . " <" . SMTP_USERNAME . ">\r\n";
     $msg .= "To: " . implode(', ', $recipients) . "\r\n";
     if (!empty($reply_email)) {
         $msg .= "Reply-To: " . (!empty($reply_name) ? $reply_name . " " : "") . "<" . $reply_email . ">\r\n";
     }
     $msg .= "Subject: " . $subject . "\r\n";
+    $msg .= "Date: " . date('r') . "\r\n";
     $msg .= "MIME-Version: 1.0\r\n";
     $msg .= "Content-Type: text/plain; charset=UTF-8\r\n";
     $msg .= "\r\n";
@@ -173,5 +209,9 @@ function send_via_socket_smtp($recipients, $subject, $body, $reply_name, $reply_
     fputs($socket, "QUIT\r\n");
     fclose($socket);
     
-    return substr($res, 0, 3) == '250';
+    if (substr($res, 0, 3) === '250') {
+        return ['success' => true, 'error' => ''];
+    } else {
+        return ['success' => false, 'error' => "Data delivery rejected: $res"];
+    }
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * Abyssinian Tour Operator — Contact & Expedition Inquiry Handler
- * Compatible with standard cPanel shared hosting (PHP 7.4 - 8.3+)
+ * Compatible with cPanel Shared Hosting (PHP 7.4 - 8.3+)
  */
 
 header('Content-Type: application/json; charset=UTF-8');
@@ -32,7 +32,7 @@ if (!empty($_POST['website_hp_check'])) {
 $full_name     = filter_input(INPUT_POST, 'fullName', FILTER_SANITIZE_SPECIAL_CHARS);
 $email         = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $phone         = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_SPECIAL_CHARS);
-$country       = filter_input(INPUT_POST, 'country', FILTER_SANITIZE_SPECIAL_CHARS);
+$country       = filter_input(INPUT_POST, 'country', FILTER_SANITIZE_SPECIAL_CHARS) ?: 'Not provided';
 $inquiry_type  = filter_input(INPUT_POST, 'inquiryType', FILTER_SANITIZE_SPECIAL_CHARS) ?: 'General Private Inquiry';
 $tour_name     = filter_input(INPUT_POST, 'tourName', FILTER_SANITIZE_SPECIAL_CHARS) ?: 'Custom Tour / General';
 $travel_dates  = filter_input(INPUT_POST, 'travelDates', FILTER_SANITIZE_SPECIAL_CHARS) ?: 'Flexible';
@@ -86,10 +86,13 @@ $message_body .= "====================================================\n";
 $message_body .= "Submission Timestamp: " . date('Y-m-d H:i:s') . " (EAT / Server)\n";
 $message_body .= "Client IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'Unknown') . "\n";
 
+// ALWAYS save a local backup log on the server so no inquiry is ever lost
+$log_entry = "[" . date('Y-m-d H:i:s') . "] INQUIRY from $full_name <$email>, Phone: $phone, Tour: $tour_name, Dates: $travel_dates\n";
+@file_put_contents(__DIR__ . '/inquiries_backup.log', $log_entry, FILE_APPEND | LOCK_EX);
+
 // Recipients list
 $recipients = [
     ABYSSINIAN_INFO_EMAIL,
-    'booking@abyssiniatouroperator.com',
     ABYSSINIAN_BACKUP_EMAIL
 ];
 
@@ -98,6 +101,7 @@ $mail_sent = abyssinian_dispatch_mail($recipients, $subject, $message_body, $ful
 
 echo json_encode([
     'status' => 'success',
+    'mail_delivered' => $mail_sent,
     'message' => 'Thank you, ' . htmlspecialchars($full_name) . '! Your expedition inquiry has been securely delivered to Dessiew Abunie Dejenie and our Addis Ababa operations desk. We will send your custom proposal within 12 hours.'
 ]);
 ?>

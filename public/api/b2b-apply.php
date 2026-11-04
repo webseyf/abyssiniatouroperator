@@ -56,15 +56,20 @@ $message_body .= "====================================================\n";
 $message_body .= "Submission Timestamp: " . date('Y-m-d H:i:s') . " (EAT)\n";
 $message_body .= "Agent IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'Unknown') . "\n";
 
+// Save local backup log
+$log_entry = "[" . date('Y-m-d H:i:s') . "] B2B APPLICATION from $agency_name ($contact_name <$email>), Phone: $phone, Country: $country\n";
+@file_put_contents(__DIR__ . '/inquiries_backup.log', $log_entry, FILE_APPEND | LOCK_EX);
+
 $recipients = [
     ABYSSINIAN_B2B_EMAIL,
     ABYSSINIAN_BACKUP_EMAIL
 ];
 
-abyssinian_dispatch_mail($recipients, $subject, $message_body, $contact_name, $email);
+$mail_sent = abyssinian_dispatch_mail($recipients, $subject, $message_body, $contact_name, $email);
 
 echo json_encode([
     'status' => 'success',
+    'mail_delivered' => $mail_sent,
     'message' => 'Thank you, ' . htmlspecialchars($contact_name) . '! Your B2B partner application for ' . htmlspecialchars($agency_name) . ' has been registered. Dessiew Abunie Dejenie will dispatch your confidential NET Tariff Book within 12 hours.'
 ]);
 ?>
