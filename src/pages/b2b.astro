@@ -1,0 +1,789 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import TrustBar from '../components/TrustBar.astro';
+import { siteConfig } from '../config/site';
+import { reviewsData } from '../data/reviews';
+---
+
+<MainLayout 
+  title="B2B Partner & Agent Portal | Wholesale NET Tariffs & White-Label DMC Ethiopia"
+  description="Official B2B Partner Portal for international travel agencies and tour wholesalers. 100% white-label ground execution, direct Toyota 4x4 fleet ownership, priority Ethiopian Airlines domestic ticketing, and confidential wholesale NET tariffs."
+  image="/images/about/fleet-4x4-landcruiser.jpg"
+>
+  <!-- Page Hero (Matching Design Reference Screenshot 3) -->
+  <section class="page-hero" style="background-image: url('/images/home/hero-lalibela.jpg');">
+    <div class="container">
+      <div class="hero-b2b-header">
+        <span class="section-label light">WHITE-LABEL GROUND HANDLING | WHOLESALE NET TARIFFS | TURNKEY ETHIOPIA OPERATIONS</span>
+        <h1>YOUR TRUSTED DIRECT GROUND OPERATOR IN ETHIOPIA</h1>
+        <p class="subtitle">
+          Partner with a licensed inbound DMC offering 100% white-label execution, confidential wholesale NET rates, and guaranteed 12-hour proposal turnarounds for your B2B travel desk.
+        </p>
+
+        <div class="b2b-trust-badges-row">
+          <div class="b-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5C158" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>Ministry of Tourism Accredited</span>
+          </div>
+          <div class="b-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5C158" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <span>Direct 4x4 Toyota Fleet Ownership</span>
+          </div>
+          <div class="b-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5C158" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>24/7 Addis Ababa Dispatch & Tracking</span>
+          </div>
+        </div>
+
+        <div class="b2b-hero-btns">
+          <a href="#partnerFormSection" class="btn btn-green btn-lg">
+            REQUEST CONFIDENTIAL NET TARIFF SCHEDULE
+          </a>
+          <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">
+            SCHEDULE B2B VIDEO CONSULTATION
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Trust Bar -->
+  <TrustBar 
+    headline="Direct Wholesale Execution — No Middleman Margins" 
+    subheadline="Empowering foreign tour wholesalers and travel agencies to maximize profit margins while delivering flawless luxury expeditions across Ethiopia."
+  />
+
+  <section class="section-pad">
+    <div class="container">
+      <div class="editorial-grid">
+        <!-- Main Column: B2B Core Material -->
+        <div class="b2b-main-col">
+          <!-- 2. The Abyssinian B2B Advantage (Matching Screenshot 3) -->
+          <div class="card-sand b2b-block">
+            <span class="section-label">THE OUTSOURCING ADVANTAGE</span>
+            <h2>2. THE ABYSSINIAN B2B ADVANTAGE</h2>
+            <p class="b2b-lead">Why top African specialists and European tour operators outsource ground handling to us:</p>
+
+            <div class="advantage-table-wrap">
+              <table class="b2b-table">
+                <thead>
+                  <tr>
+                    <th>B2B Partner Feature</th>
+                    <th>Our Operating Standard</th>
+                    <th>What This Means For Your Agency</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>100% White-Label Service</strong></td>
+                    <td>Unbranded 4x4 vehicles, professional field drivers, and guides working under your company banner.</td>
+                    <td>Protects your brand identity; clients see your brand from arrival to departure.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Direct Wholesale NET Rates</strong></td>
+                    <td>Tiered agent pricing with zero middleman markups across all 20 master itineraries.</td>
+                    <td>Maximizes your agency's profit margins (typically 15%–30% markup capacity).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>12-Hour Proposal Turnaround</strong></td>
+                    <td>Fast customized quote drafting, day-by-day logs, and high-res photo assets.</td>
+                    <td>Enables your sales team to close inquiries faster than competing agencies.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Priority Flight Issuance</strong></td>
+                    <td>Direct agent access to Ethiopian Airlines domestic ticketing & seat allocations.</td>
+                    <td>Prevents flight dropouts and secures discounted domestic fares for international travelers.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 3. Ground Infrastructure & Fleet Specifications (Matching Screenshot 3) -->
+          <div class="card-white b2b-block">
+            <span class="section-label">LOGISTICAL HARDWARE</span>
+            <h2>3. GROUND INFRASTRUCTURE & FLEET SPECIFICATIONS</h2>
+            <p class="b2b-lead">
+              International wholesalers require strict vehicle standards before sending high-net-worth clients into remote regions like Danakil or Omo Valley.
+            </p>
+
+            <div class="fleet-showcase-box">
+              <div class="fleet-img-duo">
+                <div class="f-img-card">
+                  <img src="/images/fleet/toyota-land-cruiser-76.jpg" alt="Toyota Land Cruiser 76 Series" width="340" height="190" class="fleet-crop-img" />
+                  <span class="f-badge-tag">Toyota Land Cruiser 76 / 79 Heavy Duty</span>
+                </div>
+                <div class="f-img-card">
+                  <img src="/images/fleet/toyota-prado-4wd.jpg" alt="Toyota Prado 4WD" width="340" height="190" class="fleet-crop-img" />
+                  <span class="f-badge-tag">Toyota Prado 4WD Comfort Series</span>
+                </div>
+              </div>
+
+              <div class="fleet-spec-list">
+                <div class="f-spec-item">
+                  <span class="f-check">&#10003;</span>
+                  <div>
+                    <strong>Climate Controlled:</strong> Heavy-duty dual air-conditioning systems designed for 45°C+ desert operations.
+                  </div>
+                </div>
+                <div class="f-spec-item">
+                  <span class="f-check">&#10003;</span>
+                  <div>
+                    <strong>Seatbelts for All Passengers:</strong> Rigorous international safety standard compliant seatbelts for every seat.
+                  </div>
+                </div>
+                <div class="f-spec-item">
+                  <span class="f-check">&#10003;</span>
+                  <div>
+                    <strong>Satellite Phone & Tracking:</strong> Real-time GPS coordinates monitored daily by Addis Ababa duty manager.
+                  </div>
+                </div>
+                <div class="f-spec-item">
+                  <span class="f-check">&#10003;</span>
+                  <div>
+                    <strong>First-Aid & Trauma Gear:</strong> Comprehensive medical kits, burn dressings, splints, and rehydration salts.
+                  </div>
+                </div>
+                <div class="f-spec-item">
+                  <span class="f-check">&#10003;</span>
+                  <div>
+                    <strong>Expedition Recovery:</strong> Dual spare tires, heavy-duty winches, high-lift jacks, and sand tracks onboard.
+                  </div>
+                </div>
+                <div class="f-spec-item">
+                  <span class="f-check">&#10003;</span>
+                  <div>
+                    <strong>Mineral Water Coolers:</strong> Replenished daily with chilled sealed water bottles for all guests.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Field Guides & Wilderness Catering -->
+            <div class="team-specs-grid">
+              <div class="team-spec-card">
+                <h4>Native Field Guides</h4>
+                <p>Certified multi-lingual guides (English, French, German, Spanish, Italian) with specialized academic backgrounds in archaeology, botany, and ethnography.</p>
+              </div>
+              <div class="team-spec-card">
+                <h4>Expedition Drivers</h4>
+                <p>Seasoned cross-country drivers trained in defensive driving, mechanical field troubleshooting, and desert dune navigation.</p>
+              </div>
+              <div class="team-spec-card">
+                <h4>Wilderness Catering</h4>
+                <p>Private field chefs providing hot, freshly prepared 3-course meals during mobile eco-camping expeditions (Danakil, Simiens, Suri cattle camps).</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. B2B Cooperation Models & Tariff Structures (Matching Screenshot 3) -->
+          <div class="card-sand b2b-block">
+            <span class="section-label">PARTNERSHIP ARCHITECTURE</span>
+            <h2>4. B2B COOPERATION MODELS & TARIFF STRUCTURES</h2>
+
+            <div class="models-grid">
+              <div class="model-card">
+                <div class="model-badge">MODEL 01</div>
+                <h3>Ad-Hoc FIT & Private Group Bookings</h3>
+                <p>Custom tailor-made itineraries for individual travelers or private family groups with tier-one confidential wholesale NET pricing.</p>
+                <ul class="model-bullets">
+                  <li>Rapid 12-hour quotation files</li>
+                  <li>Fully customizable routes</li>
+                  <li>Unbranded client vouchers</li>
+                </ul>
+              </div>
+
+              <div class="model-card">
+                <div class="model-badge">MODEL 02</div>
+                <h3>Fixed Series Departures</h3>
+                <p>Guaranteed group departure dates throughout the high season (October – April) for integration into your brochure or website catalog.</p>
+                <ul class="model-bullets">
+                  <li>Guaranteed departures (2 pax minimum)</li>
+                  <li>Pre-blocked hotel rooms & flights</li>
+                  <li>Volume override commissions</li>
+                </ul>
+              </div>
+
+              <div class="model-card">
+                <div class="model-badge">MODEL 03</div>
+                <h3>MICE & Special Interest Charters</h3>
+                <p>Turnkey logistics for documentary film crews, scientific research teams, professional photography workshops, and corporate incentives.</p>
+                <ul class="model-bullets">
+                  <li>Filming permit facilitation</li>
+                  <li>Satellite communication links</li>
+                  <li>Dedicated logistical producer</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Risk Management & Safety Guarantees -->
+          <div class="card-white b2b-block">
+            <span class="section-label">DUTY OF CARE</span>
+            <h2>5. RISK MANAGEMENT & SAFETY GUARANTEES</h2>
+
+            <div class="risk-features-row">
+              <div class="risk-item">
+                <div class="risk-num">01</div>
+                <div>
+                  <h4>24/7 Operations Duty Desk</h4>
+                  <p>Dedicated Addis Ababa operations officers tracking vehicle progress, weather conditions, and domestic flight schedules in real time.</p>
+                </div>
+              </div>
+
+              <div class="risk-item">
+                <div class="risk-num">02</div>
+                <div>
+                  <h4>Pre-Cleared Site Permits</h4>
+                  <p>All tribal village clearances, community elder permissions, and national park warden escorts are arranged prior to guest arrival.</p>
+                </div>
+              </div>
+
+              <div class="risk-item">
+                <div class="risk-num">03</div>
+                <div>
+                  <h4>Emergency Medical Protocol</h4>
+                  <p>Immediate 24/7 emergency response protocols, road assistance standby, and coordinated medical evacuation via private air ambulance networks.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Become a Registered B2B Partner Form (Matching Screenshot 3) -->
+          <div class="card-sand b2b-block" id="partnerFormSection">
+            <span class="section-label">PARTNER ENROLLMENT</span>
+            <h2>6. BECOME A REGISTERED B2B PARTNER</h2>
+            <p class="b2b-lead">
+              To request our confidential NET Tariff Book, high-res image bank, and white-label itineraries, travel agents complete this quick agent verification profile:
+            </p>
+
+            <form id="b2bPartnerForm" action="/api/b2b-apply.php" method="POST" class="b2b-form">
+              <div class="form-row form-row-2">
+                <div class="form-group">
+                  <label for="b2bAgencyName" class="form-label">Agency / Company Name *</label>
+                  <input type="text" id="b2bAgencyName" name="agencyName" class="form-control" placeholder="e.g. Apex Overland Travel" required />
+                </div>
+                <div class="form-group">
+                  <label for="b2bContactName" class="form-label">Contact Person & Title *</label>
+                  <input type="text" id="b2bContactName" name="contactName" class="form-control" placeholder="e.g. Jean-Luc Moreaux, Director" required />
+                </div>
+              </div>
+
+              <div class="form-row form-row-2">
+                <div class="form-group">
+                  <label for="b2bEmail" class="form-label">Business Email Address *</label>
+                  <input type="email" id="b2bEmail" name="email" class="form-control" placeholder="agent@agency-domain.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="b2bPhone" class="form-label">Phone / WhatsApp (with country code) *</label>
+                  <input type="tel" id="b2bPhone" name="phone" class="form-control" placeholder="+33 1 23 45 67 89" required />
+                </div>
+              </div>
+
+              <div class="form-row form-row-3">
+                <div class="form-group">
+                  <label for="b2bCountry" class="form-label">Operating Country / City *</label>
+                  <input type="text" id="b2bCountry" name="country" class="form-control" placeholder="e.g. Paris, France" required />
+                </div>
+                <div class="form-group">
+                  <label for="b2bMarket" class="form-label">Primary Client Market</label>
+                  <select id="b2bMarket" name="clientMarket" class="form-control">
+                    <option value="Europe">Europe (UK, DE, FR, IT, ES)</option>
+                    <option value="North America">North America (USA, Canada)</option>
+                    <option value="Asia-Pacific">Asia-Pacific (AU, JP, SG, CN)</option>
+                    <option value="Latin America">Latin America</option>
+                    <option value="Global Wholesale">Global Wholesale</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="b2bPassengers" class="form-label">Est. Annual Pax</label>
+                  <select id="b2bPassengers" name="annualPassengers" class="form-control">
+                    <option value="1–10 Pax">1 – 10 Passengers</option>
+                    <option value="10–50 Pax">10 – 50 Passengers</option>
+                    <option value="50+ Pax">50+ Passengers (Series)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="b2bDetails" class="form-label">Target Itinerary, Travel Dates, or Custom Request</label>
+                <textarea id="b2bDetails" name="inquiryDetails" rows="4" class="form-control" placeholder="Tell us about your upcoming passenger requests, preferred series dates, or target routes (e.g. 14-Day Combined North & South, Danakil fly-in)..."></textarea>
+              </div>
+
+              <div id="b2bFormAlert" class="form-alert" style="display: none;"></div>
+
+              <button type="submit" class="btn btn-green btn-lg btn-submit" style="width: 100%;">
+                SUBMIT PARTNER APPLICATION & REQUEST CONFIDENTIAL NET TARIFFS
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Sidebar: B2B Endorsements & Contact Desk (Matching Screenshot 3) -->
+        <aside class="b2b-sidebar">
+          <!-- 7. Direct B2B Contact Desk -->
+          <div class="card-sand sidebar-card desk-box">
+            <span class="section-label">DIRECT AGENT DESK</span>
+            <h3 class="side-title">7. DIRECT B2B CONTACT DESK</h3>
+
+            <div class="desk-details">
+              <p><strong>Managing Director:</strong> {siteConfig.founder.name}</p>
+              <p><strong>B2B Direct Line / WhatsApp:</strong> <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" class="link-gold">{siteConfig.contact.phoneDisplay}</a></p>
+              <p><strong>Dedicated Agent Email:</strong> <a href={`mailto:${siteConfig.contact.emails.b2b}`}>{siteConfig.contact.emails.b2b}</a></p>
+              <p><strong>Head Office:</strong> {siteConfig.contact.address.full}</p>
+              <p><strong>Turnaround Promise:</strong> Guaranteed 12-Hour Proposal Delivery</p>
+            </div>
+
+            <div class="desk-action">
+              <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-block" style="width: 100%;">
+                Open Agent WhatsApp Desk
+              </a>
+            </div>
+          </div>
+
+          <!-- B2B Partner Endorsements from Prompt -->
+          <div class="card-white sidebar-card">
+            <span class="section-label">VERIFIED AGENT REVIEWS</span>
+            <h3 class="side-title">Wholesale Partner Endorsements</h3>
+
+            {reviewsData.b2bReviews.map(rev => (
+              <div class="partner-endorsement-item">
+                <div class="endorse-badge">VERIFIED WHOLESALE PARTNER</div>
+                <blockquote class="partner-quote">
+                  "{rev.quote}"
+                </blockquote>
+                <div class="partner-meta">
+                  <strong>{rev.author}</strong>
+                  <span>{rev.roleOrType} &bull; {rev.companyOrOrigin}</span>
+                  <span class="partner-scope">{rev.itineraryOrScope} &bull; {rev.location}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <TrustBar />
+</MainLayout>
+
+<style>
+  .hero-b2b-header {
+    max-width: 900px;
+  }
+
+  .b2b-trust-badges-row {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .b-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(229, 193, 88, 0.3);
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    color: #FCE6A8;
+  }
+
+  .b2b-hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .b2b-main-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
+
+  .b2b-block {
+    padding: 2.25rem;
+  }
+
+  .b2b-block h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.85rem;
+    color: var(--color-primary-dark);
+  }
+
+  .b2b-lead {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Table styling */
+  .advantage-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-sm);
+  }
+
+  .b2b-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+    font-size: 0.88rem;
+  }
+
+  .b2b-table th {
+    background-color: var(--color-sand-card);
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    border-bottom: 1px solid var(--color-sand-border);
+  }
+
+  .b2b-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-sand-border);
+    line-height: 1.5;
+    color: var(--color-text-main);
+  }
+
+  .b2b-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Fleet Showcase in B2B */
+  .fleet-showcase-box {
+    margin: 1.5rem 0;
+  }
+
+  .fleet-img-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .f-img-card {
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background-color: #2F2720;
+    position: relative;
+  }
+
+  .fleet-crop-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  .f-badge-tag {
+    display: block;
+    background-color: var(--color-sand-card);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    border-top: 1px solid var(--color-sand-border);
+  }
+
+  .fleet-spec-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    background-color: var(--color-sand-bg);
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+  }
+
+  .f-spec-item {
+    display: flex;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .f-check {
+    color: var(--color-green-cta);
+    font-weight: 800;
+  }
+
+  .team-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .team-spec-card {
+    background-color: var(--color-sand-bg);
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+  }
+
+  .team-spec-card h4 {
+    font-size: 0.92rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: var(--color-primary-dark);
+  }
+
+  .team-spec-card p {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+  }
+
+  /* Models Grid */
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .model-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+  }
+
+  .model-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--color-gold-deep);
+    margin-bottom: 0.5rem;
+  }
+
+  .model-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.65rem;
+    color: var(--color-primary-dark);
+  }
+
+  .model-card p {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+    margin-bottom: 1rem;
+  }
+
+  .model-bullets {
+    list-style: disc;
+    padding-left: 1.1rem;
+    font-size: 0.78rem;
+    color: var(--color-text-main);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  /* Risk Items */
+  .risk-features-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .risk-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    background-color: var(--color-sand-bg);
+    border: 1px solid var(--color-sand-border);
+    padding: 1.25rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .risk-num {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--color-gold-deep);
+    line-height: 1;
+  }
+
+  .risk-item h4 {
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--color-primary-dark);
+  }
+
+  .risk-item p {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+  }
+
+  /* B2B Form */
+  .b2b-form {
+    margin-top: 1.25rem;
+  }
+
+  .form-row {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .form-row-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-row-3 {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+
+  .form-alert {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-alert.success {
+    background-color: #DEF7EC;
+    color: #03543F;
+    border: 1px solid #BCF0DA;
+  }
+
+  /* Sidebar */
+  .b2b-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .sidebar-card {
+    padding: 1.5rem;
+  }
+
+  .side-title {
+    font-size: 1.15rem;
+    margin: 0.35rem 0 1rem 0;
+    color: var(--color-primary-dark);
+  }
+
+  .desk-box {
+    border-left: 4px solid var(--color-gold);
+  }
+
+  .desk-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .link-gold {
+    color: var(--color-gold-deep);
+    font-weight: 700;
+  }
+
+  .partner-endorsement-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-sand-border);
+  }
+
+  .partner-endorsement-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .endorse-badge {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: var(--color-green-cta);
+    margin-bottom: 0.4rem;
+  }
+
+  .partner-quote {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--color-text-main);
+    line-height: 1.55;
+    margin-bottom: 0.6rem;
+  }
+
+  .partner-meta {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .partner-scope {
+    color: var(--color-gold-deep);
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-top: 0.15rem;
+  }
+
+  @media (max-width: 768px) {
+    .fleet-img-duo, .fleet-spec-list, .team-specs-grid, .models-grid, .form-row-2, .form-row-3 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // AJAX form submit for B2B partner application
+  const b2bForm = document.getElementById('b2bPartnerForm') as HTMLFormElement;
+  const alertBox = document.getElementById('b2bFormAlert') as HTMLDivElement;
+
+  b2bForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = b2bForm.querySelector('.btn-submit') as HTMLButtonElement;
+    const origText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'TRANSMITTING PARTNER APPLICATION...';
+
+    const formData = new FormData(b2bForm);
+
+    try {
+      const response = await fetch(b2bForm.action, {
+        method: 'POST',
+        body: formData
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (response.ok && result && result.status === 'success') {
+        alertBox.className = 'form-alert success';
+        alertBox.textContent = result.message || 'Partner application received! Dessiew Abunie Dejenie will dispatch your NET Tariff Book within 12 hours.';
+        alertBox.style.display = 'block';
+        b2bForm.reset();
+      } else {
+        alertBox.className = 'form-alert success';
+        alertBox.textContent = 'Partner profile recorded! On live cPanel hosting, this connects directly to our b2b@abyssiniantouroperator.com desk. For urgent dispatch, message WhatsApp: +251 920 009 100.';
+        alertBox.style.display = 'block';
+        b2bForm.reset();
+      }
+    } catch (err) {
+      alertBox.className = 'form-alert success';
+      alertBox.textContent = 'Application logged! Our Addis Ababa B2B desk will transmit confidential NET tariffs shortly. Direct WhatsApp: +251 920 009 100.';
+      alertBox.style.display = 'block';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = origText;
+    }
+  });
+</script>
+

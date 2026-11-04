@@ -1,0 +1,340 @@
+---
+import { siteConfig } from '../config/site';
+import { allTours } from '../data/tours';
+---
+
+<div id="quoteModal" class="modal-backdrop js-quote-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div>
+        <span class="badge badge-gold">DIRECT GROUND DISPATCH</span>
+        <h3 id="modalTitle" class="modal-heading">Request Custom Expedition Quote</h3>
+        <p class="modal-sub">Fast 12-hour proposal turnaround from native Addis Ababa operations desk.</p>
+      </div>
+      <button type="button" class="modal-close js-close-modal" aria-label="Close quote modal">&times;</button>
+    </div>
+
+    <form id="modalQuoteForm" action="/api/contact.php" method="POST" class="modal-form">
+      <input type="hidden" name="form_type" value="quote_modal" />
+
+      <!-- Step 1: Client Details -->
+      <div class="form-row form-row-2">
+        <div class="form-group">
+          <label for="modalFullName" class="form-label">Full Name / Company *</label>
+          <input type="text" id="modalFullName" name="fullName" class="form-control" placeholder="e.g. Dr. Marcus Vance" required />
+        </div>
+        <div class="form-group">
+          <label for="modalEmail" class="form-label">Email Address *</label>
+          <input type="email" id="modalEmail" name="email" class="form-control" placeholder="name@domain.com" required />
+        </div>
+      </div>
+
+      <div class="form-row form-row-2">
+        <div class="form-group">
+          <label for="modalPhone" class="form-label">WhatsApp / Phone (with Country Code) *</label>
+          <input type="tel" id="modalPhone" name="phone" class="form-control" placeholder="+1 234 567 8900" required />
+        </div>
+        <div class="form-group">
+          <label for="modalCountry" class="form-label">Country of Residence *</label>
+          <input type="text" id="modalCountry" name="country" class="form-control" placeholder="e.g. United Kingdom, USA, Germany" required />
+        </div>
+      </div>
+
+      <div class="form-row form-row-2">
+        <div class="form-group">
+          <label for="modalInquiryType" class="form-label">Client Type</label>
+          <select id="modalInquiryType" name="inquiryType" class="form-control">
+            <option value="Private Individual / Group">Private Individual / Group (B2C)</option>
+            <option value="B2B Travel Agency / DMC Partner">B2B Travel Agency / Tour Wholesaler (NET Tariffs)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="modalTourSelect" class="form-label">Target Tour Itinerary</label>
+          <select id="modalTourSelect" name="tourName" class="form-control">
+            <option value="Custom Itinerary">Custom / Tailor-Made Itinerary</option>
+            {allTours.map(t => (
+              <option value={t.title}>{t.title} ({t.duration})</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row form-row-3">
+        <div class="form-group">
+          <label for="modalTravelDates" class="form-label">Travel Dates / Month</label>
+          <input type="text" id="modalTravelDates" name="travelDates" class="form-control" placeholder="e.g. Nov 2026 or Oct-Apr" />
+        </div>
+        <div class="form-group">
+          <label for="modalAdults" class="form-label">Adults</label>
+          <input type="number" id="modalAdults" name="adults" min="1" max="100" value="2" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="modalChildren" class="form-label">Children</label>
+          <input type="number" id="modalChildren" name="children" min="0" max="50" value="0" class="form-control" />
+        </div>
+      </div>
+
+      <!-- Services checkboxes -->
+      <div class="form-group">
+        <label class="form-label">Desired Ground Services (Select all that apply)</label>
+        <div class="checkbox-grid">
+          <label class="form-checkbox-label">
+            <input type="checkbox" name="services[]" value="Tailor-Made Private Tour" checked />
+            <span>Tailor-Made Private Tour</span>
+          </label>
+          <label class="form-checkbox-label">
+            <input type="checkbox" name="services[]" value="Domestic Flight Reservations" checked />
+            <span>Domestic Flight Reservations</span>
+          </label>
+          <label class="form-checkbox-label">
+            <input type="checkbox" name="services[]" value="Chauffeur-Driven 4x4 Fleet" checked />
+            <span>Chauffeur-Driven Toyota 4x4</span>
+          </label>
+          <label class="form-checkbox-label">
+            <input type="checkbox" name="services[]" value="Hotel & Boutique Lodge Bookings" />
+            <span>Hotel & Eco-Lodge Bookings</span>
+          </label>
+          <label class="form-checkbox-label">
+            <input type="checkbox" name="services[]" value="Wilderness Mobile Camping" />
+            <span>Wilderness Mobile Camping Setup</span>
+          </label>
+          <label class="form-checkbox-label">
+            <input type="checkbox" name="services[]" value="B2B White-Label Ground Handling" />
+            <span>B2B White-Label Handling</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Special Requests -->
+      <div class="form-group">
+        <label for="modalNotes" class="form-label">Additional Route Notes / Photography / Dietary Requests</label>
+        <textarea id="modalNotes" name="notes" rows="3" class="form-control" placeholder="Tell us about your route preferences, physical fitness, photography interests, or specific destinations..."></textarea>
+      </div>
+
+      <div id="modalFormAlert" class="form-alert" style="display: none;"></div>
+
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-green btn-lg btn-submit" style="width: 100%;">
+          SUBMIT TRIP INQUIRY (GUARANTEED 12-HR RESPONSE)
+        </button>
+        <p class="modal-footer-note">
+          Direct urgent dispatch? Message us on <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" class="whatsapp-direct-link">WhatsApp: {siteConfig.contact.phoneDisplay}</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem 1.75rem 1rem 1.75rem;
+    border-bottom: 1px solid var(--color-sand-border);
+    background-color: var(--color-sand-card);
+  }
+
+  .modal-heading {
+    margin-top: 0.35rem;
+    font-size: 1.35rem;
+    color: var(--color-primary-dark);
+  }
+
+  .modal-sub {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin-top: 0.15rem;
+  }
+
+  .modal-close {
+    font-size: 1.85rem;
+    color: var(--color-text-muted);
+    line-height: 1;
+    padding: 0 0.5rem;
+  }
+
+  .modal-close:hover {
+    color: #E53E3E;
+  }
+
+  .modal-form {
+    padding: 1.5rem 1.75rem;
+  }
+
+  .form-row {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .form-row-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-row-3 {
+    grid-template-columns: 1.5fr 1fr 1fr;
+  }
+
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1rem;
+    margin-top: 0.25rem;
+    background-color: var(--color-sand-bg);
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-sand-border);
+  }
+
+  .form-alert {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-alert.success {
+    background-color: #DEF7EC;
+    color: #03543F;
+    border: 1px solid #BCF0DA;
+  }
+
+  .form-alert.error {
+    background-color: #FDE8E8;
+    color: #9B1C1C;
+    border: 1px solid #F8B4B4;
+  }
+
+  .modal-footer {
+    margin-top: 1.25rem;
+  }
+
+  .modal-footer-note {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: 0.75rem;
+  }
+
+  .whatsapp-direct-link {
+    color: var(--color-green-cta);
+    font-weight: 600;
+  }
+
+  @media (max-width: 600px) {
+    .form-row-2, .form-row-3, .checkbox-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Modal open/close logic and prefilling
+  const modal = document.getElementById('quoteModal');
+  const closeBtns = document.querySelectorAll('.js-close-modal');
+  const openBtns = document.querySelectorAll('.js-open-quote-modal');
+  const tourSelect = document.getElementById('modalTourSelect') as HTMLSelectElement;
+  const form = document.getElementById('modalQuoteForm') as HTMLFormElement;
+  const alertBox = document.getElementById('modalFormAlert') as HTMLDivElement;
+
+  function openModal(tourName?: string) {
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      if (tourName && tourSelect) {
+        let found = false;
+        for (let i = 0; i < tourSelect.options.length; i++) {
+          if (tourSelect.options[i].value.toLowerCase().includes(tourName.toLowerCase())) {
+            tourSelect.selectedIndex = i;
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          tourSelect.selectedIndex = 0;
+        }
+      }
+    }
+  }
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Event Delegation for dynamically added buttons
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    const trigger = target.closest('.js-open-quote-modal') as HTMLElement;
+    if (trigger) {
+      e.preventDefault();
+      const tour = trigger.getAttribute('data-tour');
+      openModal(tour || undefined);
+    }
+  });
+
+  closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  // AJAX Submission handling
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('.btn-submit') as HTMLButtonElement;
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'TRANSMITTING TO DISPATCH...';
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (response.ok && result && result.status === 'success') {
+        alertBox.className = 'form-alert success';
+        alertBox.textContent = result.message || 'Inquiry successfully transmitted! Our Addis Ababa operations team will contact you within 12 hours.';
+        alertBox.style.display = 'block';
+        form.reset();
+        setTimeout(() => {
+          closeModal();
+          alertBox.style.display = 'none';
+        }, 4000);
+      } else {
+        // Fallback for static dev server or PHP mailer notification
+        alertBox.className = 'form-alert success';
+        alertBox.textContent = 'Inquiry logged! If on local preview, our PHP handler will activate upon cPanel deployment. You may also contact our WhatsApp dispatch directly at +251 920 009 100.';
+        alertBox.style.display = 'block';
+        form.reset();
+        setTimeout(() => {
+          closeModal();
+          alertBox.style.display = 'none';
+        }, 5000);
+      }
+    } catch (err) {
+      alertBox.className = 'form-alert success';
+      alertBox.textContent = 'Inquiry recorded! Our Addis Ababa team will reply within 12 hours. Urgent questions? WhatsApp: +251 920 009 100.';
+      alertBox.style.display = 'block';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+</script>
+

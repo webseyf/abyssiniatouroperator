@@ -1,0 +1,28 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import TrustBar from '../components/TrustBar.astro';
+---
+
+<MainLayout 
+  title="Page Not Found | Abyssinian Tour Operator"
+  description="The page you are looking for does not exist. Explore our master catalogue of 20 Ethiopian tour itineraries or contact our Addis Ababa operations team."
+>
+  <section class="section-pad text-center" style="padding: 6rem 1rem;">
+    <div class="container" style="max-width: 680px;">
+      <span class="section-label">ERROR 404</span>
+      <h1 style="font-size: 3rem; margin: 0.5rem 0 1rem 0;">Expedition Route Not Found</h1>
+      <p style="color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;">
+        The link you followed may have moved or was part of the previous WordPress website. All 20 Ethiopian itineraries are active in our new custom catalogue.
+      </p>
+
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/" class="btn btn-green">Return to Homepage</a>
+        <a href="/tours" class="btn btn-gold">View All 20 Itineraries</a>
+        <a href="/contact-us" class="btn btn-outline-gold">Contact Operations Desk</a>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+</MainLayout>
+

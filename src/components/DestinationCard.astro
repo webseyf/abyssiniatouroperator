@@ -1,0 +1,224 @@
+---
+import type { Destination } from '../data/destinations';
+
+interface Props {
+  destination: Destination;
+}
+
+const { destination } = Astro.props;
+---
+
+<article class="destination-card" data-category={destination.category.toLowerCase()} data-name={destination.name.toLowerCase()}>
+  <div class="dest-media">
+    <img 
+      src={destination.heroImage} 
+      alt={destination.name} 
+      loading="lazy" 
+      class="dest-img" 
+      width="450" 
+      height="260"
+    />
+    <div class="dest-region-badge">
+      <span>{destination.region}</span>
+    </div>
+  </div>
+
+  <div class="dest-body">
+    <div class="dest-category">{destination.category}</div>
+    <h3 class="dest-title">{destination.name}</h3>
+    <p class="dest-desc">{destination.shortDescription}</p>
+
+    <div class="dest-quick-facts">
+      <div class="fact-item">
+        <span class="fact-label">Altitude:</span>
+        <span class="fact-val">{destination.altitude}</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-label">Best Season:</span>
+        <span class="fact-val">{destination.bestTimeToVisit}</span>
+      </div>
+    </div>
+
+    <div class="dest-highlights">
+      <span class="dest-high-title">Key Attractions:</span>
+      <div class="tag-cloud">
+        {destination.keyAttractions.map(att => (
+          <span class="tag-pill">{att}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="dest-footer">
+    <a href={`/tours?search=${encodeURIComponent(destination.name)}`} class="dest-tours-link">
+      <span>View Related Itineraries ({destination.relatedTourSlugs.length})</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+    <button 
+      type="button" 
+      class="btn btn-green btn-sm js-open-quote-modal" 
+      data-tour={`Expedition to ${destination.name}`}
+    >
+      Inquire
+    </button>
+  </div>
+</article>
+
+<style>
+  .destination-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .destination-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-gold);
+  }
+
+  .dest-media {
+    position: relative;
+    height: 220px;
+    background-color: #2F2720;
+    overflow: hidden;
+  }
+
+  .dest-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .destination-card:hover .dest-img {
+    transform: scale(1.05);
+  }
+
+  .dest-region-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(27, 23, 19, 0.88);
+    backdrop-filter: blur(4px);
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .dest-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dest-category {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--color-gold-deep);
+    margin-bottom: 0.35rem;
+  }
+
+  .dest-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.65rem;
+    color: var(--color-primary-dark);
+  }
+
+  .dest-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+    margin-bottom: 1.15rem;
+    flex: 1;
+  }
+
+  .dest-quick-facts {
+    background-color: var(--color-sand-bg);
+    border: 1px solid var(--color-sand-border);
+    padding: 0.65rem 0.85rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .fact-item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .fact-label {
+    font-weight: 700;
+    color: var(--color-primary-dark);
+  }
+
+  .fact-val {
+    color: var(--color-text-muted);
+  }
+
+  .dest-highlights {
+    margin-top: 0.25rem;
+  }
+
+  .dest-high-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--color-text-muted);
+    display: block;
+    margin-bottom: 0.45rem;
+  }
+
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .tag-pill {
+    background-color: var(--color-sand-card);
+    border: 1px solid var(--color-sand-border);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-main);
+  }
+
+  .dest-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--color-sand-border);
+    background-color: #FCFAF6;
+  }
+
+  .dest-tours-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .dest-tours-link:hover {
+    color: var(--color-gold-deep);
+  }
+</style>
+

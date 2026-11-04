@@ -1,0 +1,596 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import TourCard from '../../components/TourCard.astro';
+import { allTours, type Tour } from '../../data/tours';
+import { siteConfig } from '../../config/site';
+
+export function getStaticPaths() {
+  return allTours.map((tour) => ({
+    params: { slug: tour.slug },
+    props: { tour }
+  }));
+}
+
+interface Props {
+  tour: Tour;
+}
+
+const { tour } = Astro.props;
+
+// Related tours from the same pillar (excluding current tour)
+const relatedTours = allTours
+  .filter(t => t.pillarId === tour.pillarId && t.slug !== tour.slug)
+  .slice(0, 3);
+---
+
+<MainLayout 
+  title={`${tour.seoTitle} | Abyssinian Tour Operator`}
+  description={tour.metaDescription}
+  image={tour.heroImage}
+>
+  <!-- Tour Hero Section -->
+  <section class="tour-detail-hero" style={`background-image: url('${tour.heroImage}');`}>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-breadcrumbs">
+        <a href="/">Home</a>
+        <span class="sep">&rsaquo;</span>
+        <a href="/tours">Tours</a>
+        <span class="sep">&rsaquo;</span>
+        <a href={`/tours?pillar=${tour.pillarId}`}>{tour.pillarTitle}</a>
+        <span class="sep">&rsaquo;</span>
+        <span class="current">{tour.title}</span>
+      </div>
+
+      <div class="hero-badge-wrap">
+        <span class="badge badge-gold">PILLAR 0{tour.pillarId}</span>
+        <span class="badge badge-green">{tour.category}</span>
+      </div>
+
+      <h1 class="tour-page-title">{tour.title}</h1>
+
+      <div class="tour-specs-strip">
+        <div class="spec-item">
+          <span class="spec-label">Duration</span>
+          <span class="spec-value">{tour.duration}</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Routing</span>
+          <span class="spec-value">{tour.routing}</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Fitness Level</span>
+          <span class="spec-value">{tour.fitnessLevel}</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Best Season</span>
+          <span class="spec-value">{tour.bestTimeToVisit}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tour Main Content Section -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="editorial-grid">
+        <!-- Main Column: Itinerary & Specs -->
+        <div class="tour-main-content">
+          <!-- Overview Box -->
+          <div class="card-white tour-section-box">
+            <span class="section-label">EXPEDITION OVERVIEW</span>
+            <h2>Expedition Overview</h2>
+            <p class="tour-overview-text">{tour.overview}</p>
+
+            <div class="highlights-box">
+              <h3>Key Journey Highlights</h3>
+              <ul class="highlights-checklist">
+                {tour.highlights.map(h => (
+                  <li>
+                    <span class="check-icon">&#10003;</span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Day-by-Day Itinerary -->
+          <div class="card-sand tour-section-box">
+            <span class="section-label">FIELD-TESTED ROUTING</span>
+            <h2>Detailed Day-by-Day Itinerary</h2>
+
+            <div class="itinerary-timeline">
+              {tour.itinerary.map((day) => (
+                <div class="itinerary-day-card">
+                  <div class="day-badge-col">
+                    <span class="day-pill">Day {day.day}</span>
+                  </div>
+                  <div class="day-content-col">
+                    <h3 class="day-title">{day.title}</h3>
+                    <p class="day-desc">{day.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Inclusions & Exclusions -->
+          <div class="card-white tour-section-box">
+            <span class="section-label">TRANSPARENT DMC TARIFFS</span>
+            <h2>Ground Inclusions & Logistics</h2>
+
+            <div class="inclusions-grid">
+              <div class="incl-col">
+                <h3 class="incl-heading text-green">&#10004; What is Included</h3>
+                <ul class="incl-list">
+                  {tour.inclusions.map(inc => (
+                    <li>{inc}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="incl-col">
+                <h3 class="incl-heading text-red">&#10008; What is Excluded</h3>
+                <ul class="excl-list">
+                  {tour.exclusions.map(exc => (
+                    <li>{exc}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo Gallery (if available) -->
+          {tour.galleryImages && tour.galleryImages.length > 0 && (
+            <div class="card-sand tour-section-box">
+              <span class="section-label">FIELD PHOTOGRAPHY</span>
+              <h2>Authentic Expedition Gallery</h2>
+              <div class="tour-gallery-grid">
+                {tour.galleryImages.map(img => (
+                  <div class="gallery-item">
+                    <img src={img} alt={`${tour.title} Gallery`} loading="lazy" width="400" height="260" class="gallery-photo" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <!-- Sticky Booking & Dispatch Sidebar -->
+        <aside class="tour-sidebar">
+          <div class="card-white sidebar-booking-card">
+            <div class="sidebar-header">
+              <span class="booking-tag">DIRECT INBOUND DMC</span>
+              <h3>Book This Expedition</h3>
+              <p class="sidebar-sub">Private FIT, custom departures & wholesale B2B bookings.</p>
+            </div>
+
+            <div class="sidebar-price-info">
+              <div class="price-notice">
+                <strong>Direct Operator NET Rates</strong>
+                <span>Guaranteed lowest native DMC tariffs without intermediary broker commissions.</span>
+              </div>
+            </div>
+
+            <div class="sidebar-actions">
+              <button 
+                type="button" 
+                class="btn btn-green btn-block js-open-quote-modal" 
+                data-tour={tour.title}
+                style="width: 100%; margin-bottom: 0.75rem;"
+              >
+                REQUEST CUSTOM QUOTE
+              </button>
+
+              <a 
+                href={`https://wa.me/251920009100?text=Hello%20Abyssinian%20Tour%20Operator%2C%20I%20am%20interested%20in%20the%20${encodeURIComponent(tour.title)}.`}
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn btn-gold btn-block" 
+                style="width: 100%;"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span>WhatsApp: {siteConfig.contact.phoneDisplay}</span>
+              </a>
+            </div>
+
+            <div class="quick-facts-sidebar">
+              <h4>Expedition Quick Specs</h4>
+              <ul>
+                <li><strong>Starting Point:</strong> {tour.startingPoint}</li>
+                <li><strong>Ending Point:</strong> {tour.endingPoint}</li>
+                <li><strong>Group Type:</strong> {tour.groupType}</li>
+                <li><strong>Fleet Standard:</strong> Private Toyota 4x4 Land Cruiser</li>
+                <li><strong>Turnaround:</strong> 12-Hour Custom Proposal</li>
+              </ul>
+            </div>
+
+            <div class="b2b-notice-sidebar">
+              <strong>Are you a Travel Agency?</strong>
+              <p>Request unbranded white-label itineraries & confidential NET tariffs.</p>
+              <a href="/b2b" class="link-gold">Visit B2B Portal &rarr;</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Tours Section -->
+  {relatedTours.length > 0 && (
+    <section class="section-pad" style="background-color: #FAF4EB; border-top: 1px solid var(--color-sand-border);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">MORE FROM THIS PILLAR</span>
+          <h2>Related {tour.pillarTitle} Itineraries</h2>
+          <p>Explore complementary journeys covering adjacent historical, wilderness, or cultural regions.</p>
+        </div>
+
+        <div class="related-tours-grid">
+          {relatedTours.map(rel => (
+            <TourCard tour={rel} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Trust Bar -->
+  <TrustBar />
+</MainLayout>
+
+<style>
+  .tour-detail-hero {
+    position: relative;
+    background-color: #1A1512;
+    background-size: cover;
+    background-position: center;
+    color: #FFFFFF;
+    padding: 5rem 0 4.5rem 0;
+  }
+
+  .tour-detail-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(22, 18, 14, 0.85) 0%, rgba(22, 18, 14, 0.95) 100%);
+    z-index: 1;
+  }
+
+  .tour-detail-hero .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-breadcrumbs {
+    font-size: 0.8rem;
+    color: #CFC5B8;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-breadcrumbs a {
+    color: #E2D7C8;
+  }
+
+  .hero-breadcrumbs a:hover {
+    color: var(--color-gold);
+  }
+
+  .hero-breadcrumbs .current {
+    color: var(--color-gold);
+  }
+
+  .hero-badge-wrap {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  .tour-page-title {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: #FFFFFF;
+    margin-bottom: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .tour-specs-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.5rem;
+    max-width: 900px;
+  }
+
+  .spec-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .spec-label {
+    font-size: 0.72rem;
+    color: #BDB0A0;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 0.2rem;
+  }
+
+  .spec-value {
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  /* Main Tour Content Boxes */
+  .tour-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
+
+  .tour-section-box {
+    padding: 2.25rem;
+  }
+
+  .tour-section-box h2 {
+    font-size: 1.55rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-primary-dark);
+  }
+
+  .tour-overview-text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text-main);
+    margin-bottom: 1.5rem;
+  }
+
+  .highlights-box {
+    background-color: var(--color-sand-bg);
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .highlights-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.85rem;
+    color: var(--color-primary-dark);
+  }
+
+  .highlights-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .highlights-checklist li {
+    display: flex;
+    gap: 0.65rem;
+    font-size: 0.92rem;
+    color: var(--color-text-main);
+    line-height: 1.45;
+  }
+
+  .check-icon {
+    color: var(--color-green-cta);
+    font-weight: 800;
+  }
+
+  /* Day-by-Day Timeline */
+  .itinerary-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .itinerary-day-card {
+    display: grid;
+    grid-template-columns: 85px 1fr;
+    gap: 1.25rem;
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    align-items: start;
+  }
+
+  .day-pill {
+    display: inline-block;
+    background-color: var(--color-gold);
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 0.78rem;
+    padding: 0.35rem 0.65rem;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+  }
+
+  .day-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.45rem;
+    color: var(--color-primary-dark);
+  }
+
+  .day-desc {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* Inclusions / Exclusions */
+  .inclusions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .incl-heading {
+    font-size: 1.1rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .text-green { color: var(--color-green-cta); }
+  .text-red { color: #C53030; }
+
+  .incl-list, .excl-list {
+    list-style: disc;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+  }
+
+  /* Gallery Grid */
+  .tour-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .gallery-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-sand-border);
+  }
+
+  /* Sidebar */
+  .tour-sidebar {
+    position: sticky;
+    top: 90px;
+  }
+
+  .sidebar-booking-card {
+    padding: 1.75rem;
+  }
+
+  .booking-tag {
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: var(--color-gold-deep);
+  }
+
+  .sidebar-header h3 {
+    font-size: 1.3rem;
+    margin: 0.2rem 0 0.35rem 0;
+  }
+
+  .sidebar-sub {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .price-notice {
+    background-color: var(--color-sand-bg);
+    border: 1px solid var(--color-sand-border);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.25rem;
+  }
+
+  .price-notice strong {
+    display: block;
+    color: var(--color-primary-dark);
+    font-size: 0.88rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .price-notice span {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    line-height: 1.35;
+    display: block;
+  }
+
+  .quick-facts-sidebar {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-sand-border);
+  }
+
+  .quick-facts-sidebar h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .quick-facts-sidebar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+  }
+
+  .b2b-notice-sidebar {
+    margin-top: 1.25rem;
+    padding: 1rem;
+    background-color: #FAF4EB;
+    border: 1px dashed var(--color-gold);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+  }
+
+  .b2b-notice-sidebar strong {
+    color: var(--color-primary-dark);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .link-gold {
+    color: var(--color-gold-deep);
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 0.35rem;
+  }
+
+  .related-tours-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+
+  @media (max-width: 1024px) {
+    .tour-specs-strip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .related-tours-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .itinerary-day-card {
+      grid-template-columns: 1fr;
+    }
+    .inclusions-grid {
+      grid-template-columns: 1fr;
+    }
+    .tour-gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

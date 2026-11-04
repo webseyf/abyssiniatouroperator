@@ -1,0 +1,103 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import { siteConfig } from '../../config/site';
+
+// Clean blog structure ready for client publication without invented fake articles
+const blogArticles: any[] = [];
+---
+
+<MainLayout 
+  title="Field Dispatch & Ethiopian Travel Insights | Abyssinian Tour Operator"
+  description="Official field dispatches, seasonal travel updates, expedition reports, and destination features from the Abyssinian Tour Operator ground operations team in Addis Ababa."
+  image="/images/home/hero-lalibela.jpg"
+>
+  <section class="page-hero" style="background-image: url('/images/home/hero-lalibela.jpg');">
+    <div class="container">
+      <span class="section-label light">GROUND EXPEDITION INSIGHTS</span>
+      <h1>ETHIOPIA FIELD DISPATCH & BLOG</h1>
+      <p class="subtitle">
+        Authentic seasonal road reports, trekking advisories, wildlife observations, and cultural notes written directly by our native expedition leaders.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container">
+      {blogArticles.length === 0 ? (
+        <div class="blog-empty-state card-sand">
+          <div class="empty-icon-wrap">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-deep)" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          </div>
+          <h2>Field Dispatch Desk Coming Soon</h2>
+          <p class="empty-desc">
+            We are preparing in-depth operational dispatches covering the Danakil lava lake status, Simien trekking conditions, and seasonal cultural ceremonies across the Omo Valley.
+          </p>
+
+          <div class="empty-actions">
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1.25rem;">
+              In the meantime, explore our complete catalogue of 20 field-tested itineraries or consult our pre-trip preparation guide:
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+              <a href="/tours" class="btn btn-green">Explore All 20 Itineraries</a>
+              <a href="/travel-guide" class="btn btn-outline-gold">Read Pre-Trip Travel Guide</a>
+              <a href="/contact-us" class="btn btn-gold">Contact Operations Desk</a>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div class="articles-grid">
+          {blogArticles.map(article => (
+            <article class="article-card card-white">
+              <h3>{article.title}</h3>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <TrustBar />
+</MainLayout>
+
+<style>
+  .blog-empty-state {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--color-sand-border);
+  }
+
+  .empty-icon-wrap {
+    width: 80px;
+    height: 80px;
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-sand-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .blog-empty-state h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.85rem;
+    color: var(--color-primary-dark);
+  }
+
+  .empty-desc {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .empty-actions {
+    border-top: 1px solid var(--color-sand-border);
+    padding-top: 1.75rem;
+  }
+</style>
+

@@ -1,0 +1,15 @@
+{
+  "name": "abyssinian-tour-operator",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.4.2"
+  }
+}
+

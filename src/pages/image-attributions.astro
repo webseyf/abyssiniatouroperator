@@ -1,0 +1,112 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import TrustBar from '../components/TrustBar.astro';
+import attributions from '../data/image-attributions.json';
+---
+
+<MainLayout 
+  title="Photographic & Image Licensing Attributions | Abyssinian Tour Operator"
+  description="Attribution and licensing records for authentic Ethiopian destination photographs used across the Abyssinian Tour Operator website under Creative Commons and public domain licences."
+>
+  <section class="page-hero" style="background-image: url('/images/destinations/lalibela-st-george.jpg');">
+    <div class="container">
+      <span class="section-label light">INTELLECTUAL PROPERTY & ETHICAL ASSET COMPLIANCE</span>
+      <h1>PHOTOGRAPHIC & IMAGE ATTRIBUTIONS</h1>
+      <p class="subtitle">
+        Abyssinian Tour Operator adheres to rigorous copyright, licensing, and attribution standards. Below is the complete verifiable register of photographic assets used across this platform.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container">
+      <div class="card-white" style="padding: 2rem; margin-bottom: 2rem;">
+        <h2>Licensing & Compliance Statement</h2>
+        <p style="color: var(--color-text-muted); line-height: 1.6; margin-top: 0.5rem;">
+          In accordance with our strict policy of authentic destination representation, all photographs featured on this website are genuine, unmodified real-world photographs of Ethiopian landmarks, landscapes, wildlife, and cultural sites. We do not use AI-generated imagery or deceptive stock photography to depict sacred historical sites or indigenous peoples. All assets are sourced under Creative Commons (CC BY, CC BY-SA) or direct client ownership.
+        </p>
+      </div>
+
+      <div class="attributions-table-wrap card-sand">
+        <table class="attr-table">
+          <thead>
+            <tr>
+              <th>Preview</th>
+              <th>Asset Filename</th>
+              <th>Destination / Subject</th>
+              <th>Photographer / Creator</th>
+              <th>Licence / Usage Rights</th>
+              <th>Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            {attributions.map(item => (
+              <tr>
+                <td>
+                  <img src={item.path} alt={item.subject} width="70" height="45" style="object-fit: cover; border-radius: 4px; border: 1px solid var(--color-sand-border);" />
+                </td>
+                <td><code>{item.filename}</code></td>
+                <td><strong>{item.subject}</strong></td>
+                <td>{item.photographer}</td>
+                <td><span class="badge badge-gold" style="font-size: 0.7rem;">{item.license}</span></td>
+                <td>
+                  <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" style="color: var(--color-green-cta); text-decoration: underline; font-size: 0.8rem;">
+                    View Source
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+</MainLayout>
+
+<style>
+  .attributions-table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-sand-border);
+    padding: 1rem;
+  }
+
+  .attr-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+    font-size: 0.85rem;
+  }
+
+  .attr-table th {
+    background-color: var(--color-sand-card);
+    padding: 0.85rem 1rem;
+    text-align: left;
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    border-bottom: 1px solid var(--color-sand-border);
+    white-space: nowrap;
+  }
+
+  .attr-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--color-sand-border);
+    vertical-align: middle;
+    color: var(--color-text-main);
+  }
+
+  .attr-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  code {
+    background-color: var(--color-sand-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    color: var(--color-primary-dark);
+  }
+</style>
+

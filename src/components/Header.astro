@@ -1,0 +1,487 @@
+---
+import { siteConfig } from '../config/site';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const navItems = [
+  { label: 'HOME', href: '/' },
+  { label: 'ITINERARIES', href: '/tours' },
+  { label: 'DESTINATIONS', href: '/destinations' },
+  { label: 'ABOUT US', href: '/about-us' },
+  { label: 'B2B PORTAL', href: '/b2b' },
+  { label: 'TRAVEL GUIDE', href: '/travel-guide' },
+  { label: 'CONTACT', href: '/contact-us' }
+];
+
+const isActive = (href: string) => {
+  if (href === '/' && currentPath === '/') return true;
+  if (href !== '/' && currentPath.startsWith(href)) return true;
+  return false;
+};
+---
+
+<header class="site-header">
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="header-container top-bar-inner">
+      <div class="top-bar-tagline">
+        <span class="pulse-dot"></span>
+        <span>{siteConfig.tagline}</span>
+      </div>
+      <div class="top-bar-actions">
+        <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" class="top-link whatsapp-link" aria-label="Direct WhatsApp Dispatch">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>24/7 Field Dispatch: {siteConfig.contact.phoneDisplay}</span>
+        </a>
+        <span class="sep">|</span>
+        <a href="/b2b" class="top-link b2b-badge">
+          <span>B2B Agent Portal (NET Tariffs)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Navigation Bar (Clean Light Header with 1280px Desktop Max-Width) -->
+  <div class="main-bar">
+    <div class="header-container main-bar-inner">
+      <!-- Mobile Hamburger Toggle (Left Position on Mobile as in Reference Screenshot) -->
+      <button type="button" class="mobile-toggle js-mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Brand Logo (Featuring New Lion / Queen / Axum Emblem + Official Typography) -->
+      <a href="/" class="brand-logo" aria-label="Abyssinian Tour Operator Home">
+        <img 
+          src={siteConfig.logo.full} 
+          alt="Abyssinian Tour Operator - Journey Beyond, Explore Ethiopia" 
+          class="logo-img desktop-logo" 
+          width="320" 
+          height="75" 
+        />
+        <img 
+          src={siteConfig.logo.full} 
+          alt="Abyssinian Tour Operator" 
+          class="logo-img mobile-logo" 
+          width="180" 
+          height="45" 
+        />
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          {navItems.map(item => (
+            <li class="nav-item">
+              <a 
+                href={item.href} 
+                class:list={['nav-link', { 'active': isActive(item.href) }]}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- CTA Button (Ochre / Gold Pill as in Reference Screenshot) -->
+      <div class="header-actions">
+        <button type="button" class="btn btn-header-quote js-open-quote-modal" data-tour="Custom Ethiopia Expedition">
+          Request Quote
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer js-mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <img src={siteConfig.logo.full} alt="Abyssinian Tour Operator" width="190" height="46" style="object-fit: contain;" />
+      <button type="button" class="mobile-drawer-close js-mobile-menu-toggle" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-list">
+        {navItems.map(item => (
+          <li>
+            <a 
+              href={item.href} 
+              class:list={['mobile-nav-link', { 'active': isActive(item.href) }]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="mobile-drawer-footer">
+        <button type="button" class="btn btn-header-quote btn-block js-open-quote-modal" style="width: 100%; margin-bottom: 1rem;">
+          Request Quote
+        </button>
+        <div class="mobile-contact-info">
+          <p><strong>Addis Ababa Headquarters</strong></p>
+          <p><a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp: {siteConfig.contact.phoneDisplay}</a></p>
+          <p><a href={`mailto:${siteConfig.contact.emails.general}`}>{siteConfig.contact.emails.general}</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    width: 100%;
+    max-width: 100vw;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+
+  /* Recommended Desktop Header Max-Width: 1280px */
+  .header-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .top-bar {
+    background-color: #1A1512;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    padding: 0.35rem 0;
+    font-size: 0.78rem;
+    color: #D6CBC0;
+  }
+
+  .top-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .top-bar-tagline {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: 0.3px;
+    font-weight: 500;
+  }
+
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #48BB78;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #48BB78;
+  }
+
+  .top-bar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .top-link {
+    color: #E2D7C8;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .top-link:hover {
+    color: #D4AF37;
+  }
+
+  .whatsapp-link {
+    color: #55E798;
+  }
+
+  .b2b-badge {
+    color: #F7D070;
+    font-weight: 600;
+  }
+
+  .sep {
+    opacity: 0.3;
+  }
+
+  /* Main Bar */
+  .main-bar {
+    padding: 0.55rem 0;
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .main-bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .logo-img {
+    height: 54px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .mobile-logo {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+  }
+
+  .nav-link {
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: #231C16;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: #A27221;
+  }
+
+  .nav-link.active {
+    color: #A27221;
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background-color: #A27221;
+    border-radius: 2px;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  /* Pill button matching screenshot gold/brown */
+  .btn-header-quote {
+    background-color: #9E7738;
+    color: #FFFFFF !important;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.55rem 1.25rem;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    border: none;
+    box-shadow: 0 2px 6px rgba(158, 119, 56, 0.25);
+    transition: all 0.2s ease;
+  }
+
+  .btn-header-quote:hover {
+    background-color: #845F25;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(158, 119, 56, 0.35);
+  }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 19px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .hamburger-line {
+    width: 100%;
+    height: 2.5px;
+    background-color: #231C16;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+  }
+
+  /* Mobile Drawer */
+  .mobile-drawer {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 82%;
+    max-width: 340px;
+    height: 100vh;
+    background-color: #FAF6F0;
+    z-index: 1000;
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s ease;
+  }
+
+  .mobile-drawer.open {
+    left: 0;
+  }
+
+  .mobile-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-sand-border);
+    background-color: #FFFFFF;
+  }
+
+  .mobile-drawer-close {
+    font-size: 2rem;
+    color: #231C16;
+    line-height: 1;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .mobile-drawer-body {
+    padding: 1.5rem 1.25rem;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .mobile-nav-link {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #231C16;
+    display: block;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .mobile-nav-link.active {
+    color: #A27221;
+    border-color: #A27221;
+  }
+
+  .mobile-contact-info {
+    font-size: 0.82rem;
+    color: #5D5247;
+    line-height: 1.6;
+  }
+
+  .mobile-contact-info a {
+    color: #A27221;
+  }
+
+  /* Responsive Rules Guaranteeing 100% Fit & No Overflow */
+  @media (max-width: 1080px) {
+    .desktop-nav {
+      display: none;
+    }
+    .mobile-toggle {
+      display: flex;
+      order: 1;
+    }
+    .brand-logo {
+      order: 2;
+    }
+    .header-actions {
+      order: 3;
+    }
+    .desktop-logo {
+      display: none;
+    }
+    .mobile-logo {
+      display: block;
+      height: 40px;
+      max-width: 180px;
+    }
+    .top-bar-tagline {
+      display: none;
+    }
+    .top-bar-inner {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .main-bar {
+      padding: 0.45rem 0;
+    }
+    .main-bar-inner {
+      padding: 0 0.5rem;
+      gap: 0.4rem;
+    }
+    .mobile-logo {
+      height: 34px;
+      max-width: 145px;
+    }
+    .btn-header-quote {
+      font-size: 0.74rem;
+      padding: 0.4rem 0.65rem;
+      border-radius: 4px;
+    }
+    .mobile-toggle {
+      width: 22px;
+      height: 16px;
+    }
+    .hamburger-line {
+      height: 2px;
+    }
+    .top-bar {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const toggleButtons = document.querySelectorAll('.js-mobile-menu-toggle');
+  const drawer = document.querySelector('.js-mobile-drawer');
+
+  toggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = drawer?.classList.toggle('open');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+</script>
