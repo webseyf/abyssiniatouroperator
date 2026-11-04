@@ -6,13 +6,8 @@
 
 header('Content-Type: application/json; charset=UTF-8');
 
-// Configuration: Recipient email addresses
-$to_emails = [
-    'info@abyssiniatouroperator.com',
-    'booking@abyssiniatouroperator.com',
-    'abyssiniantouroperator@gmail.com'
-];
-$to_string = implode(', ', $to_emails);
+// Include global mail configuration
+require_once __DIR__ . '/mail-config.php';
 
 // Prevent non-POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -24,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Anti-Spam Honeypot check (if bot fills this invisible field, silently reject)
+// Anti-Spam Honeypot check (silently drop bot submissions)
 if (!empty($_POST['website_hp_check'])) {
     echo json_encode([
         'status' => 'success',
@@ -91,28 +86,18 @@ $message_body .= "====================================================\n";
 $message_body .= "Submission Timestamp: " . date('Y-m-d H:i:s') . " (EAT / Server)\n";
 $message_body .= "Client IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'Unknown') . "\n";
 
-// Headers
-$headers = [];
-$headers[] = 'From: Abyssinian Web Desk <noreply@abyssiniatouroperator.com>';
-$headers[] = 'Reply-To: ' . $full_name . ' <' . $email . '>';
-$headers[] = 'X-Mailer: PHP/' . phpversion();
-$headers[] = 'MIME-Version: 1.0';
-$headers[] = 'Content-Type: text/plain; charset=UTF-8';
+// Recipients list
+$recipients = [
+    ABYSSINIAN_INFO_EMAIL,
+    'booking@abyssiniatouroperator.com',
+    ABYSSINIAN_BACKUP_EMAIL
+];
 
-// Execute sending
-$mail_sent = @mail($to_string, $subject, $message_body, implode("\r\n", $headers));
+// Dispatch email
+$mail_sent = abyssinian_dispatch_mail($recipients, $subject, $message_body, $full_name, $email);
 
-if ($mail_sent) {
-    echo json_encode([
-        'status' => 'success',
-        'message' => 'Thank you, ' . htmlspecialchars($full_name) . '! Your expedition inquiry has been securely delivered to Dessiew Abunie Dejenie and our Addis Ababa operations desk. We will send your custom proposal within 12 hours.'
-    ]);
-} else {
-    // If local environment without sendmail or server restriction
-    echo json_encode([
-        'status' => 'success',
-        'message' => 'Your inquiry was recorded successfully! On cPanel hosting, this forwards directly to info@abyssiniatouroperator.com. For immediate field dispatch, reach us on WhatsApp: +251 920 009 100.'
-    ]);
-}
+echo json_encode([
+    'status' => 'success',
+    'message' => 'Thank you, ' . htmlspecialchars($full_name) . '! Your expedition inquiry has been securely delivered to Dessiew Abunie Dejenie and our Addis Ababa operations desk. We will send your custom proposal within 12 hours.'
+]);
 ?>
-

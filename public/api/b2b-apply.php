@@ -6,11 +6,8 @@
 
 header('Content-Type: application/json; charset=UTF-8');
 
-$to_emails = [
-    'b2b@abyssiniatouroperator.com',
-    'abyssiniantouroperator@gmail.com'
-];
-$to_email = implode(', ', $to_emails);
+// Include global mail configuration
+require_once __DIR__ . '/mail-config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -59,18 +56,15 @@ $message_body .= "====================================================\n";
 $message_body .= "Submission Timestamp: " . date('Y-m-d H:i:s') . " (EAT)\n";
 $message_body .= "Agent IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'Unknown') . "\n";
 
-$headers = [];
-$headers[] = 'From: Abyssinian B2B Portal <noreply@abyssiniatouroperator.com>';
-$headers[] = 'Reply-To: ' . $contact_name . ' <' . $email . '>';
-$headers[] = 'X-Mailer: PHP/' . phpversion();
-$headers[] = 'MIME-Version: 1.0';
-$headers[] = 'Content-Type: text/plain; charset=UTF-8';
+$recipients = [
+    ABYSSINIAN_B2B_EMAIL,
+    ABYSSINIAN_BACKUP_EMAIL
+];
 
-$mail_sent = @mail($to_email, $subject, $message_body, implode("\r\n", $headers));
+abyssinian_dispatch_mail($recipients, $subject, $message_body, $contact_name, $email);
 
 echo json_encode([
     'status' => 'success',
     'message' => 'Thank you, ' . htmlspecialchars($contact_name) . '! Your B2B partner application for ' . htmlspecialchars($agency_name) . ' has been registered. Dessiew Abunie Dejenie will dispatch your confidential NET Tariff Book within 12 hours.'
 ]);
 ?>
-

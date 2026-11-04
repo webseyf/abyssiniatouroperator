@@ -9,10 +9,10 @@ import { siteConfig } from '../../config/site';
 <MainLayout 
   title="All 20 Ethiopia Tour Itineraries | Abyssinian Tour Operator Master Catalogue"
   description="Explore our master catalogue of 20 curated Ethiopian tour itineraries across 5 core pillars: Historic North, Danakil Lava Expeditions, South Omo Valley Safaris, Kaffa Coffee Origins, and Grand Circuits."
-  image="/images/home/hero-lalibela.jpg"
+  image="/images/home/hero-tours-simien.jpg"
 >
-  <!-- Page Hero (Matching Design Reference Screenshot 4) -->
-  <section class="page-hero" style="background-image: url('/images/home/hero-lalibela.jpg');">
+  <!-- Page Hero -->
+  <section class="page-hero" style="background-image: url('/images/home/hero-tours-simien.jpg');">
     <div class="container">
       <span class="section-label light">DIRECT INBOUND DMC GROUND OPERATIONS | ADDIS ABABA, ETHIOPIA</span>
       <h1>Master Catalogue of 20 Ethiopia Itineraries</h1>
@@ -41,7 +41,7 @@ import { siteConfig } from '../../config/site';
         </button>
         {tourPillars.map(p => (
           <button type="button" class="filter-pill" data-pillar={p.id}>
-            Pillar {p.id}: {p.name.split('&')[0]}
+            {p.name}
           </button>
         ))}
       </div>

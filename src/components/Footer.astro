@@ -121,9 +121,14 @@ import { tourPillars } from '../data/tours';
   <!-- Bottom Legal Strip -->
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <p class="copyright">
-        &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved. Licensed Inbound DMC — Ethiopian Ministry of Tourism.
-      </p>
+      <div class="footer-legal-col">
+        <p class="copyright">
+          &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved. Licensed Inbound DMC — Ethiopian Ministry of Tourism.
+        </p>
+        <p class="developer-credit">
+          Website developed by <a href="https://linktr.ee/seyfadinA" target="_blank" rel="noopener noreferrer" class="dev-link">Seyfadin.A</a>
+        </p>
+      </div>
       <div class="footer-bottom-links">
         <a href="/contact-us">Privacy & Terms</a>
         <span class="sep">&bull;</span>
@@ -288,6 +293,30 @@ import { tourPillars } from '../data/tours';
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+  }
+
+  .footer-legal-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .developer-credit {
+    font-size: 0.76rem;
+    color: #9C8F80;
+    letter-spacing: 0.2px;
+  }
+
+  .dev-link {
+    color: #D4AF37;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+  }
+
+  .dev-link:hover {
+    color: #FFFFFF;
   }
 
   .footer-bottom-links {

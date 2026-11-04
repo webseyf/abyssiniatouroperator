@@ -5,7 +5,7 @@ import { allTours, tourPillars } from '../data/tours';
 import { siteConfig } from '../config/site';
 import { reviewsData } from '../data/reviews';
 
-const featuredTours = allTours.filter(t => t.featured).slice(0, 4);
+const featuredTours = allTours.slice(0, 8);
 ---
 
 <MainLayout 
@@ -121,12 +121,12 @@ const featuredTours = allTours.filter(t => t.featured).slice(0, 4);
     </div>
   </section>
 
-  <!-- Section 2: THE ABYSSINIAN B2B ADVANTAGE (Why Outsource To Us) -->
+  <!-- Section: THE ABYSSINIAN B2B ADVANTAGE (Why Outsource To Us) -->
   <section class="section-pad advantage-section">
     <div class="container">
       <div class="section-header text-center">
         <span class="section-label">PARTNER ADVANTAGE</span>
-        <h2>2. THE ABYSSINIAN B2B ADVANTAGE (Why Outsource To Us)</h2>
+        <h2>THE ABYSSINIAN B2B ADVANTAGE (Why Outsource To Us)</h2>
         <p>Built for overseas tour operators, DMC brokers, and travel advisors who require turnkey ground reliability.</p>
       </div>
 
@@ -166,12 +166,12 @@ const featuredTours = allTours.filter(t => t.featured).slice(0, 4);
     </div>
   </section>
 
-  <!-- Section 3: Popular Featured Expeditions (Flagship Grid) -->
+  <!-- Section: Popular Featured Expeditions (Flagship Grid) -->
   <section class="section-pad expeditions-section">
     <div class="container">
       <div class="section-header text-center">
         <span class="section-label">CURATED MASTER EXPEDITIONS</span>
-        <h2>3. POPULAR FEATURED EXPEDITIONS (Flagship Grid)</h2>
+        <h2>POPULAR FEATURED EXPEDITIONS</h2>
         <p>Explore our most requested private expeditions, meticulously crafted to balance cultural immersion, comfortable logistics, and authentic Ethiopian wonder.</p>
       </div>
 
@@ -189,12 +189,12 @@ const featuredTours = allTours.filter(t => t.featured).slice(0, 4);
     </div>
   </section>
 
-  <!-- Section 4: Ground Infrastructure & Fleet Specifications (Matching Reference Screenshot) -->
+  <!-- Section: Ground Infrastructure & Fleet Specifications (Matching Reference Screenshot) -->
   <section class="section-pad fleet-specs-section">
     <div class="container">
       <div class="section-header text-center">
         <span class="section-label">DIRECT FLEET & ASSETS</span>
-        <h2>4. GROUND INFRASTRUCTURE & FLEET SPECIFICATIONS</h2>
+        <h2>GROUND INFRASTRUCTURE & FLEET SPECIFICATIONS</h2>
         <p>Directly maintained heavy-duty expedition machinery built to master Ethiopia's rugged highland passes and Afar desert tracks.</p>
       </div>
 
@@ -202,7 +202,7 @@ const featuredTours = allTours.filter(t => t.featured).slice(0, 4);
         <div class="fleet-card card-sand">
           <div class="fleet-img-wrap">
             <img src="/images/about/fleet-4x4-landcruiser.jpg" alt="Toyota Land Cruiser 70/Prado 4WDs" width="600" height="350" />
-            <span class="fleet-tag">A. Private 4x4 Transport Fleet</span>
+            <span class="fleet-tag">Private 4x4 Transport Fleet</span>
           </div>
           <div class="fleet-details">
             <h3>Toyota Land Cruiser 70 / Prado 4WDs</h3>
@@ -234,7 +234,7 @@ const featuredTours = allTours.filter(t => t.featured).slice(0, 4);
 
         <div class="specs-side-col">
           <div class="card-sand spec-subcard">
-            <h3>B. Field Leadership & Guide Team</h3>
+            <h3>Field Leadership & Guide Team</h3>
             <ul class="spec-check-list">
               <li>Certified multi-lingual native historians, naturalists & ethnographers</li>
               <li>Pre-established regional connections with village elders & tribal leaders</li>
@@ -244,7 +244,7 @@ const featuredTours = allTours.filter(t => t.featured).slice(0, 4);
           </div>
 
           <div class="card-sand spec-subcard">
-            <h3>C. Wilderness Mobile Catering</h3>
+            <h3>Wilderness Mobile Catering</h3>
             <p>Full field kitchen setups with dedicated safari chefs for Danakil Depression, Simien high camps, and remote Omo Valley bush expeditions. Fresh produce, dietary accommodations, and safe mineral drinking water guaranteed.</p>
           </div>
         </div>
@@ -384,7 +384,7 @@ const featuredTours = allTours.filter(t => t.featured).slice(0, 4);
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(16, 12, 9, 0.72) 0%, rgba(22, 16, 11, 0.48) 50%, rgba(14, 10, 7, 0.84) 100%);
+    background: linear-gradient(180deg, rgba(16, 12, 9, 0.45) 0%, rgba(22, 16, 11, 0.25) 50%, rgba(14, 10, 7, 0.65) 100%);
     z-index: 1;
   }
 
