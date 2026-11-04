@@ -6,11 +6,10 @@
 
 header('Content-Type: application/json; charset=UTF-8');
 
-// Configuration: Recipient email addresses (supports both domain variants)
+// Configuration: Recipient email addresses
 $to_emails = [
     'info@abyssiniatouroperator.com',
     'booking@abyssiniatouroperator.com',
-    'info@abyssiniantouroperator.com',
     'abyssiniantouroperator@gmail.com'
 ];
 $to_string = implode(', ', $to_emails);
@@ -94,7 +93,7 @@ $message_body .= "Client IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'Unknown') . "\n";
 
 // Headers
 $headers = [];
-$headers[] = 'From: Abyssinian Web Desk <noreply@abyssiniantouroperator.com>';
+$headers[] = 'From: Abyssinian Web Desk <noreply@abyssiniatouroperator.com>';
 $headers[] = 'Reply-To: ' . $full_name . ' <' . $email . '>';
 $headers[] = 'X-Mailer: PHP/' . phpversion();
 $headers[] = 'MIME-Version: 1.0';
@@ -112,7 +111,7 @@ if ($mail_sent) {
     // If local environment without sendmail or server restriction
     echo json_encode([
         'status' => 'success',
-        'message' => 'Your inquiry was recorded successfully! On cPanel hosting, this forwards directly to info@abyssiniantouroperator.com. For immediate field dispatch, reach us on WhatsApp: +251 920 009 100.'
+        'message' => 'Your inquiry was recorded successfully! On cPanel hosting, this forwards directly to info@abyssiniatouroperator.com. For immediate field dispatch, reach us on WhatsApp: +251 920 009 100.'
     ]);
 }
 ?>

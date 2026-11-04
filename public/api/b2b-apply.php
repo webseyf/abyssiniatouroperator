@@ -1,14 +1,13 @@
 <?php
 /**
  * Abyssinian Tour Operator — B2B Partner Application Handler
- * Direct dispatch to b2b@abyssiniantouroperator.com
+ * Direct dispatch to b2b@abyssiniatouroperator.com
  */
 
 header('Content-Type: application/json; charset=UTF-8');
 
 $to_emails = [
     'b2b@abyssiniatouroperator.com',
-    'b2b@abyssiniantouroperator.com',
     'abyssiniantouroperator@gmail.com'
 ];
 $to_email = implode(', ', $to_emails);
@@ -61,7 +60,7 @@ $message_body .= "Submission Timestamp: " . date('Y-m-d H:i:s') . " (EAT)\n";
 $message_body .= "Agent IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'Unknown') . "\n";
 
 $headers = [];
-$headers[] = 'From: Abyssinian B2B Portal <noreply@abyssiniantouroperator.com>';
+$headers[] = 'From: Abyssinian B2B Portal <noreply@abyssiniatouroperator.com>';
 $headers[] = 'Reply-To: ' . $contact_name . ' <' . $email . '>';
 $headers[] = 'X-Mailer: PHP/' . phpversion();
 $headers[] = 'MIME-Version: 1.0';

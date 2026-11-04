@@ -99,7 +99,8 @@ const isActive = (href: string) => {
     </div>
   </div>
 
-  <!-- Mobile Drawer Menu -->
+  <!-- Mobile Drawer Menu & Overlay -->
+  <div class="mobile-drawer-overlay js-drawer-overlay" aria-hidden="true"></div>
   <div class="mobile-drawer js-mobile-drawer" aria-hidden="true">
     <div class="mobile-drawer-header">
       <img src={siteConfig.logo.full} alt="Abyssinian Tour Operator" width="190" height="46" style="object-fit: contain;" />
@@ -336,6 +337,23 @@ const isActive = (href: string) => {
   }
 
   /* Mobile Drawer */
+  /* Mobile Drawer Backdrop Overlay */
+  .mobile-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(20, 16, 12, 0.65);
+    backdrop-filter: blur(2px);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-drawer-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .mobile-drawer {
     position: fixed;
     top: 0;
@@ -476,12 +494,31 @@ const isActive = (href: string) => {
 <script>
   const toggleButtons = document.querySelectorAll('.js-mobile-menu-toggle');
   const drawer = document.querySelector('.js-mobile-drawer');
+  const overlay = document.querySelector('.js-drawer-overlay');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function toggleMenu(forceClose = false) {
+    const shouldOpen = forceClose ? false : !drawer?.classList.contains('open');
+    if (shouldOpen) {
+      drawer?.classList.add('open');
+      overlay?.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      toggleButtons.forEach(btn => btn.setAttribute('aria-expanded', 'true'));
+    } else {
+      drawer?.classList.remove('open');
+      overlay?.classList.remove('active');
+      document.body.style.overflow = '';
+      toggleButtons.forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+    }
+  }
 
   toggleButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const isOpen = drawer?.classList.toggle('open');
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
+    btn.addEventListener('click', () => toggleMenu());
+  });
+
+  overlay?.addEventListener('click', () => toggleMenu(true));
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => toggleMenu(true));
   });
 </script>
