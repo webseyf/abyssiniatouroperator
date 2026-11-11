@@ -55,6 +55,12 @@ const relatedTours = allTours
           <span class="spec-label">Duration</span>
           <span class="spec-value">{tour.duration}</span>
         </div>
+        {tour.priceDisplay && (
+          <div class="spec-item">
+            <span class="spec-label">Private Rate (2 Pax)</span>
+            <span class="spec-value" style="color: #48BB78; font-weight: 800;">{tour.priceDisplay} / person</span>
+          </div>
+        )}
         <div class="spec-item">
           <span class="spec-label">Routing</span>
           <span class="spec-value">{tour.routing}</span>
@@ -168,10 +174,20 @@ const relatedTours = allTours
             </div>
 
             <div class="sidebar-price-info">
-              <div class="price-notice">
-                <strong>Direct Operator NET Rates</strong>
-                <span>Guaranteed lowest native DMC tariffs without intermediary broker commissions.</span>
-              </div>
+              {tour.priceDisplay ? (
+                <div class="price-notice" style="background-color: #FAF4EB; border: 1.5px solid #D4AF37; padding: 1rem; border-radius: 8px; margin-bottom: 1.25rem; text-align: center;">
+                  <span style="font-size: 0.76rem; text-transform: uppercase; color: #8C6226; font-weight: 700; letter-spacing: 0.5px; display: block; margin-bottom: 0.25rem;">Moderate Private DMC Rate</span>
+                  <div style="font-size: 1.85rem; font-weight: 800; color: #1E5E44; line-height: 1.1; margin-bottom: 0.25rem;">
+                    {tour.priceDisplay} <span style="font-size: 0.88rem; color: #5D5247; font-weight: 500;">/ person</span>
+                  </div>
+                  <span style="font-size: 0.76rem; color: #7B6856; display: block;">Based on 2 Travelers &bull; Zero Middleman Markups</span>
+                </div>
+              ) : (
+                <div class="price-notice">
+                  <strong>Direct Operator NET Rates</strong>
+                  <span>Guaranteed lowest native DMC tariffs without intermediary broker commissions.</span>
+                </div>
+              )}
             </div>
 
             <div class="sidebar-actions">

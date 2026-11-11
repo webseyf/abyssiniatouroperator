@@ -9,9 +9,9 @@ const { currentPath = '/' } = Astro.props;
 
 const navItems = [
   { label: 'HOME', href: '/' },
-  { label: 'ITINERARIES', href: '/tours' },
-  { label: 'DESTINATIONS', href: '/destinations' },
   { label: 'ABOUT US', href: '/about-us' },
+  { label: 'DESTINATIONS', href: '/destinations' },
+  { label: 'ITINERARIES', href: '/tours' },
   { label: 'B2B PORTAL', href: '/b2b' },
   { label: 'TRAVEL GUIDE', href: '/travel-guide' },
   { label: 'CONTACT', href: '/contact-us' }
@@ -93,7 +93,7 @@ const isActive = (href: string) => {
       <!-- CTA Button (Ochre / Gold Pill as in Reference Screenshot) -->
       <div class="header-actions">
         <button type="button" class="btn btn-header-quote js-open-quote-modal" data-tour="Custom Ethiopia Expedition">
-          Request Quote
+          GET QUOTE
         </button>
       </div>
     </div>
@@ -148,7 +148,7 @@ const isActive = (href: string) => {
   /* Recommended Desktop Header Max-Width: 1280px */
   .header-container {
     width: 100%;
-    max-width: 1280px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
     box-sizing: border-box;

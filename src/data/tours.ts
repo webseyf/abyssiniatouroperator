@@ -29,6 +29,9 @@ export interface Tour {
   itinerary: DayItinerary[];
   inclusions: string[];
   exclusions: string[];
+  price?: number;
+  priceDisplay?: string;
+  priceNote?: string;
   fitnessLevel: string;
   groupType: string;
   bestTimeToVisit: string;
@@ -70,6 +73,9 @@ export const tourPillars = [
 export const allTours: Tour[] = [
   {
     id: 1,
+    price: 2160,
+    priceDisplay: "$2,160",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "8-day-historic-north-lalibela-unesco-circuit",
     pillarId: 1,
     pillarTitle: "Historic North & Cultural Heritage",
@@ -166,6 +172,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 2,
+    price: 1340,
+    priceDisplay: "$1,340",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "5-day-compact-lalibela-gondar-heritage",
     pillarId: 1,
     pillarTitle: "Historic North & Cultural Heritage",
@@ -242,6 +251,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 3,
+    price: 2510,
+    priceDisplay: "$2,510",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "10-day-grand-historic-route-tigray-cliff-churches",
     pillarId: 1,
     pillarTitle: "Historic North & Cultural Heritage",
@@ -303,6 +315,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 4,
+    price: 930,
+    priceDisplay: "$930",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "3-day-lalibela-monolith-pilgrimage-express",
     pillarId: 1,
     pillarTitle: "Historic North & Cultural Heritage",
@@ -353,6 +368,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 5,
+    price: 1500,
+    priceDisplay: "$1,500",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "6-day-lake-tana-monasteries-source-of-nile",
     pillarId: 1,
     pillarTitle: "Historic North & Cultural Heritage",
@@ -404,6 +422,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 6,
+    price: 1240,
+    priceDisplay: "$1,240",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "4-day-danakil-depression-erta-ale-lava-lake",
     pillarId: 2,
     pillarTitle: "Extreme Adventure & Wilderness Treks",
@@ -476,6 +497,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 7,
+    price: 1290,
+    priceDisplay: "$1,290",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "6-day-simien-mountains-escarpment-trek",
     pillarId: 2,
     pillarTitle: "Extreme Adventure & Wilderness Treks",
@@ -528,6 +552,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 8,
+    price: 1300,
+    priceDisplay: "$1,300",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "7-day-bale-mountains-wilderness-ethiopian-wolf-safari",
     pillarId: 2,
     pillarTitle: "Extreme Adventure & Wilderness Treks",
@@ -579,6 +606,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 9,
+    price: 1590,
+    priceDisplay: "$1,590",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "5-day-omo-river-suri-tribal-wilderness-expedition",
     pillarId: 2,
     pillarTitle: "Extreme Adventure & Wilderness Treks",
@@ -627,6 +657,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 10,
+    price: 1050,
+    priceDisplay: "$1,050",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "3-day-erta-ale-volcano-quick-ascent",
     pillarId: 2,
     pillarTitle: "Extreme Adventure & Wilderness Treks",
@@ -673,6 +706,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 11,
+    price: 1780,
+    priceDisplay: "$1,780",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "7-day-omo-valley-tribal-cultural-photography-safari",
     pillarId: 3,
     pillarTitle: "South Omo Valley Ethnographic Safaris",
@@ -758,6 +794,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 12,
+    price: 1360,
+    priceDisplay: "$1,360",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "5-day-compact-omo-valley-tribal-encounter",
     pillarId: 3,
     pillarTitle: "South Omo Valley Ethnographic Safaris",
@@ -807,6 +846,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 13,
+    price: 2010,
+    priceDisplay: "$2,010",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "9-day-indepth-omo-valley-rift-valley-lakes-safari",
     pillarId: 3,
     pillarTitle: "South Omo Valley Ethnographic Safaris",
@@ -861,6 +903,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 14,
+    price: 1080,
+    priceDisplay: "$1,080",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "6-day-great-rift-valley-lakes-birdwatching-safari",
     pillarId: 4,
     pillarTitle: "Nature, Birdwatching & Coffee Origin",
@@ -911,6 +956,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 15,
+    price: 1070,
+    priceDisplay: "$1,070",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "5-day-kaffa-wild-arabica-coffee-origin-rainforest",
     pillarId: 4,
     pillarTitle: "Nature, Birdwatching & Coffee Origin",
@@ -961,6 +1009,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 16,
+    price: 740,
+    priceDisplay: "$740",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "4-day-awash-national-park-wildlife-safari",
     pillarId: 4,
     pillarTitle: "Nature, Birdwatching & Coffee Origin",
@@ -1008,6 +1059,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 17,
+    price: 3490,
+    priceDisplay: "$3,490",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "14-day-grand-ethiopia-combined-north-south-voyage",
     pillarId: 5,
     pillarTitle: "Grand Circuits & Day Tours",
@@ -1071,6 +1125,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 18,
+    price: 4780,
+    priceDisplay: "$4,780",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "21-day-complete-all-ethiopia-grand-expedition",
     pillarId: 5,
     pillarTitle: "Grand Circuits & Day Tours",
@@ -1129,6 +1186,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 19,
+    price: 140,
+    priceDisplay: "$140",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "1-day-addis-ababa-layover-city-heritage-tour",
     pillarId: 5,
     pillarTitle: "Grand Circuits & Day Tours",
@@ -1181,6 +1241,9 @@ export const allTours: Tour[] = [
   },
   {
     id: 20,
+    price: 160,
+    priceDisplay: "$160",
+    priceNote: "Per Person (Based on 2 Travelers)",
     slug: "1-day-debre-libanos-monastery-blue-nile-gorge",
     pillarId: 5,
     pillarTitle: "Grand Circuits & Day Tours",

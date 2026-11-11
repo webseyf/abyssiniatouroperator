@@ -22,6 +22,11 @@ const { tour } = Astro.props;
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
       <span>{tour.duration}</span>
     </div>
+    {tour.priceDisplay && (
+      <div class="card-price-badge">
+        <span>From {tour.priceDisplay}</span>
+      </div>
+    )}
   </div>
 
   <div class="card-body">
@@ -49,16 +54,23 @@ const { tour } = Astro.props;
   </div>
 
   <div class="card-footer">
-    <a href={`/tours/${tour.slug}`} class="btn-card-view">
-      [ View Itinerary ]
-    </a>
-    <button 
-      type="button" 
-      class="btn btn-gold btn-sm js-open-quote-modal" 
-      data-tour={tour.title}
-    >
-      Get Quote
-    </button>
+    {tour.priceDisplay && (
+      <div class="card-pricing-strip">
+        <span class="p-note">From <strong>{tour.priceDisplay}</strong> / person (2 pax)</span>
+      </div>
+    )}
+    <div class="card-btn-duo">
+      <a href={`/tours/${tour.slug}`} class="btn-card-view">
+        [ View Itinerary ]
+      </a>
+      <button 
+        type="button" 
+        class="btn btn-gold btn-sm js-open-quote-modal" 
+        data-tour={tour.title}
+      >
+        Get Quote
+      </button>
+    </div>
   </div>
 </article>
 
@@ -114,6 +126,20 @@ const { tour } = Astro.props;
     align-items: center;
     gap: 0.35rem;
     border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .card-price-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #1E5E44;
+    color: #FFFFFF;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.3px;
   }
 
   .card-body {
@@ -195,11 +221,34 @@ const { tour } = Astro.props;
 
   .card-footer {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.85rem 1.25rem 1.1rem 1.25rem;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding: 0.85rem 1.25rem 1rem 1.25rem;
     border-top: 1px solid var(--color-sand-border);
     background-color: #FCFAF6;
+  }
+
+  .card-pricing-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: #4A3E33;
+    background-color: #FAF4EB;
+    padding: 0.35rem 0.65rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid #EAE0D5;
+  }
+
+  .card-pricing-strip strong {
+    color: #1E5E44;
+    font-size: 0.95rem;
+  }
+
+  .card-btn-duo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .btn-card-view {

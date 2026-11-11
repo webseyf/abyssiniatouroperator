@@ -53,17 +53,18 @@ import { siteConfig } from '../config/site';
             <div class="founder-box">
               <div class="founder-img-col">
                 <img 
-                  src={siteConfig.founder.image} 
+                  src="/images/about/dessiew-field-expedition.jpg" 
                   alt={siteConfig.founder.name} 
                   class="founder-portrait"
                   width="180" 
                   height="180" 
+                  style="object-position: top center;"
                 />
                 <span class="founder-badge">Founder & CEO</span>
               </div>
               <div class="founder-info-col">
                 <h3>{siteConfig.founder.name}</h3>
-                <p class="founder-subtitle">Founder & Lead Logistician</p>
+                <p class="founder-subtitle">Founder & Lead Expedition Logistician</p>
                 <blockquote class="founder-quote-inline">
                   "{siteConfig.founder.quote}"
                 </blockquote>
@@ -125,16 +126,26 @@ import { siteConfig } from '../config/site';
             <h2>Ground Infrastructure & Fleet Specifications</h2>
             
             <div class="fleet-showcase">
-              <div class="fleet-img-wrap">
-                <img 
-                  src="/images/about/fleet-4x4-landcruiser.jpg" 
-                  alt="Toyota 4x4 Land Cruiser Fleet" 
-                  class="fleet-photo" 
-                  width="700" 
-                  height="340" 
-                />
-                <div class="fleet-img-caption">
-                  Private 4x4 Transport Fleet — Toyota Land Cruiser 76 / 79 Series & Prado 4WDs
+              <div class="fleet-img-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+                <div class="fleet-img-item" style="border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--color-sand-border);">
+                  <img 
+                    src="/images/fleet/abyssinian-4x4-convoy-lake.jpg" 
+                    alt="Abyssinian Tour Operator Private 4x4 Fleet - Lake Shore Safari Convoy" 
+                    style="width: 100%; height: 240px; object-fit: cover;" 
+                  />
+                  <div style="background: #231C16; color: #E5C158; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 700;">
+                    Official Field Fleet: Lake & Wilderness Safari Camp
+                  </div>
+                </div>
+                <div class="fleet-img-item" style="border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--color-sand-border);">
+                  <img 
+                    src="/images/fleet/abyssinian-4x4-convoy-mountain.jpg" 
+                    alt="Abyssinian Tour Operator Private 4x4 Fleet - Mountain Highland Escort Convoy" 
+                    style="width: 100%; height: 240px; object-fit: cover;" 
+                  />
+                  <div style="background: #231C16; color: #E5C158; padding: 0.5rem 0.75rem; font-size: 0.78rem; font-weight: 700;">
+                    Official Field Fleet: Cross-Country Highland Convoy
+                  </div>
                 </div>
               </div>
 
@@ -191,6 +202,21 @@ import { siteConfig } from '../config/site';
                 <span class="qf-key">Direct Contact:</span>
                 <span class="qf-val highlight-gold">{siteConfig.contact.phoneDisplay}</span>
               </div>
+            </div>
+
+            <!-- Official Ministry License Display -->
+            <div class="license-sidebar-showcase" style="margin-top: 1.25rem; border-top: 1px dashed var(--color-sand-border); padding-top: 1rem; text-align: center;">
+              <span class="section-label" style="font-size: 0.72rem; margin-bottom: 0.35rem;">GOVERNMENT ACCREDITATION</span>
+              <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--color-primary-dark);">Ministry of Tourism License</h4>
+              <a href="/images/about/ministry-of-tourism-license.jpg" target="_blank" rel="noopener noreferrer" title="Click to view full license certificate" style="display: block; position: relative;">
+                <img 
+                  src="/images/about/ministry-of-tourism-license.jpg" 
+                  alt="Ethiopian Ministry of Tourism Services Competence Accreditation Certificate - Abyssinian Tour Operator" 
+                  style="width: 100%; height: auto; max-height: 200px; object-fit: contain; border-radius: var(--radius-sm); border: 1px solid #D8C7B5; background: #FFF;" 
+                  loading="lazy" 
+                />
+                <span style="display: block; font-size: 0.75rem; color: #8C6226; font-weight: 700; margin-top: 0.35rem;">&#128065; Click to View Full Official Certificate</span>
+              </a>
             </div>
 
             <div class="side-action-btn">

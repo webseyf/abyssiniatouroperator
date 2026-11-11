@@ -3,7 +3,6 @@ import MainLayout from '../layouts/MainLayout.astro';
 import TourCard from '../components/TourCard.astro';
 import { allTours, tourPillars } from '../data/tours';
 import { siteConfig } from '../config/site';
-import { reviewsData } from '../data/reviews';
 
 const featuredTours = allTours.slice(0, 8);
 ---
@@ -12,57 +11,48 @@ const featuredTours = allTours.slice(0, 8);
   title="Abyssinian Tour Operator | Direct Inbound DMC & Tour Operator in Ethiopia"
   description="Licensed Ethiopian DMC based in Addis Ababa. 20+ years native field leadership, direct heavy-duty Toyota 4x4 fleet ownership, white-label B2B tariffs, and 20 master itineraries across Lalibela, Danakil, Omo Valley, and Simien Mountains."
 >
-  <!-- 1. Hero Section (Recreated from Client Reference Images) -->
+  <!-- 1. Hero Section (Recreated from Client Reference Images with New Lalibela Photo) -->
   <section class="hero-section">
     <div class="hero-overlay"></div>
     <div class="hero-container">
       <div class="hero-content-box">
         <p class="hero-eyebrow">
-          White-Label Ground Handling | Wholesale NET Tariffs | Turnkey Ethiopia Operations
+          Direct Inbound DMC | 20+ Years Native Field Leadership | Addis Ababa, Ethiopia
         </p>
 
         <h1 class="hero-main-title">
-          YOUR TRUSTED DIRECT GROUND OPERATOR IN ETHIOPIA
+          Experience Ethiopia with Native Field Leadership
         </h1>
 
         <p class="hero-subtext">
-          Direct field leadership | 100% Native Ground Operations across Lalibela monolithic churches, Danakil active lava lakes, and Omo Valley ethnographic safaris.
+          Over 20 years of direct ground execution across historic monolithic churches, Danakil active lava lakes, and Omo Valley ethnographic safaris.
         </p>
 
         <div class="hero-actions">
-          <a href="/b2b" class="btn btn-hero-gold">
-            Request Confidential NET Tariff Schedule
+          <a href="/tours" class="btn btn-hero-gold">
+            [ Explore All 20 Itineraries ]
           </a>
-          <a href="/contact-us" class="btn btn-hero-green">
-            Schedule B2B Video Consultation
+          <a href="/b2b" class="btn btn-hero-green">
+            [ Request B2B Confidential Tariffs ]
           </a>
         </div>
 
         <div class="hero-badges-row">
-          <div class="badge-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            <span>MOT Accredited</span>
-          </div>
-          <span class="badge-sep">•</span>
-          <div class="badge-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-            <span>Direct Fleet</span>
-          </div>
-          <span class="badge-sep">•</span>
-          <div class="badge-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            <span>24/7 Dispatch</span>
-          </div>
+          <button type="button" class="badge-item js-open-license-modal" title="Click to view official Ministry of Tourism license certificate">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5C158" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>Officially Licensed Inbound DMC &bull; Ministry of Tourism Accredited (Click to Verify)</span>
+          </button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Direct DMC Value Proposition (Trust Bar) - Rich Ochre Section -->
+  <!-- 2. Direct DMC Value Proposition (Trust & Authority Bar - Matching Reference Image 2) -->
   <section class="trust-bar-section">
     <div class="container">
-      <div class="trust-bar-header">
-        <h2 class="trust-bar-title">Direct DMC Value Proposition (Trust Bar)</h2>
+      <div class="trust-bar-header text-center">
+        <span class="section-label light">NATIVE FIELD WISDOM & AUTHORIZED GROUND HANDLING</span>
+        <h2 class="trust-bar-title">2. DIRECT DMC VALUE PROPOSITION (Trust & Authority Bar)</h2>
         <p class="trust-bar-desc">
           Partner with a licensed inbound DMC offering 100% white-label execution, confidential wholesale NET rates, and guaranteed 12-hour proposal turnarounds for your B2B travel desk.
         </p>
@@ -71,21 +61,11 @@ const featuredTours = allTours.slice(0, 8);
       <div class="trust-cards-grid">
         <div class="trust-card-sand">
           <div class="tc-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-          </div>
-          <div class="tc-content">
-            <h3>Our Story</h3>
-            <p>Our company background and direct field leadership story with 20+ years of expedition wisdom.</p>
-          </div>
-        </div>
-
-        <div class="trust-card-sand">
-          <div class="tc-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
           </div>
           <div class="tc-content">
-            <h3>FLEETS & EQUIPMENT</h3>
-            <p>Direct ownership of customized heavy-duty Toyota Land Cruisers, satellite phones, and expedition camping gear.</p>
+            <h3>Direct Wholesale NET Rates</h3>
+            <p>No middleman markups — direct Toyota Land Cruiser fleet, private camping setups, and contracted lodge tariffs.</p>
           </div>
         </div>
 
@@ -94,18 +74,28 @@ const featuredTours = allTours.slice(0, 8);
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
           </div>
           <div class="tc-content">
-            <h3>100% NATIVE GUIDES</h3>
-            <p>Certified multilingual native historians, ethnographers, and ornithologists with deep community elder trust.</p>
+            <h3>12-Hour Proposal Turnaround</h3>
+            <p>Fast, customized itinerary drafting and net quotes for B2C private travelers and international travel agency partners.</p>
           </div>
         </div>
 
         <div class="trust-card-sand">
           <div class="tc-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path></svg>
           </div>
           <div class="tc-content">
-            <h3>SUSTAINABILITY & SECURITY</h3>
-            <p>Rigorous safety protocol, crisis readiness, satellite tracking, and fair community revenue sharing.</p>
+            <h3>Native Field Operations</h3>
+            <p>Led by CEO Dessiew Abunie Dejenie with 100% certified multilingual local historians and naturalist guides.</p>
+          </div>
+        </div>
+
+        <div class="trust-card-sand">
+          <div class="tc-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"></path></svg>
+          </div>
+          <div class="tc-content">
+            <h3>Full Turnkey Execution</h3>
+            <p>Priority domestic flight bookings via Ethiopian Airlines, satellite tracking, and private wilderness mobile catering.</p>
           </div>
         </div>
       </div>
@@ -121,57 +111,12 @@ const featuredTours = allTours.slice(0, 8);
     </div>
   </section>
 
-  <!-- Section: THE ABYSSINIAN B2B ADVANTAGE (Why Outsource To Us) -->
-  <section class="section-pad advantage-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-label">PARTNER ADVANTAGE</span>
-        <h2>THE ABYSSINIAN B2B ADVANTAGE (Why Outsource To Us)</h2>
-        <p>Built for overseas tour operators, DMC brokers, and travel advisors who require turnkey ground reliability.</p>
-      </div>
-
-      <div class="advantage-grid">
-        <div class="adv-card">
-          <div class="adv-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-          </div>
-          <h3>White-label</h3>
-          <p>White-label retains and protects your profit margins with unbranded vehicles and branded client welcome signage.</p>
-        </div>
-
-        <div class="adv-card">
-          <div class="adv-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 10"></polyline></svg>
-          </div>
-          <h3>Direct Fleet</h3>
-          <p>Profit margins with direct fleet access. Zero middleman markups across Toyota Land Cruisers, coasters, and lodges.</p>
-        </div>
-
-        <div class="adv-card">
-          <div class="adv-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          </div>
-          <h3>Guide Team</h3>
-          <p>Certified native multi-lingual historians and naturalist field directors based throughout Ethiopia.</p>
-        </div>
-
-        <div class="adv-card">
-          <div class="adv-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-          </div>
-          <h3>Faster Sales</h3>
-          <p>Guaranteed 12-hour turnaround time on detailed custom itineraries ready to present to your clients.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section: Popular Featured Expeditions (Flagship Grid) -->
+  <!-- 3. Popular Featured Expeditions (Flagship Grid - Matching Reference Image 2) -->
   <section class="section-pad expeditions-section">
     <div class="container">
       <div class="section-header text-center">
         <span class="section-label">CURATED MASTER EXPEDITIONS</span>
-        <h2>POPULAR FEATURED EXPEDITIONS</h2>
+        <h2>3. POPULAR FEATURED EXPEDITIONS (Flagship Grid)</h2>
         <p>Explore our most requested private expeditions, meticulously crafted to balance cultural immersion, comfortable logistics, and authentic Ethiopian wonder.</p>
       </div>
 
@@ -183,113 +128,170 @@ const featuredTours = allTours.slice(0, 8);
 
       <div class="view-all-cta text-center">
         <a href="/tours" class="btn btn-gold btn-lg">
-          EXPLORE ALL 20 MASTER ITINERARIES
+          [ EXPLORE ALL 20 MASTER ITINERARIES ]
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Section: Ground Infrastructure & Fleet Specifications (Matching Reference Screenshot) -->
-  <section class="section-pad fleet-specs-section">
+  <!-- 4. ABOUT ABYSSINIAN TOUR OPERATOR (Compact, Click-to-Expand Accordion as Client Requested) -->
+  <section class="section-pad about-compact-section">
     <div class="container">
       <div class="section-header text-center">
-        <span class="section-label">DIRECT FLEET & ASSETS</span>
-        <h2>GROUND INFRASTRUCTURE & FLEET SPECIFICATIONS</h2>
-        <p>Directly maintained heavy-duty expedition machinery built to master Ethiopia's rugged highland passes and Afar desert tracks.</p>
+        <span class="section-label">COMPANY PROFILE & TRUST AUDIT</span>
+        <h2>4. ABOUT ABYSSINIAN TOUR OPERATOR</h2>
+        <p>Direct native execution, authorized Ministry of Tourism competence, and two decades of field leadership.</p>
       </div>
 
-      <div class="fleet-specs-grid">
-        <div class="fleet-card card-sand">
-          <div class="fleet-img-wrap">
-            <img src="/images/about/fleet-4x4-landcruiser.jpg" alt="Toyota Land Cruiser 70/Prado 4WDs" width="600" height="350" />
-            <span class="fleet-tag">Private 4x4 Transport Fleet</span>
-          </div>
-          <div class="fleet-details">
-            <h3>Toyota Land Cruiser 70 / Prado 4WDs</h3>
-            <p class="fleet-note">Rigorous pre-expedition checks, onboard recovery gear, dual spare tires, and heavy-duty suspension.</p>
-            <div class="amenities-strip">
-              <div class="amenity-item">
-                <span class="amenity-icon">❄️</span>
-                <span>Climate Controlled</span>
-              </div>
-              <div class="amenity-item">
-                <span class="amenity-icon">🛡️</span>
-                <span>Seatbelts for all</span>
-              </div>
-              <div class="amenity-item">
-                <span class="amenity-icon">📡</span>
-                <span>Satellite Phone</span>
-              </div>
-              <div class="amenity-item">
-                <span class="amenity-icon">💧</span>
-                <span>Mineral Water</span>
-              </div>
-              <div class="amenity-item">
-                <span class="amenity-icon">🩹</span>
-                <span>First-Aid Kit</span>
-              </div>
+      <div class="about-compact-grid">
+        <!-- 1. Company Overview -->
+        <div class="about-acc-card" id="accCompany">
+          <div class="acc-header" role="button" tabindex="0">
+            <div class="acc-title-wrap">
+              <span class="acc-num">01</span>
+              <h3>1. Company Overview</h3>
             </div>
+            <span class="acc-icon">&plus;</span>
           </div>
-        </div>
-
-        <div class="specs-side-col">
-          <div class="card-sand spec-subcard">
-            <h3>Field Leadership & Guide Team</h3>
-            <ul class="spec-check-list">
-              <li>Certified multi-lingual native historians, naturalists & ethnographers</li>
-              <li>Pre-established regional connections with village elders & tribal leaders</li>
-              <li>24/7 direct communication with Addis Ababa operations desk</li>
-              <li>Advanced wilderness first-aid certified expedition leaders</li>
-            </ul>
-          </div>
-
-          <div class="card-sand spec-subcard">
-            <h3>Wilderness Mobile Catering</h3>
-            <p>Full field kitchen setups with dedicated safari chefs for Danakil Depression, Simien high camps, and remote Omo Valley bush expeditions. Fresh produce, dietary accommodations, and safe mineral drinking water guaranteed.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 5: Founder Profile & Managing Director (With New Photo) -->
-  <section class="section-pad founder-section">
-    <div class="container">
-      <div class="founder-card card-sand">
-        <div class="founder-layout">
-          <div class="founder-image-col">
-            <img 
-              src="/images/about/dessiew-abunie-dejenie.jpg" 
-              alt="Dessiew Abunie Dejenie - Founder & Managing Director" 
-              class="founder-portrait"
-              width="360"
-              height="360"
-            />
-            <div class="founder-badge-strip">
-              <span>Founder & Managing Director</span>
-            </div>
-          </div>
-
-          <div class="founder-content-col">
-            <span class="section-label">DIRECT NATIVE LEADERSHIP</span>
-            <h2 class="founder-title">Dessiew Abunie Dejenie</h2>
-            <p class="founder-role-title">CEO & Managing Director | Native Field Expedition Director</p>
-
-            <blockquote class="founder-quote">
-              "Whether you are planning a private custom tour, require domestic flight and car rental arrangements, or seek an inbound DMC partner for your travel agency, our dedicated ground team is available 24/7 to assist you."
-            </blockquote>
-
-            <p class="founder-bio">
-              With more than two decades of direct ground handling experience across the Ethiopian highlands, Danakil Depression, and the Omo Valley, Dessiew has led hundreds of successful international expeditions. Under his hands-on leadership, Abyssinian Tour Operator guarantees unmatched field safety, transparent wholesale pricing, and deeply authentic cultural encounters.
+          <div class="acc-body">
+            <p>
+              Founded and headquartered in Addis Ababa, <strong>Abyssinian Tour Operator</strong> is an officially accredited, direct inbound Destination Management Company (DMC) in Ethiopia. For over 20 years, we have specialized in delivering high-end, private B2C expeditions and turnkey B2B ground handling for international travel partners across the Horn of Africa.
             </p>
+            <p>
+              We operate our own fleet of heavy-duty Toyota 4x4 Land Cruisers, maintain preferred contracts with premier eco-lodges, and deploy private wilderness catering teams for extreme terrain. By eliminating middleman markups, we deliver uncompromised field safety, authentic local immersions, and direct wholesale tariffs across Ethiopia’s 20 flagship destinations.
+            </p>
+            <a href="/about-us" class="acc-link">Read Full Company Story &rarr;</a>
+          </div>
+        </div>
 
-            <div class="founder-cta-row">
-              <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-green">
-                Direct WhatsApp: {siteConfig.contact.phoneDisplay}
-              </a>
-              <a href="/about-us" class="btn btn-outline-dark">
-                Read Full Company Profile
-              </a>
+        <!-- 2. Founder & Managing Director Profile -->
+        <div class="about-acc-card active" id="accFounder">
+          <div class="acc-header" role="button" tabindex="0">
+            <div class="acc-title-wrap">
+              <span class="acc-num">02</span>
+              <h3>2. Founder & Managing Director Profile</h3>
+            </div>
+            <span class="acc-icon">&minus;</span>
+          </div>
+          <div class="acc-body" style="display: block;">
+            <div class="founder-compact-layout">
+              <img 
+                src="/images/about/dessiew-abunie-dejenie.jpg" 
+                alt="Dessiew Abunie Dejenie - Founder & Lead Logistician" 
+                class="founder-compact-avatar"
+                width="140"
+                height="140"
+              />
+              <div class="founder-compact-text">
+                <h4>Dessiew Abunie Dejenie &mdash; Founder & Lead Logistician</h4>
+                <blockquote class="founder-compact-quote">
+                  "True exploration in Ethiopia requires more than just a route map—it demands deep native field wisdom, seamless logistical security, and respect for our cultural heritage."
+                </blockquote>
+                <p>
+                  With over two decades of hands-on field leadership, Dessiew Abunie Dejenie built Abyssinian Tour Operator on the principle of direct, native execution. Starting his career in the field, Dessiew has personally led hundreds of expeditions across the rugged Simien escarpment, the active lava fields of the Danakil Depression, and the remote communities of the South Omo Valley.
+                </p>
+                <p>
+                  His deep-rooted relationships with local village elders, national park wardens, and heritage site guardians ensure that every Abyssinian itinerary operates with privileged access, strict safety protocols, and ethical community engagement. Today, Dessiew oversees all ground operations from our Addis Ababa headquarters, ensuring every guest and international agent receives 24/7 personal oversight.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Our Core Operational Guarantees -->
+        <div class="about-acc-card" id="accGuarantees">
+          <div class="acc-header" role="button" tabindex="0">
+            <div class="acc-title-wrap">
+              <span class="acc-num">03</span>
+              <h3>3. Our Core Operational Guarantees</h3>
+            </div>
+            <span class="acc-icon">&plus;</span>
+          </div>
+          <div class="acc-body">
+            <div class="guarantees-compact-grid">
+              <div class="g-compact-item">
+                <span class="g-compact-check">&#10004;</span>
+                <div>
+                  <strong>Direct Local Ownership:</strong>
+                  <span>We own and manage our ground operations &mdash; no outsourcing to third-party brokers.</span>
+                </div>
+              </div>
+              <div class="g-compact-item">
+                <span class="g-compact-check">&#10004;</span>
+                <div>
+                  <strong>100% Native Multi-Lingual Guides:</strong>
+                  <span>Certified local experts with deep historical, ethnographic, and biological knowledge.</span>
+                </div>
+              </div>
+              <div class="g-compact-item">
+                <span class="g-compact-check">&#10004;</span>
+                <div>
+                  <strong>Rigorous Field Security & Comfort:</strong>
+                  <span>Heavy-duty 4x4 Land Cruisers equipped with first-aid kits, satellite tracking, and seasoned expedition drivers.</span>
+                </div>
+              </div>
+              <div class="g-compact-item">
+                <span class="g-compact-check">&#10004;</span>
+                <div>
+                  <strong>Ethical & Sustainable Tourism:</strong>
+                  <span>We work directly with indigenous communities in the Omo Valley and national parks to ensure fair wages and sustainable cultural preservation.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Key Company Quick Facts & Legal Accreditation -->
+        <div class="about-acc-card" id="accFacts">
+          <div class="acc-header" role="button" tabindex="0">
+            <div class="acc-title-wrap">
+              <span class="acc-num">04</span>
+              <h3>4. Key Company Quick Facts (Trust Box)</h3>
+            </div>
+            <span class="acc-icon">&plus;</span>
+          </div>
+          <div class="acc-body">
+            <div class="quick-facts-table-wrap">
+              <table class="quick-facts-table">
+                <thead>
+                  <tr>
+                    <th>Field Feature</th>
+                    <th>Abyssinian Operating Standard</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Legal License</strong></td>
+                    <td>
+                      Fully Accredited Inbound DMC &mdash; Ethiopian Ministry of Tourism (Issue: Sept 20/2024, Capital: 12M ETB)
+                      <br />
+                      <button type="button" class="btn btn-sm btn-gold js-open-license-modal" style="margin-top: 0.35rem;">
+                        &#128065; View Official Ministry License Certificate
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Operational Base</strong></td>
+                    <td>Addis Ababa, Ethiopia (24/7 Real-Time Ground Operations)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Field Fleet</strong></td>
+                    <td>Private Heavy-Duty Toyota Land Cruiser 4x4s & Coaster Buses</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Service Scope</strong></td>
+                    <td>20 Custom Itineraries (Historic North, Danakil, Omo Valley, Treks, Coffee)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Turnaround Time</strong></td>
+                    <td>Guaranteed 12-Hour Proposal & Tariff Response</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Direct Contact</strong></td>
+                    <td><a href="tel:+251920009100" class="link-gold">+251 920 009 100</a> (WhatsApp Direct)</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -297,20 +299,55 @@ const featuredTours = allTours.slice(0, 8);
     </div>
   </section>
 
-  <!-- Section 6: Pre-Departure Travel & Packing Guide -->
+  <!-- 5. International B2B Travel Agent Gateway (Matching Reference Image 2) -->
+  <section class="section-pad b2b-gateway-section">
+    <div class="container">
+      <div class="b2b-gateway-box card-sand text-center">
+        <span class="section-label">TRAVEL TRADE PARTNERSHIP</span>
+        <h2>5. INTERNATIONAL B2B TRAVEL AGENT GATEWAY</h2>
+        <h3 class="b2b-gateway-sub">Partner with Ethiopia's Leading Inbound Ground Operator</h3>
+        
+        <div class="b2b-gateway-points">
+          <div class="b2b-gw-item">
+            <span class="gw-check">&#10003;</span>
+            <strong>100% White-Label Execution</strong>
+            <p>Unbranded 4x4s & guides operating under your company brand</p>
+          </div>
+          <div class="b2b-gw-item">
+            <span class="gw-check">&#10003;</span>
+            <strong>Confidential Net Tariffs</strong>
+            <p>Direct wholesale operator pricing with zero middleman markups</p>
+          </div>
+          <div class="b2b-gw-item">
+            <span class="gw-check">&#10003;</span>
+            <strong>Safety & Security Standards</strong>
+            <p>Satellite GPS tracking, pre-cleared tribal permits & 24/7 dispatch</p>
+          </div>
+        </div>
+
+        <div class="b2b-gw-action">
+          <a href="/b2b" class="btn btn-gold btn-lg">
+            [ Access B2B Partner Portal ]
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Pre-Departure Travel Advisory (Client Guidance - Matching Reference Image 2) -->
   <section class="section-pad advisory-section">
     <div class="container">
       <div class="advisory-card card-sand">
         <div class="advisory-header text-center">
           <span class="section-label">FIELD-TESTED CLIENT ADVISORY</span>
-          <h2>PRE-TRIP TRAVEL & PACKING GUIDE</h2>
+          <h2>6. PRE-DEPARTURE TRAVEL ADVISORY (Client Guidance)</h2>
           <p>Essential practical preparation for an effortless, enjoyable, and safe journey across Ethiopia.</p>
         </div>
 
         <div class="advisory-grid">
           <div class="adv-item">
             <div class="adv-item-icon">🛂</div>
-            <h4>Visa & Documents</h4>
+            <h4>Visa Processing</h4>
             <p>Apply online via official <strong>evisa.gov.et</strong>. Carry printed approval and 6-month valid passport.</p>
           </div>
 
@@ -335,24 +372,24 @@ const featuredTours = allTours.slice(0, 8);
 
         <div class="advisory-action text-center">
           <a href="/travel-guide" class="btn btn-gold">
-            [ Review and Download Full Pre-Trip Guide ]
+            [ Read Full Pre-Trip Packing Guide ]
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 7: Final Booking CTA -->
-  <section class="section-pad cta-strip-section">
-    <div class="container text-center">
+  <!-- 7. Final Call to Action Strip (Fixed Visibility: Rich Dark Ground with Gold Accents) -->
+  <section class="cta-strip-section text-center">
+    <div class="container">
       <span class="section-label light">START YOUR EXPEDITION</span>
-      <h2 style="color: #FFFFFF; font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 0.85rem;">
+      <h2 class="cta-main-title">
         Ready to Explore Ethiopia with Native Experts?
       </h2>
-      <p style="color: #E2D7C8; max-width: 700px; margin: 0 auto 2rem auto; font-size: 1.05rem;">
+      <p class="cta-subtext">
         Speak directly with Dessiew Abunie Dejenie and our Addis Ababa operations team. Receive a transparent, custom itinerary within 12 hours.
       </p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <div class="cta-buttons-row">
         <button type="button" class="btn btn-green btn-lg js-open-quote-modal" data-tour="Tailor-Made Expedition">
           REQUEST CUSTOM PROPOSAL
         </button>
@@ -362,21 +399,46 @@ const featuredTours = allTours.slice(0, 8);
       </div>
     </div>
   </section>
+
+  <!-- Lightbox Modal: Official Ministry of Tourism Accreditation License -->
+  <div id="licenseModal" class="license-modal-backdrop" aria-hidden="true">
+    <div class="license-modal-content">
+      <div class="license-modal-header">
+        <div>
+          <h3>Federal Democratic Republic of Ethiopia &bull; Ministry of Tourism</h3>
+          <p>Official Tourism Services Competence Accreditation &mdash; License Certificate</p>
+        </div>
+        <button type="button" class="license-modal-close" aria-label="Close certificate modal">&times;</button>
+      </div>
+      <div class="license-modal-body">
+        <img 
+          src="/images/about/ministry-of-tourism-license.jpg" 
+          alt="Ministry of Tourism Competence Accreditation License Certificate - Dessiew Abunie Dejenie - Abyssinian Tour Operator" 
+          class="license-certificate-img" 
+          loading="lazy" 
+        />
+        <div class="license-meta-info">
+          <p><strong>Trade Name:</strong> Abyssinan tour operator &bull; <strong>Investor / CEO:</strong> Mr. Dessiew Abunie Dejenie</p>
+          <p><strong>License Issue Date:</strong> September 20, 2024 &bull; <strong>Registered Capital:</strong> 12,000,000 ETB &bull; <strong>Base:</strong> Lalibela & Addis Ababa, Ethiopia</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </MainLayout>
 
 <style>
-  /* 1. Hero Section - Single Dramatic Lalibela Background & Clean Layout */
+  /* 1. Hero Section - Lalibela Background & Clean Layout */
   .hero-section {
     position: relative;
     background-color: #1A140F;
     background-image: url('/images/home/hero-lalibela.jpg');
     background-size: cover;
-    background-position: center 35%;
+    background-position: center 30%;
     color: #FFFFFF;
-    padding: 5.5rem 1rem 4.5rem 1rem;
+    padding: 6rem 1rem 5rem 1rem;
     overflow: hidden;
     width: 100%;
-    min-height: 520px;
+    min-height: 540px;
     display: flex;
     align-items: center;
   }
@@ -384,7 +446,7 @@ const featuredTours = allTours.slice(0, 8);
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(16, 12, 9, 0.45) 0%, rgba(22, 16, 11, 0.25) 50%, rgba(14, 10, 7, 0.65) 100%);
+    background: linear-gradient(180deg, rgba(16, 12, 9, 0.45) 0%, rgba(22, 16, 11, 0.28) 50%, rgba(14, 10, 7, 0.70) 100%);
     z-index: 1;
   }
 
@@ -403,13 +465,13 @@ const featuredTours = allTours.slice(0, 8);
   }
 
   .hero-eyebrow {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     letter-spacing: 1.8px;
     font-weight: 700;
     text-transform: uppercase;
     color: #E5C158;
     margin-bottom: 1.25rem;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
   }
 
   .hero-main-title {
@@ -420,7 +482,7 @@ const featuredTours = allTours.slice(0, 8);
     color: #FFFFFF;
     margin-bottom: 1.25rem;
     letter-spacing: 0.5px;
-    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.85);
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.9);
   }
 
   .hero-subtext {
@@ -429,7 +491,7 @@ const featuredTours = allTours.slice(0, 8);
     color: #F5EAE0;
     max-width: 760px;
     margin: 0 auto 2.25rem auto;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
   }
 
   .hero-actions {
@@ -437,7 +499,7 @@ const featuredTours = allTours.slice(0, 8);
     gap: 1.25rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .btn-hero-gold {
@@ -479,62 +541,65 @@ const featuredTours = allTours.slice(0, 8);
   .hero-badges-row {
     display: inline-flex;
     align-items: center;
-    gap: 1rem;
-    background: rgba(18, 14, 10, 0.7);
-    border: 1px solid rgba(229, 193, 88, 0.3);
+    justify-content: center;
+    background-color: rgba(22, 17, 13, 0.82);
+    border: 1px solid rgba(229, 193, 88, 0.45);
     border-radius: var(--radius-full);
-    padding: 0.5rem 1.5rem;
-    backdrop-filter: blur(6px);
+    padding: 0.55rem 1.4rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
   }
 
   .badge-item {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    color: #E5C158;
-    font-size: 0.85rem;
+    background: transparent;
+    border: none;
+    color: #F5EAE0;
+    font-size: 0.88rem;
     font-weight: 600;
+    letter-spacing: 0.4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
   }
 
-  .badge-sep {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.8rem;
+  .badge-item:hover {
+    color: #E5C158;
   }
 
-  /* 2. Direct DMC Value Proposition (Trust Bar) - Rich Ochre */
+  /* 2. Direct DMC Value Proposition (Trust Bar) */
   .trust-bar-section {
     background-color: #8C6226;
-    background-image: linear-gradient(135deg, #8C6226 0%, #76511B 100%);
-    color: #FFFFFF;
-    padding: 3.5rem 0;
-    border-top: 2px solid rgba(229, 193, 88, 0.3);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    color: #FAF4EB;
+    padding: 4rem 1rem;
+    border-bottom: 2px solid #E5C158;
   }
 
   .trust-bar-header {
     max-width: 820px;
     margin: 0 auto 2.5rem auto;
-    text-align: center;
   }
 
   .trust-bar-title {
-    font-family: var(--font-serif);
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
     color: #FFFFFF;
     margin-bottom: 0.75rem;
+    font-weight: 800;
   }
 
   .trust-bar-desc {
-    color: #F5EAE0;
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.6;
+    color: #F5EAE0;
+    margin: 0;
   }
 
   .trust-cards-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.25rem;
   }
 
   .trust-card-sand {
@@ -615,58 +680,7 @@ const featuredTours = allTours.slice(0, 8);
     transform: translateY(-2px);
   }
 
-  /* 3. The Abyssinian B2B Advantage (Why Outsource To Us) */
-  .advantage-section {
-    background-color: #F8F3EC;
-  }
-
-  .advantage-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-  }
-
-  .adv-card {
-    background-color: #FFFFFF;
-    border: 1px solid var(--color-sand-border);
-    border-radius: var(--radius-md);
-    padding: 1.75rem 1.25rem;
-    text-align: center;
-    box-shadow: var(--shadow-sm);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-  }
-
-  .adv-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .adv-icon {
-    width: 54px;
-    height: 54px;
-    border-radius: var(--radius-full);
-    background-color: #FAF2E3;
-    color: #8C6226;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.25rem auto;
-  }
-
-  .adv-card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #231C16;
-    margin-bottom: 0.6rem;
-  }
-
-  .adv-card p {
-    font-size: 0.88rem;
-    line-height: 1.55;
-    color: #5D5247;
-  }
-
-  /* 4. Popular Featured Expeditions */
+  /* 3. Popular Featured Expeditions */
   .expeditions-section {
     background-color: #FAF6F0;
   }
@@ -678,213 +692,256 @@ const featuredTours = allTours.slice(0, 8);
     margin-bottom: 2.5rem;
   }
 
-  .view-all-cta {
-    margin-top: 1.5rem;
+  /* 4. About Abyssinian Tour Operator (Compact Accordion Section) */
+  .about-compact-section {
+    background-color: #F5EFE6;
   }
 
-  /* 5. Fleet & Infrastructure Section */
-  .fleet-specs-section {
-    background-color: #F4ECE1;
-  }
-
-  .fleet-specs-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 2rem;
-    align-items: start;
-  }
-
-  .fleet-card {
-    overflow: hidden;
-    padding: 0;
-  }
-
-  .fleet-img-wrap {
-    position: relative;
-    width: 100%;
-    height: 280px;
-    overflow: hidden;
-  }
-
-  .fleet-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .fleet-tag {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    background-color: rgba(27, 23, 19, 0.85);
-    color: #E5C158;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    padding: 0.35rem 0.75rem;
-    border-radius: var(--radius-sm);
-  }
-
-  .fleet-details {
-    padding: 1.5rem;
-  }
-
-  .fleet-details h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #231C16;
-  }
-
-  .fleet-note {
-    font-size: 0.88rem;
-    color: #5D5247;
-    margin-bottom: 1.25rem;
-    line-height: 1.5;
-  }
-
-  .amenities-strip {
+  .about-compact-grid {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 960px;
+    margin: 0 auto;
   }
 
-  .amenity-item {
+  .about-acc-card {
     background: #FFFFFF;
     border: 1px solid var(--color-sand-border);
-    padding: 0.4rem 0.75rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: #231C16;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s ease;
+  }
+
+  .about-acc-card.active {
+    border-color: var(--color-gold);
+    box-shadow: 0 6px 18px rgba(140, 98, 38, 0.12);
+  }
+
+  .acc-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.4rem;
-  }
-
-  .specs-side-col {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .spec-subcard {
-    padding: 1.75rem;
-  }
-
-  .spec-subcard h3 {
-    font-size: 1.15rem;
-    color: #231C16;
-    margin-bottom: 0.85rem;
-  }
-
-  .spec-subcard p {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: #5D5247;
-  }
-
-  .spec-check-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-  }
-
-  .spec-check-list li {
-    font-size: 0.88rem;
-    color: #5D5247;
-    position: relative;
-    padding-left: 1.5rem;
-    line-height: 1.45;
-  }
-
-  .spec-check-list li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #1E5E44;
-    font-weight: 800;
-  }
-
-  /* 6. Founder Section */
-  .founder-section {
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
     background-color: #FAF6F0;
+    transition: background-color 0.2s ease;
+    user-select: none;
   }
 
-  .founder-card {
-    padding: 2.5rem;
+  .acc-header:hover {
+    background-color: #F1E7D8;
   }
 
-  .founder-layout {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 3rem;
+  .acc-title-wrap {
+    display: flex;
     align-items: center;
+    gap: 0.85rem;
   }
 
-  .founder-image-col {
-    text-align: center;
-  }
-
-  .founder-portrait {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid #FFFFFF;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-    margin: 0 auto 1rem auto;
-  }
-
-  .founder-badge-strip {
-    font-size: 0.85rem;
+  .acc-num {
+    background-color: #8C6226;
+    color: #FFFFFF;
+    font-size: 0.75rem;
     font-weight: 700;
-    color: #8C6226;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
     letter-spacing: 0.5px;
   }
 
-  .founder-title {
-    font-family: var(--font-serif);
-    font-size: 2rem;
+  .acc-title-wrap h3 {
+    margin: 0;
+    font-size: 1.15rem;
     color: #231C16;
+    font-weight: 700;
+  }
+
+  .acc-icon {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #8C6226;
+    line-height: 1;
+  }
+
+  .acc-body {
+    display: none;
+    padding: 1.5rem;
+    background-color: #FFFFFF;
+    border-top: 1px solid #EAE0D5;
+  }
+
+  .about-acc-card.active .acc-body {
+    display: block;
+  }
+
+  .acc-body p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #4A3E33;
+    margin-bottom: 1rem;
+  }
+
+  .acc-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .acc-link {
+    display: inline-block;
+    color: #8C6226;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .founder-compact-layout {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .founder-compact-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    border: 3px solid #8C6226;
+    flex-shrink: 0;
+  }
+
+  .founder-compact-text h4 {
+    margin: 0 0 0.5rem 0;
+    color: #231C16;
+    font-size: 1.1rem;
+  }
+
+  .founder-compact-quote {
+    font-style: italic;
+    color: #8C6226;
+    border-left: 3px solid #8C6226;
+    padding-left: 1rem;
+    margin: 0.75rem 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .guarantees-compact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .g-compact-item {
+    display: flex;
+    gap: 0.75rem;
+    background-color: #FAF6F0;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid #EAE0D5;
+  }
+
+  .g-compact-check {
+    color: #1E5E44;
+    font-size: 1.1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .g-compact-item strong {
+    display: block;
+    color: #231C16;
+    font-size: 0.92rem;
     margin-bottom: 0.25rem;
   }
 
-  .founder-role-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #8C6226;
-    margin-bottom: 1.25rem;
-  }
-
-  .founder-quote {
-    font-family: var(--font-serif);
-    font-size: 1.05rem;
-    font-style: italic;
-    color: #382D24;
-    line-height: 1.6;
-    padding-left: 1.25rem;
-    border-left: 3px solid #C69224;
-    margin-bottom: 1.5rem;
-  }
-
-  .founder-bio {
-    font-size: 0.92rem;
-    line-height: 1.65;
+  .g-compact-item span {
+    font-size: 0.85rem;
     color: #5D5247;
-    margin-bottom: 1.75rem;
+    line-height: 1.45;
   }
 
-  .founder-cta-row {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+  .quick-facts-table-wrap {
+    overflow-x: auto;
   }
 
-  /* 7. Advisory Section */
-  .advisory-section {
+  .quick-facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+
+  .quick-facts-table th, 
+  .quick-facts-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #EAE0D5;
+    text-align: left;
+  }
+
+  .quick-facts-table th {
+    background-color: #FAF4EB;
+    color: #8C6226;
+    font-weight: 700;
+  }
+
+  /* 5. International B2B Travel Agent Gateway */
+  .b2b-gateway-section {
     background-color: #F8F3EC;
+  }
+
+  .b2b-gateway-box {
+    padding: 3rem 2rem;
+    border: 2px solid #D4AF37;
+    border-radius: var(--radius-lg);
+    background-color: #FFFFFF;
+    box-shadow: var(--shadow-md);
+  }
+
+  .b2b-gateway-sub {
+    font-size: 1.35rem;
+    color: #231C16;
+    margin: 0.5rem 0 2rem 0;
+    font-family: var(--font-serif);
+  }
+
+  .b2b-gateway-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.25rem;
+    text-align: left;
+  }
+
+  .b2b-gw-item {
+    background: #FAF6F0;
+    border: 1px solid #EAE0D5;
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+  }
+
+  .gw-check {
+    color: #1E5E44;
+    font-weight: 800;
+    margin-right: 0.35rem;
+  }
+
+  .b2b-gw-item strong {
+    color: #231C16;
+    font-size: 0.98rem;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .b2b-gw-item p {
+    font-size: 0.85rem;
+    color: #5D5247;
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  /* 6. Pre-Departure Advisory Section */
+  .advisory-section {
+    background-color: #FAF6F0;
   }
 
   .advisory-header {
@@ -924,27 +981,161 @@ const featuredTours = allTours.slice(0, 8);
     line-height: 1.5;
   }
 
+  /* 7. Final Booking CTA Strip — GUARANTEED HIGH CONTRAST DARK BACKGROUND */
+  .cta-strip-section {
+    background: linear-gradient(135deg, #1C1611 0%, #2A2018 50%, #15110D 100%) !important;
+    border-top: 2px solid #D4AF37;
+    color: #FFFFFF !important;
+    padding: 5rem 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-strip-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.15), transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-strip-section .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-main-title {
+    color: #FFFFFF !important;
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    margin: 0.75rem 0 1rem 0;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  .cta-subtext {
+    color: #F0E4D5 !important;
+    max-width: 720px;
+    margin: 0 auto 2.25rem auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  }
+
+  .cta-buttons-row {
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* License Lightbox Modal */
+  .license-modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    backdrop-filter: blur(5px);
+  }
+
+  .license-modal-backdrop.active {
+    display: flex;
+  }
+
+  .license-modal-content {
+    background: #FFFFFF;
+    border-radius: var(--radius-md);
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .license-modal-header {
+    background-color: #231C16;
+    color: #FFFFFF;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #D4AF37;
+  }
+
+  .license-modal-header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #E5C158;
+  }
+
+  .license-modal-header p {
+    margin: 0.2rem 0 0 0;
+    font-size: 0.82rem;
+    color: #D1C5B6;
+  }
+
+  .license-modal-close {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 0.5rem;
+  }
+
+  .license-modal-body {
+    padding: 1.25rem;
+    overflow-y: auto;
+    text-align: center;
+    background-color: #FAF5EE;
+  }
+
+  .license-certificate-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border: 1px solid #D8C7B5;
+  }
+
+  .license-meta-info {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #5D5247;
+    background: #FFFFFF;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid #EAE0D5;
+  }
+
+  .license-meta-info p {
+    margin: 0.25rem 0;
+  }
+
   /* Responsive Breakpoints */
   @media (max-width: 1100px) {
     .flagship-grid,
-    .advantage-grid,
     .trust-cards-grid,
+    .b2b-gateway-points,
     .advisory-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-    .fleet-specs-grid,
-    .founder-layout {
+    .guarantees-compact-grid {
       grid-template-columns: 1fr;
-    }
-    .founder-portrait {
-      width: 200px;
-      height: 200px;
     }
   }
 
   @media (max-width: 680px) {
     .hero-section {
-      padding: 3.5rem 1rem 3rem 1rem;
+      padding: 4rem 1rem 3rem 1rem;
       min-height: auto;
     }
     .hero-main-title {
@@ -964,23 +1155,73 @@ const featuredTours = allTours.slice(0, 8);
       width: 100%;
       text-align: center;
     }
-    .hero-badges-row {
-      flex-direction: column;
-      border-radius: var(--radius-md);
-      gap: 0.5rem;
-      padding: 0.75rem 1rem;
-    }
-    .badge-sep {
-      display: none;
-    }
     .flagship-grid,
-    .advantage-grid,
     .trust-cards-grid,
+    .b2b-gateway-points,
     .advisory-grid {
       grid-template-columns: 1fr;
     }
-    .founder-card {
-      padding: 1.5rem;
+    .founder-compact-layout {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
   }
 </style>
+
+<script>
+  // Interactive Accordion for Section 4 (Compact Height as requested)
+  document.querySelectorAll('.about-acc-card .acc-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.closest('.about-acc-card');
+      const isActive = card?.classList.contains('active');
+      
+      document.querySelectorAll('.about-acc-card').forEach(c => {
+        c.classList.remove('active');
+        const icon = c.querySelector('.acc-icon');
+        if (icon) icon.innerHTML = '&plus;';
+        const body = c.querySelector('.acc-body') as HTMLElement;
+        if (body) body.style.display = 'none';
+      });
+
+      if (!isActive && card) {
+        card.classList.add('active');
+        const icon = card.querySelector('.acc-icon');
+        if (icon) icon.innerHTML = '&minus;';
+        const body = card.querySelector('.acc-body') as HTMLElement;
+        if (body) body.style.display = 'block';
+      }
+    });
+  });
+
+  // Lightbox Modal for Ministry of Tourism License
+  const licenseModal = document.getElementById('licenseModal');
+  const closeBtn = document.querySelector('.license-modal-close');
+
+  document.querySelectorAll('.js-open-license-modal').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (licenseModal) {
+        licenseModal.classList.add('active');
+        licenseModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    if (licenseModal) {
+      licenseModal.classList.remove('active');
+      licenseModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  });
+
+  licenseModal?.addEventListener('click', (e) => {
+    if (e.target === licenseModal) {
+      licenseModal.classList.remove('active');
+      licenseModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  });
+</script>

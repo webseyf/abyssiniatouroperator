@@ -77,10 +77,10 @@ export const siteConfig: SiteConfig = {
       gmail: "abyssiniantouroperator@gmail.com"
     },
     address: {
-      street: "Nifas Silk Lafto",
+      street: "Gerji Mebrat Tango Bldg, Office 201",
       city: "Addis Ababa",
       country: "Ethiopia",
-      full: "Nifas Silk Lafto, Addis Ababa, Ethiopia"
+      full: "Gerji Mebrat Tango Bldg, Office 201, Addis Ababa, Ethiopia"
     },
     hours: "Monday – Saturday: 8:00 AM – 6:00 PM (EAT) | 24/7 Ground Emergency Line Active"
   },
