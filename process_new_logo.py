@@ -3,7 +3,7 @@ import urllib.request
 import json
 from PIL import Image, ImageFilter
 
-headers = {'User-Agent': 'AbyssinianTourBot/1.0 (info@abyssiniantouroperator.com)'}
+headers = {'User-Agent': 'AbyssinianTourBot/1.0 (info@abyssiniatouroperator.com)'}
 
 uploaded = r'C:/Users/HP/.gemini/antigravity/brain/9d445047-c31b-4bc3-a460-0990ba3e614a/.user_uploaded'
 

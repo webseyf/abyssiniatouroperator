@@ -2,7 +2,7 @@ import json
 import urllib.request
 import os
 
-headers = {'User-Agent': 'AbyssinianTourBot/1.0 (travel@abyssiniantouroperator.com)'}
+headers = {'User-Agent': 'AbyssinianTourBot/1.0 (travel@abyssiniatouroperator.com)'}
 
 extra_queries = [
     {

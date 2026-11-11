@@ -48,9 +48,9 @@ All 20 master itineraries provided by the client have been integrated into dedic
 
 ## 3. Contact & Inbound Email Verification
 The following email addresses provided in the client's materials are wired into the platform:
-- `info@abyssiniantouroperator.com`: General inquiries and homepage form notifications.
-- `booking@abyssiniantouroperator.com`: Quote popup requests and specific tour bookings.
-- `b2b@abyssiniantouroperator.com`: B2B travel agency registrations and wholesale NET tariff requests.
+- `info@abyssiniatouroperator.com`: General inquiries and homepage form notifications.
+- `booking@abyssiniatouroperator.com`: Quote popup requests and specific tour bookings.
+- `b2b@abyssiniatouroperator.com`: B2B travel agency registrations and wholesale NET tariff requests.
 - `abyssiniantouroperator@gmail.com`: Listed as an alternate backup contact.
 
 **Client Action Required:**

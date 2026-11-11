@@ -3,7 +3,7 @@ import json
 import urllib.request
 from PIL import Image
 
-headers = {'User-Agent': 'AbyssinianTourBot/1.0 (travel@abyssiniantouroperator.com)'}
+headers = {'User-Agent': 'AbyssinianTourBot/1.0 (travel@abyssiniatouroperator.com)'}
 
 dest_queries = [
     {

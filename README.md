@@ -71,18 +71,17 @@ If your live domain differs, update these two lines and rebuild (`npm run build`
 
 The website includes two server-side PHP endpoints located in `public/api/`:
 1. `public/api/contact.php`: Handles general inquiries, quote modal popups, and the contact page form. Sends notifications to:
-   - `info@abyssiniantouroperator.com`
-   - `booking@abyssiniantouroperator.com`
+   - `info@abyssiniatouroperator.com`
+   - `booking@abyssiniatouroperator.com`
 2. `public/api/b2b-apply.php`: Handles travel agent registrations and NET tariff requests. Sends notifications to:
-   - `b2b@abyssiniantouroperator.com`
+   - `b2b@abyssiniatouroperator.com`
 
 ### Modifying Notification Emails:
-Open `public/api/contact.php` and edit line 10:
+Open `public/api/mail-config.php` to set recipient addresses and credentials:
 ```php
-$to_emails = [
-    'info@abyssiniantouroperator.com',
-    'booking@abyssiniantouroperator.com'
-];
+define('ABYSSINIAN_INFO_EMAIL',   'info@abyssiniatouroperator.com');
+define('ABYSSINIAN_B2B_EMAIL',    'b2b@abyssiniatouroperator.com');
+define('ABYSSINIAN_BACKUP_EMAIL', 'abyssiniantouroperator@gmail.com');
 ```
 
 ### Using cPanel SMTP / Custom Mailer (Optional):
@@ -190,7 +189,7 @@ abyssinian tour/
 - **Founder & CEO:** Dessiew Abunie Dejenie
 - **Headquarters:** Addis Ababa, Ethiopia
 - **Direct Dispatch / WhatsApp:** +251 920 009 100
-- **General Inquiries:** info@abyssiniantouroperator.com
-- **B2B Agent Portal:** b2b@abyssiniantouroperator.com
+- **General Inquiries:** info@abyssiniatouroperator.com
+- **B2B Agent Portal:** b2b@abyssiniatouroperator.com
 - **Official Domain:** https://www.abyssiniatouroperator.com
 
