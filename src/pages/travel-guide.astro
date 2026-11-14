@@ -2,258 +2,416 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import TrustBar from '../components/TrustBar.astro';
 import { siteConfig } from '../config/site';
+
+const guideSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Ethiopia Pre-Trip Travel & Packing Guide",
+  "description": "Comprehensive pre-trip field guidance compiled by native ground experts: visas, health, packing lists, cultural etiquette, drone regulations, and emergency field dispatch.",
+  "image": "https://abyssiniatouroperator.com/images/destinations/gondar-castles.jpg",
+  "publisher": {
+    "@type": "TravelAgency",
+    "name": siteConfig.companyName,
+    "url": "https://abyssiniatouroperator.com",
+    "telephone": siteConfig.contact.phone
+  }
+};
 ---
 
 <MainLayout 
   title="Pre-Trip Travel & Packing Guide for Ethiopia | Abyssinian Tour Operator"
-  description="Essential field guidance compiled by native ground experts: visas (e-Visa), currency, health, regional packing lists, cultural etiquette, drone laws, and emergency field dispatch."
-  image="/images/home/hero-guide-sanetti.jpg"
+  description="Essential field guidance compiled by native ground experts: visas (e-Visa), health, regional packing lists, cultural etiquette, drone laws, and emergency field dispatch."
+  image="/images/destinations/gondar-castles.jpg"
 >
-  <!-- Page Hero -->
-  <section class="page-hero" style="background-image: url('/images/home/hero-guide-sanetti.jpg');">
-    <div class="container">
-      <span class="section-label light">NATIVE FIELD ADVISORY</span>
-      <h1>PRE-TRIP TRAVEL & PACKING GUIDE</h1>
-      <p class="subtitle">
-        Essential field guidance compiled by native ground experts to ensure a safe, seamless, and well-prepared journey across Ethiopia’s diverse highlands, deserts, and valleys.
-      </p>
+  <script type="application/ld+json" set:html={JSON.stringify(guideSchema)} />
+
+  <!-- Top DMC Advisory Bar (Matching Client Wireframe) -->
+  <section class="guide-top-bar">
+    <div class="container guide-top-bar-inner">
+      <div class="guide-top-bar-text">
+        <span class="guide-top-badge">NATIVE GROUND HANDLER</span>
+        <p>Abyssinian Tour Operator is the original local DMC and ground operator, providing expert local handling for private and B2B clients in Ethiopia.</p>
+      </div>
+      <div class="guide-top-bar-cta">
+        <a href="/contact-us" class="btn btn-gold btn-sm">[ Request Quote ]</a>
+      </div>
     </div>
   </section>
 
-  <!-- Section: Pre-Trip Guide Content Grid -->
-  <section class="section-pad">
+  <!-- Hero Banner with Gondar Castles (Matching Wireframe) -->
+  <section class="guide-hero-banner" style="background-image: linear-gradient(rgba(18, 16, 14, 0.45), rgba(18, 16, 14, 0.55)), url('/images/destinations/gondar-castles.jpg');">
+    <div class="container text-center">
+      <h1 class="guide-hero-title">PRE-TRIP TRAVEL &amp; PACKING GUIDE</h1>
+    </div>
+  </section>
+
+  <!-- Main Editorial Layout -->
+  <section class="section-pad guide-content-section">
     <div class="container">
-      <div class="editorial-grid">
-        <!-- Main Column: Guide Sections -->
-        <div class="guide-main-col">
-          <!-- Pre-Trip Checklist -->
-          <div class="card-sand guide-block">
-            <span class="section-label">PREPARATION FOUNDATIONS</span>
-            <h2>PRE-TRIP CHECKLIST</h2>
-            <div class="checklist-grid">
-              <div class="check-card">
-                <div class="check-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      <div class="guide-layout">
+        
+        <!-- ============================================================== -->
+        <!-- LEFT COLUMN: SECTIONS 1, 2, 3, 4                              -->
+        <!-- ============================================================== -->
+        <div class="guide-left-col">
+          
+          <!-- 1. PRE-TRIP CHECKLIST -->
+          <div class="guide-panel">
+            <h2 class="guide-sec-title">1. PRE-TRIP CHECKLIST</h2>
+            <div class="checklist-grid-2x2">
+              
+              <!-- Visa & Documents -->
+              <div class="check-box">
+                <div class="check-box-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
                 </div>
-                <h4>Visa & Documents</h4>
-                <p>Check passport validity (minimum 6 months beyond travel dates). Secure official tourist e-Visa at <strong>evisa.gov.et</strong>. Print two physical copies for Bole Airport immigration.</p>
+                <div class="check-box-content">
+                  <h3>Visa &amp; Documents</h3>
+                  <p>Check validity, secure e-visa, digital &amp; printed copies.</p>
+                </div>
               </div>
 
-              <div class="check-card">
-                <div class="check-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+              <!-- Health -->
+              <div class="check-box">
+                <div class="check-box-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M2 12h20"></path>
+                    <rect x="5" y="5" width="14" height="14" rx="2" stroke-width="1.5"></rect>
+                  </svg>
                 </div>
-                <h4>Health & Immunizations</h4>
-                <p>Yellow Fever certificate mandatory if transiting from endemic zones. Check routine vaccines. Malaria prophylaxis for lowland areas (Danakil, Omo Valley, Awash).</p>
+                <div class="check-box-content">
+                  <h3>Health</h3>
+                  <p>Vaccinations, Malaria prophylaxis, personal prescriptions.</p>
+                </div>
               </div>
 
-              <div class="check-card">
-                <div class="check-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <!-- Travel Insurance -->
+              <div class="check-box">
+                <div class="check-box-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
                 </div>
-                <h4>Travel Insurance</h4>
-                <p>Ensure your policy includes emergency high-altitude medical evacuation, wilderness exploration coverage, and luggage compensation.</p>
+                <div class="check-box-content">
+                  <h3>Travel Insurance</h3>
+                  <p>Comprehensive cover with emergency repatriation.</p>
+                </div>
               </div>
 
-              <div class="check-card">
-                <div class="check-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"></path></svg>
+              <!-- Flights & Itinerary -->
+              <div class="check-box">
+                <div class="check-box-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"></path>
+                  </svg>
                 </div>
-                <h4>Flights & Itinerary</h4>
-                <p>Verify e-tickets and domestic flight allocations. Our dispatch team coordinates priority baggage and check-in assistance at Bole Domestic Terminal.</p>
+                <div class="check-box-content">
+                  <h3>Flights &amp; Itinerary</h3>
+                  <p>E-tickets, domestic flight confirmations, final itinerary.</p>
+                </div>
               </div>
+
             </div>
           </div>
 
-          <!-- Currency & Banking Details -->
-          <div class="card-white guide-block">
-            <span class="section-label">FINANCIAL GUIDELINES</span>
-            <h2>Foreign Exchange & Cash Guidelines</h2>
-            <div class="prose">
-              <p>
-                <strong>US Dollar Requirements:</strong> When traveling to Ethiopia, bring pristine US Dollar cash banknotes issued in <strong>2013 or newer</strong>. Local commercial banks and foreign exchange desks strictly reject bills with tears, stamps, pinholes, or heavy ink markings.
-              </p>
-              <p>
-                <strong>Ethiopian Birr (ETB):</strong> Official currency exchange is available upon arrival at Bole International Airport (Terminal 2) or authorized commercial banks in Addis Ababa. Keep your official exchange receipts.
-              </p>
-              <p>
-                <strong>Credit Cards & ATMs:</strong> Credit card acceptance (Visa/Mastercard) is limited almost exclusively to international chain hotels in Addis Ababa. Outside the capital, Ethiopia is a cash economy; carry sufficient USD cash to convert for tipping, market purchases, and personal items.
-              </p>
+          <!-- 2. ESSENTIAL PACKING LIST & PREPARATION -->
+          <div class="guide-panel">
+            <h2 class="guide-sec-title">2. ESSENTIAL PACKING LIST &amp; PREPARATION</h2>
+            <div class="packing-items-flow">
+              
+              <!-- Clothing -->
+              <div class="pack-item-row">
+                <div class="pack-item-visual">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 3h12l2 6-4 1-1-4H9L8 6 4 9 6 3z"></path>
+                    <path d="M6 3v18l6-2 6 2V3"></path>
+                  </svg>
+                </div>
+                <div class="pack-item-desc">
+                  <h3>Clothing (Warm &amp; Dust Protection)</h3>
+                  <p>
+                    Lightweight cotton/linen long pants; short-sleeve shirts (neutral tones). 
+                    Durable walking shoes; sports sandals. Lightweight rain shell.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Medical & Hygiene -->
+              <div class="pack-item-row">
+                <div class="pack-item-visual">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 2h4M9 2v4a3 3 0 0 0 3 3h0a3 3 0 0 0 3-3V2"></path>
+                    <rect x="7" y="9" width="10" height="13" rx="2"></rect>
+                    <line x1="12" y1="13" x2="12" y2="17"></line>
+                    <line x1="10" y1="15" x2="14" y2="15"></line>
+                  </svg>
+                </div>
+                <div class="pack-item-desc">
+                  <h3>Medical &amp; Hygiene</h3>
+                  <p>
+                    Sunscreen (high SPF); lip balm; hydration salts. Antihistamines; pain relief; first-aid.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Electronics & Photography -->
+              <div class="pack-item-row">
+                <div class="pack-item-visual">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                    <path d="M12 6v6"></path>
+                    <path d="M10 9h4"></path>
+                    <circle cx="12" cy="17" r="1.5"></circle>
+                  </svg>
+                </div>
+                <div class="pack-item-desc">
+                  <h3>Electronics &amp; Photography</h3>
+                  <p>
+                    Multi-port high-capacity power bank. Memory cards; spare batteries. 
+                    <span class="confiscate-note">(Unsanctioned drones will be confiscated)</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Dry bags & Flashlights -->
+              <div class="pack-item-row">
+                <div class="pack-item-visual">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6l-6-4-6 4v10a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4V6z"></path>
+                    <path d="M9 10h6"></path>
+                  </svg>
+                </div>
+                <div class="pack-item-desc">
+                  <h3>Dust-proof dry bags &amp; Illumination</h3>
+                  <p>
+                    Dust-proof dry bags (for sensitive gear). Headlamps or small flashlights.
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
 
-          <!-- Essential Packing List & Preparation -->
-          <div class="card-sand guide-block">
-            <span class="section-label">CLIMATE-SPECIFIC GEAR</span>
-            <h2>ESSENTIAL PACKING LIST & REGIONAL GEAR</h2>
-            <p class="guide-lead">
-              Ethiopia features vastly different climate zones—from near-freezing temperatures on 4,000m Simien escarpments to intense desert heat in Danakil. Pack in layers using soft, durable duffel bags (preferred for 4x4 storage).
-            </p>
-
-            <div class="packing-accordion">
-              <!-- Historic North & Simien Trekking -->
-              <div class="pack-region-box">
-                <div class="pack-region-header">
-                  <h3>Historic North & Simien Trekking (Highland Cold & Sun)</h3>
+          <!-- 3. GUIDELINES & ETIQUETTE (Summary Box) -->
+          <div class="guide-panel guide-summary-card">
+            <h2 class="guide-sec-title">3. GUIDELINES &amp; ETIQUETTE</h2>
+            <div class="guidelines-card-list">
+              
+              <!-- Photography & Ethics -->
+              <div class="guide-rule-item">
+                <div class="guide-rule-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <circle cx="5" cy="5" r="2"></circle>
+                    <circle cx="19" cy="5" r="2"></circle>
+                    <circle cx="5" cy="19" r="2"></circle>
+                    <circle cx="19" cy="19" r="2"></circle>
+                    <line x1="7" y1="7" x2="10" y2="10"></line>
+                    <line x1="17" y1="7" x2="14" y2="10"></line>
+                    <line x1="7" y1="17" x2="10" y2="14"></line>
+                    <line x1="17" y1="17" x2="14" y2="14"></line>
+                  </svg>
                 </div>
-                <ul class="pack-items-list">
-                  <li><strong>Thermal Base Layers:</strong> Merino wool or synthetic long underwear for chilly mountain evenings (temperatures drop near 0°C / 32°F).</li>
-                  <li><strong>Warm Fleece / Down Jacket:</strong> Essential for Simien campsites, Lalibela evenings, and Bale Sanetti plateau.</li>
-                  <li><strong>Sturdy Hiking Boots:</strong> Broken-in ankle-support boots with merino wool socks for rocky escarpments.</li>
-                  <li><strong>Slip-on Shoes / Sandals:</strong> Highly practical when frequently removing shoes before entering Lalibela and Lake Tana rock churches.</li>
-                  <li><strong>Sun Protection:</strong> Wide-brimmed hat, polarized UV sunglasses, and high-SPF sunblock (high altitude intensifies UV rays).</li>
-                </ul>
+                <div class="guide-rule-body">
+                  <h4>PHOTOGRAPHY &amp; ETHICS</h4>
+                  <p>
+                    <strong>Drone Usage:</strong> Strict regulations; prior CAA authority required. 
+                    <strong>Omo Valley Portraits:</strong> Always coordinate with guide; fees are respectfully negotiated upfront. 
+                    <strong>Cultural Sensitivity:</strong> Ask permission; no military/government/police photography.
+                  </p>
+                </div>
               </div>
 
-              <!-- Danakil Depression Expedition -->
-              <div class="pack-region-box">
-                <div class="pack-region-header">
-                  <h3>Danakil Depression Expedition (Extreme Heat & Volcanic Terrain)</h3>
+              <!-- Cultural Etiquette -->
+              <div class="guide-rule-item">
+                <div class="guide-rule-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v4M10 4h4"></path>
+                    <path d="M12 6L4 12v9h16v-9L12 6z"></path>
+                    <path d="M10 21v-5a2 2 0 0 1 4 0v5"></path>
+                  </svg>
                 </div>
-                <ul class="pack-items-list">
-                  <li><strong>Ultra-Lightweight Clothing:</strong> Breathable, loose long-sleeve shirts and light trekking pants for sun and dust protection.</li>
-                  <li><strong>Trail Shoes with Thick Soles:</strong> Sharp volcanic basalt rock around Erta Ale and Dallol can pierce thin soles.</li>
-                  <li><strong>Headlamp with Extra Batteries:</strong> Absolutely essential for navigating the active crater rim of Erta Ale at night.</li>
-                  <li><strong>Bandana, Buff or Neck Gaiter:</strong> Essential to shield nose and mouth from blowing desert sand and sulfur fumes at Dallol.</li>
-                  <li><strong>Swimwear:</strong> For floating weightlessly in the emerald, hyper-saline waters of Lake Afrera.</li>
-                  <li><strong>High-Capacity Power Banks:</strong> Electricity is unavailable during desert camping at Erta Ale and HamedEla.</li>
-                </ul>
+                <div class="guide-rule-body">
+                  <h4>CULTURAL ETIQUETTE</h4>
+                  <p>
+                    <strong>Church Rules:</strong> Shoes off; right foot first. Cover shoulders/knees; headscarves for women. 
+                    <strong>Greeting &amp; Respect:</strong> Right-hand custom; use right hand for giving/receiving. Gentle nod or right handshake.
+                  </p>
+                </div>
               </div>
 
-              <!-- South Omo Valley Cultural Safari -->
-              <div class="pack-region-box">
-                <div class="pack-region-header">
-                  <h3>South Omo Valley Cultural Safari (Warm & Dust Protection)</h3>
+              <!-- Tipping Guidance -->
+              <div class="guide-rule-item">
+                <div class="guide-rule-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+                    <circle cx="12" cy="12" r="2"></circle>
+                    <path d="M6 12h.01M18 12h.01"></path>
+                  </svg>
                 </div>
-                <ul class="pack-items-list">
-                  <li><strong>Neutral Toned Attire:</strong> Lightweight cotton or linen shirts and trousers in neutral earth tones (khaki, olive, tan).</li>
-                  <li><strong>Dust-Proof Dry Bags:</strong> Protect DSLR cameras, lenses, and sensitive electronics from fine red laterite dust on unpaved roads.</li>
-                  <li><strong>Durable Walking Shoes:</strong> Comfortable sports shoes or sturdy sandals for walking through traditional village settlements.</li>
-                  <li><strong>Compact Flashlight / Headlamp:</strong> Useful for evening power shutdowns at remote southern eco-lodges.</li>
-                </ul>
+                <div class="guide-rule-body">
+                  <h4>TIPPING GUIDANCE</h4>
+                  <p>
+                    <strong>Tipping (Discretionary Benchmark):</strong> Lead Tour Guide: $15 - $25 USD/group/day. Professional 4x4 Driver: $10 - $15 USD/group/day.
+                  </p>
+                </div>
               </div>
+
             </div>
           </div>
 
-          <!-- Guidelines & Etiquette -->
-          <div class="card-white guide-block">
-            <span class="section-label">ETHICAL CODES</span>
-            <h2>GUIDELINES & ETHICAL ETIQUETTE</h2>
-
-            <div class="etiquette-grid">
-              <div class="eti-card">
-                <h4>Drone Regulations</h4>
-                <p>
-                  <strong>Strict Warning:</strong> Unmanned Aerial Vehicles (drones) are strictly regulated in Ethiopia. Operating a drone requires prior formal clearance from the Ethiopian Civil Aviation Authority and security agencies. Unsanctioned drones will be confiscated by customs upon arrival at Bole Airport.
-                </p>
+          <!-- 4. FLIGHT & VEHICLE INFORMATION -->
+          <div class="guide-panel">
+            <h2 class="guide-sec-title">4. FLIGHT &amp; VEHICLE INFORMATION</h2>
+            <div class="fleet-info-container">
+              
+              <!-- Photo A: Domestic Flights -->
+              <div class="fleet-subcard">
+                <div class="fleet-subcard-img">
+                  <img src="/images/guide/ethiopian-airlines-flight.jpg" alt="Photo A. Ethiopian Airlines Regional Flight" width="240" height="150" loading="lazy" />
+                </div>
+                <div class="fleet-subcard-info">
+                  <h4>Photo A. Domestic Flight Experience (e.g., Ethiopian Airlines regional plane)</h4>
+                  <p>
+                    Standardized description of domestic flights and baggage limits. Standard flights only are transmitted included, baggage limits and schedules are coordinated with domestic booking desks. (20 kg checked + 7 kg carry-on).
+                  </p>
+                </div>
               </div>
 
-              <div class="eti-card">
-                <h4>Omo Valley Photography</h4>
-                <p>
-                  Always coordinate with your Abyssinian lead guide before taking portraits in tribal communities. In certain Omo Valley villages, cultural photo compensation fees are negotiated respectfully upfront by our team to protect local community dignity.
-                </p>
+              <!-- Photo B: Private 4x4 Fleet -->
+              <div class="fleet-subcard">
+                <div class="fleet-subcard-img">
+                  <img src="/images/fleet/abyssinian-highland-4x4-convoy.jpg" alt="Photo B. Private 4x4 Transport Fleet" width="240" height="150" loading="lazy" />
+                </div>
+                <div class="fleet-subcard-info">
+                  <h4>Photo B. Private 4x4 Transport Fleet</h4>
+                  <div class="fleet-feature-pills">
+                    <span class="pill-tag"><span class="pill-icon">❄️</span> A/C Climate Controlled</span>
+                    <span class="pill-tag"><span class="pill-icon">💺</span> Seatbelts for all passengers</span>
+                    <span class="pill-tag"><span class="pill-icon">📡</span> Satellite Phone</span>
+                    <span class="pill-tag"><span class="pill-icon">🩹</span> First-Aid Equipment</span>
+                    <span class="pill-tag"><span class="pill-icon">💧</span> Mineral Water Supplied</span>
+                  </div>
+                </div>
               </div>
 
-              <div class="eti-card">
-                <h4>Cultural Sensitivity</h4>
-                <p>
-                  Always ask for permission before photographing individuals, religious ceremonies, or Orthodox clergy. Photography of military installations, police checkpoints, government administrative buildings, and strategic bridges is strictly prohibited by federal law.
-                </p>
-              </div>
+            </div>
+
+            <!-- Download Button -->
+            <div class="guide-download-cta text-center">
+              <button type="button" class="btn btn-gold btn-lg" onclick="window.print();">
+                [ Review and Download Your Custom Guide ]
+              </button>
             </div>
           </div>
 
-          <!-- Flight & Vehicle Information -->
-          <div class="card-sand guide-block">
-            <span class="section-label">LOGISTICAL INFRASTRUCTURE</span>
-            <h2>FLIGHT & VEHICLE INFORMATION</h2>
-
-            <div class="logistics-preview-grid">
-              <div class="log-card">
-                <div class="log-media">
-                  <img src="/images/guide/ethiopian-airlines-flight.jpg" alt="Ethiopian Airlines Regional Flight" width="600" height="300" class="log-img" />
-                </div>
-                <div class="log-info">
-                  <h4>Domestic Flight Experience</h4>
-                  <p>Standardized regional aircraft operated by Ethiopian Airlines. Domestic baggage limit is 20 kg (44 lbs) checked luggage plus 7 kg carry-on.</p>
-                </div>
-              </div>
-
-              <div class="log-card">
-                <div class="log-media">
-                  <img src="/images/fleet/toyota-land-cruiser-76.jpg" alt="Private 4x4 Transport Fleet" width="600" height="300" class="log-img" />
-                </div>
-                <div class="log-info">
-                  <h4>Private 4x4 Transport Fleet</h4>
-                  <p>Heavy-duty Toyota Land Cruiser 76 / 79 Series & Prado 4WDs. Equipped with dual A/C, seatbelts, satellite phone, first-aid equipment, and chilled mineral water.</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
-        <!-- Sidebar: Cultural Etiquette, Tipping & Emergency Dispatch (Matching Screenshot 2) -->
-        <aside class="guide-sidebar">
-          <!-- Cultural Etiquette & Tipping Guidance -->
-          <div class="card-white sidebar-card">
-            <span class="section-label">LOCAL CUSTOMS</span>
-            <h3 class="side-title">Cultural Etiquette & Tipping Guidance</h3>
+        <!-- ============================================================== -->
+        <!-- RIGHT COLUMN: SECTIONS 5, 6, 7 & OFFICIAL FOOTER STAMP         -->
+        <!-- ============================================================== -->
+        <aside class="guide-right-col">
+          
+          <!-- 5. PHOTOGRAPHY GUIDELINES & ETHICAL ETIQUETTE -->
+          <div class="side-panel">
+            <div class="side-panel-header">
+              <span class="badge-num">5</span>
+              <h3>PHOTOGRAPHY GUIDELINES &amp; ETHICAL ETIQUETTE</h3>
+            </div>
+            
+            <p class="side-intro-lead">
+              Abyssinian Tour Operator is the original local DMC and ground operator, providing expert local handling for private and B2B clients in Ethiopia.
+            </p>
 
-            <div class="customs-box">
-              <div class="custom-item">
-                <strong>Church Entry Rules:</strong>
-                <p>Remove shoes before entering church premises; step over the stone threshold with your right foot first. Cover shoulders and knees. Women may be offered a clean white cotton headscarf (Netela).</p>
+            <ul class="side-detail-list">
+              <li>
+                <strong>Drone Usage:</strong> Strict regulations; prior CAA authority required. Drones without official permit will be confiscated at Bole Airport customs.
+              </li>
+              <li>
+                <strong>Omo Valley Portraits:</strong> Always coordinate with guide; fees are respectfully negotiated upfront.
+              </li>
+              <li>
+                <strong>Cultural Sensitivity:</strong> Ask permission; no military/government/police photography.
+              </li>
+              <li>
+                <strong>Equipment Care:</strong> Fine volcanic dust in Danakil and red laterite soil in South Omo can penetrate optics; bring dust-proof dry bags and lens blowers.
+              </li>
+            </ul>
+          </div>
+
+          <!-- 6. CULTURAL ETIQUETTE & TIPPING GUIDANCE -->
+          <div class="side-panel">
+            <div class="side-panel-header">
+              <span class="badge-num">6</span>
+              <h3>CULTURAL ETIQUETTE &amp; TIPPING GUIDANCE</h3>
+            </div>
+
+            <div class="side-etiquette-content">
+              <div class="eti-sub-block">
+                <strong>Church Entry:</strong> Shoes off; right foot first. Cover shoulders/knees; headscarves for women.
+              </div>
+              <div class="eti-sub-block">
+                <strong>Church Rules:</strong> Shoes off; right foot first. Cover shoulders/knees; headscarves for women. Maintain a respectful tone inside rock-hewn sanctuaries.
+              </div>
+              <div class="eti-sub-block">
+                <strong>Greeting &amp; Respect:</strong> Right-hand custom; use right hand for giving/receiving. Gentle nod or right handshake.
               </div>
 
-              <div class="custom-item">
-                <strong>Greeting & Respect:</strong>
-                <p>A polite nod with hands lightly clasped together, or a gentle right-handed handshake, is customary. Always use your right hand when giving or receiving food or items.</p>
-              </div>
-
-              <div class="custom-item">
-                <strong>Tipping Benchmarks (Discretionary):</strong>
-                <ul class="tipping-list">
-                  <li><strong>Lead Tour Guide:</strong> $15 – $25 USD / group / day</li>
-                  <li><strong>Professional 4x4 Driver:</strong> $10 – $15 USD / group / day</li>
-                  <li><strong>Wilderness Camp Chef / Scout:</strong> $5 – $10 USD / day</li>
-                  <li><strong>Hotel Porters:</strong> 100 – 200 ETB per service</li>
+              <div class="tipping-benchmarks-box">
+                <h4>Tipping (Discretionary Benchmark):</h4>
+                <ul>
+                  <li><strong>Lead Tour Guide:</strong> $15 &ndash; $25 USD/group/day</li>
+                  <li><strong>Professional 4x4 Driver:</strong> $10 &ndash; $15 USD/group/day</li>
+                  <li><strong>Wilderness Expedition Chef / Local Park Scouts:</strong> $5 &ndash; $10 USD/day</li>
+                  <li><strong>Hotel Staff &amp; Luggage Porters:</strong> 100 &ndash; 200 ETB per service.</li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <!-- Emergency Contacts & Direct Field Dispatch -->
-          <div class="card-sand sidebar-card emergency-box">
-            <span class="section-label">24/7 SUPPORT</span>
-            <h3 class="side-title">Emergency Contacts & Direct Field Dispatch</h3>
-            <p class="emergency-sub">Keep these contacts saved on your phone and printed with your travel documents:</p>
+          <!-- 7. EMERGENCY CONTACTS & DIRECT FIELD DISPATCH -->
+          <div class="side-panel">
+            <div class="side-panel-header">
+              <span class="badge-num">7</span>
+              <h3>EMERGENCY CONTACTS &amp; DIRECT FIELD DISPATCH</h3>
+            </div>
 
-            <div class="emergency-details">
-              <p><strong>Abyssinian Headquarters:</strong> Addis Ababa Dispatch Desk</p>
-              <p><strong>CEO & Lead Logistician:</strong> {siteConfig.founder.name}</p>
+            <div class="side-contacts-content">
+              <p><strong>Abyssinian Headquarters:</strong> Main Dispatch Desk</p>
+              <p><strong>CEO &amp; Lead Logistician:</strong> {siteConfig.founder.name}</p>
               <p><strong>Direct Mobile / WhatsApp:</strong> <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" class="link-gold">{siteConfig.contact.phoneDisplay}</a></p>
               <p><strong>24/7 Operations Email:</strong> <a href={`mailto:${siteConfig.contact.emails.b2b}`}>{siteConfig.contact.emails.b2b}</a></p>
               <p><strong>Official Website:</strong> www.abyssiniatouroperator.com</p>
-            </div>
 
-            <div class="emergency-action">
-              <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-green btn-block" style="width: 100%;">
-                WhatsApp Field Support
-              </a>
+              <div style="margin-top: 1rem;">
+                <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-green btn-sm" style="width: 100%; text-align: center; display: block;">
+                  WhatsApp Field Support
+                </a>
+              </div>
             </div>
           </div>
 
-          <!-- Download Action Banner -->
-          <div class="card-white sidebar-card text-center">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-deep)" stroke-width="2" style="margin: 0 auto 0.5rem auto;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            <h4 style="margin-bottom: 0.5rem;">Printable PDF Field Guide</h4>
-            <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 1rem;">Have all packing checklists and emergency numbers handy on your phone or printed.</p>
-            <button type="button" class="btn btn-gold btn-sm" onclick="window.print();" style="width: 100%;">
-              [ Review and Download Your Custom Guide ]
-            </button>
+          <!-- Bottom Official Accreditation Card (Black Card in Wireframe) -->
+          <div class="official-signature-card">
+            <div class="sig-logo">
+              <span class="sig-emblem">&#9650;</span>
+              <span class="sig-name">ABYSSINIAN</span>
+              <span class="sig-sub">TOUR OPERATOR</span>
+            </div>
+            <div class="sig-divider"></div>
+            <p class="sig-details">
+              <strong>Abyssinian Tour Operator</strong> | CEO: Dessiew Abunie Dejenie | Head Office: Addis Ababa, Ethiopia | 24/7 Support: +251 920 009 100 | Office: +251 11 6 123 456 | general email: <a href="mailto:info@abyssiniatouroperator.com">info@abyssiniatouroperator.com</a> | b2b email: <a href="mailto:b2b@abyssiniatouroperator.com">b2b@abyssiniatouroperator.com</a> | <a href="https://abyssiniatouroperator.com">www.abyssiniatouroperator.com</a>
+            </p>
           </div>
+
         </aside>
+
       </div>
     </div>
   </section>
@@ -263,240 +421,464 @@ import { siteConfig } from '../config/site';
 </MainLayout>
 
 <style>
-  .guide-main-col {
+  /* Top DMC Advisory Bar */
+  .guide-top-bar {
+    background-color: #211c18;
+    color: #e5dfd3;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .guide-top-bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .guide-top-bar-text {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  .guide-top-bar-text p {
+    margin: 0;
+    color: #dfd7ca;
+  }
+
+  .guide-top-badge {
+    display: inline-block;
+    background-color: var(--color-gold);
+    color: #1a1612;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.55rem;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  /* Hero Banner */
+  .guide-hero-banner {
+    padding: 4.5rem 0;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-bottom: 2px solid var(--color-gold);
+  }
+
+  .guide-hero-title {
+    color: #FFFFFF;
+    font-family: var(--font-serif);
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Main Editorial Layout (2-Column Grid) */
+  .guide-layout {
+    display: grid;
+    grid-template-columns: 1.25fr 0.95fr;
+    gap: 2.25rem;
+    align-items: start;
+  }
+
+  .guide-left-col {
     display: flex;
     flex-direction: column;
     gap: 2.25rem;
   }
 
-  .guide-block {
-    padding: 2.25rem;
-  }
-
-  .guide-block h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1.25rem;
-    color: var(--color-primary-dark);
-  }
-
-  .guide-lead {
-    font-size: 0.95rem;
-    color: var(--color-text-main);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Checklist Grid */
-  .checklist-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-  }
-
-  .check-card {
+  /* Guide Panels */
+  .guide-panel {
     background-color: #FFFFFF;
     border: 1px solid var(--color-sand-border);
     border-radius: var(--radius-sm);
-    padding: 1.25rem;
+    padding: 1.75rem;
   }
 
-  .check-icon {
-    width: 38px;
-    height: 38px;
-    background-color: var(--color-sand-card);
+  .guide-sec-title {
+    font-family: var(--font-sans);
+    font-size: 1.22rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-primary-dark);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-gold);
+  }
+
+  /* 1. Checklist 2x2 Grid */
+  .checklist-grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .check-box {
+    background-color: #FAF8F5;
+    border: 1px solid #EAE3D6;
     border-radius: var(--radius-sm);
+    padding: 1.15rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .check-box-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    background-color: #EDE7DC;
+    color: var(--color-gold-deep);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-gold-deep);
-    margin-bottom: 0.75rem;
+    flex-shrink: 0;
   }
 
-  .check-card h4 {
-    font-size: 0.98rem;
+  .check-box-content h3 {
     font-family: var(--font-sans);
+    font-size: 0.98rem;
     font-weight: 700;
-    margin-bottom: 0.35rem;
+    margin: 0 0 0.35rem 0;
     color: var(--color-primary-dark);
   }
 
-  .check-card p {
+  .check-box-content p {
     font-size: 0.82rem;
     color: var(--color-text-muted);
-    line-height: 1.5;
+    line-height: 1.45;
+    margin: 0;
   }
 
-  /* Packing Accordion Boxes */
-  .packing-accordion {
+  /* 2. Packing Items Flow */
+  .packing-items-flow {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1.15rem;
   }
 
-  .pack-region-box {
-    background-color: #FFFFFF;
-    border: 1px solid var(--color-sand-border);
-    border-radius: var(--radius-sm);
-    padding: 1.5rem;
-  }
-
-  .pack-region-header h3 {
-    font-size: 1.15rem;
-    color: var(--color-primary-dark);
-    margin-bottom: 0.85rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-sand-border);
-  }
-
-  .pack-items-list {
-    list-style: disc;
-    padding-left: 1.25rem;
+  .pack-item-row {
     display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    font-size: 0.88rem;
-    color: var(--color-text-muted);
-  }
-
-  .pack-items-list strong {
-    color: var(--color-primary-dark);
-  }
-
-  /* Etiquette Grid */
-  .etiquette-grid {
-    display: grid;
-    grid-template-columns: 1fr;
     gap: 1.25rem;
-    margin-top: 1rem;
-  }
-
-  .eti-card {
-    background-color: var(--color-sand-bg);
-    border: 1px solid var(--color-sand-border);
+    padding: 1.15rem;
+    background-color: #FAF8F5;
+    border: 1px solid #EAE3D6;
     border-radius: var(--radius-sm);
-    padding: 1.25rem;
+    align-items: center;
   }
 
-  .eti-card h4 {
-    font-size: 0.98rem;
+  .pack-item-visual {
+    width: 52px;
+    height: 52px;
+    border-radius: 8px;
+    background-color: #E8E0D2;
+    color: var(--color-primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .pack-item-desc h3 {
     font-family: var(--font-sans);
+    font-size: 0.98rem;
     font-weight: 700;
-    margin-bottom: 0.35rem;
+    margin: 0 0 0.35rem 0;
     color: var(--color-primary-dark);
   }
 
-  .eti-card p {
-    font-size: 0.85rem;
+  .pack-item-desc p {
+    font-size: 0.84rem;
     color: var(--color-text-muted);
-    line-height: 1.55;
+    line-height: 1.5;
+    margin: 0;
   }
 
-  /* Flight & Vehicle Preview Grid */
-  .logistics-preview-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 1rem;
+  .confiscate-note {
+    display: block;
+    color: #c94a29;
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
   }
 
-  .log-card {
-    background-color: #FFFFFF;
-    border: 1px solid var(--color-sand-border);
+  /* 3. Guidelines & Etiquette (Summary Card) */
+  .guide-summary-card {
+    background-color: #FAF8F5;
+    border: 1px solid #E2D9C8;
+  }
+
+  .guidelines-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .guide-rule-item {
+    display: flex;
+    gap: 1.15rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #E2D9C8;
+  }
+
+  .guide-rule-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .guide-rule-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #EAE3D6;
+    color: var(--color-primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .guide-rule-body h4 {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-primary-dark);
+    margin: 0 0 0.35rem 0;
+  }
+
+  .guide-rule-body p {
+    font-size: 0.83rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .guide-rule-body strong {
+    color: var(--color-primary-dark);
+  }
+
+  /* 4. Fleet & Vehicle Information */
+  .fleet-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .fleet-subcard {
+    display: flex;
+    gap: 1.25rem;
+    background-color: #FAF8F5;
+    border: 1px solid #EAE3D6;
     border-radius: var(--radius-sm);
-    overflow: hidden;
+    padding: 1.15rem;
+    align-items: center;
   }
 
-  .log-media {
-    height: 220px;
+  .fleet-subcard-img {
+    width: 170px;
+    height: 110px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    overflow: hidden;
     background-color: #2F2720;
   }
 
-  .log-img {
+  .fleet-subcard-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .log-info {
-    padding: 1.25rem;
-  }
-
-  .log-info h4 {
-    font-size: 0.95rem;
+  .fleet-subcard-info h4 {
     font-family: var(--font-sans);
+    font-size: 0.94rem;
     font-weight: 700;
-    margin-bottom: 0.35rem;
+    margin: 0 0 0.4rem 0;
     color: var(--color-primary-dark);
   }
 
-  .log-info p {
+  .fleet-subcard-info p {
     font-size: 0.82rem;
     color: var(--color-text-muted);
     line-height: 1.45;
+    margin: 0;
   }
 
-  /* Sidebar */
-  .guide-sidebar {
+  .fleet-feature-pills {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
   }
 
-  .sidebar-card {
-    padding: 1.5rem;
-  }
-
-  .side-title {
-    font-size: 1.15rem;
-    margin: 0.35rem 0 1rem 0;
+  .pill-tag {
+    background-color: #EFE9DC;
+    border: 1px solid #DED4C3;
+    border-radius: 3px;
+    padding: 0.25rem 0.55rem;
+    font-size: 0.73rem;
+    font-weight: 700;
     color: var(--color-primary-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
   }
 
-  .customs-box {
+  .guide-download-cta {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #EAE3D6;
+  }
+
+  /* =================================================================== */
+  /* RIGHT COLUMN (SECTIONS 5, 6, 7 & SIGNATURE)                         */
+  /* =================================================================== */
+  .guide-right-col {
+    background-color: #F6F3EB;
+    border: 1px solid #E2D9C8;
+    border-radius: var(--radius-sm);
+    padding: 1.75rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    font-size: 0.85rem;
+    gap: 1.85rem;
   }
 
-  .custom-item strong {
-    display: block;
-    color: var(--color-primary-dark);
-    margin-bottom: 0.2rem;
+  .side-panel {
+    background-color: #FFFFFF;
+    border: 1px solid #E6DECf;
+    border-radius: var(--radius-sm);
+    padding: 1.4rem;
   }
 
-  .custom-item p {
-    color: var(--color-text-muted);
-    line-height: 1.45;
-  }
-
-  .tipping-list {
-    list-style: disc;
-    padding-left: 1.1rem;
-    margin-top: 0.35rem;
+  .side-panel-header {
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    color: var(--color-text-muted);
-  }
-
-  .emergency-box {
-    border-left: 4px solid var(--color-gold);
-  }
-
-  .emergency-sub {
-    font-size: 0.82rem;
-    color: var(--color-text-muted);
+    align-items: center;
+    gap: 0.75rem;
     margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #5A8264;
   }
 
-  .emergency-details {
+  .badge-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #4A7C59;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .side-panel-header h3 {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-primary-dark);
+    margin: 0;
+  }
+
+  .side-intro-lead {
+    font-size: 0.84rem;
+    line-height: 1.55;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+    margin-bottom: 0.85rem;
+  }
+
+  .side-detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
     font-size: 0.82rem;
-    color: var(--color-text-main);
-    margin-bottom: 1.25rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+
+  .side-detail-list li strong {
+    color: var(--color-primary-dark);
+  }
+
+  /* Cultural Etiquette in sidebar */
+  .side-etiquette-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .eti-sub-block {
+    background-color: #FAF8F5;
+    padding: 0.6rem 0.85rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--color-gold);
+    color: var(--color-text-muted);
+  }
+
+  .eti-sub-block strong {
+    color: var(--color-primary-dark);
+  }
+
+  .tipping-benchmarks-box {
+    margin-top: 0.5rem;
+    background-color: #FAF8F5;
+    padding: 0.85rem;
+    border-radius: 4px;
+  }
+
+  .tipping-benchmarks-box h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .tipping-benchmarks-box ul {
+    list-style: disc;
+    padding-left: 1.15rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    color: var(--color-text-muted);
+  }
+
+  .tipping-benchmarks-box strong {
+    color: var(--color-primary-dark);
+  }
+
+  /* Emergency Contacts in sidebar */
+  .side-contacts-content p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin: 0 0 0.45rem 0;
+    color: var(--color-text-muted);
+  }
+
+  .side-contacts-content strong {
+    color: var(--color-primary-dark);
   }
 
   .link-gold {
@@ -504,17 +886,123 @@ import { siteConfig } from '../config/site';
     font-weight: 700;
   }
 
-  .text-center {
+  /* Official Signature Card (Black Footer in Wireframe) */
+  .official-signature-card {
+    background-color: #161513;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: var(--radius-sm);
+    padding: 1.5rem;
     text-align: center;
+    color: #FFFFFF;
   }
 
-  @media (max-width: 768px) {
-    .checklist-grid {
+  .sig-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .sig-emblem {
+    color: var(--color-gold);
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .sig-name {
+    color: var(--color-gold);
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .sig-sub {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: #d1c8b8;
+    text-transform: uppercase;
+  }
+
+  .sig-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+    margin: 0.75rem auto 1rem auto;
+    width: 80%;
+  }
+
+  .sig-details {
+    font-size: 0.72rem;
+    line-height: 1.55;
+    color: #c9c0b0;
+    margin: 0;
+  }
+
+  .sig-details strong {
+    color: #FFFFFF;
+  }
+
+  .sig-details a {
+    color: var(--color-gold);
+    text-decoration: underline;
+  }
+
+  /* Print Media Styles */
+  @media print {
+    .guide-top-bar,
+    .guide-download-cta,
+    header,
+    footer,
+    .trust-bar {
+      display: none !important;
+    }
+
+    .guide-layout {
+      display: block !important;
+    }
+
+    .guide-left-col,
+    .guide-right-col {
+      width: 100% !important;
+      page-break-inside: avoid;
+    }
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 992px) {
+    .guide-layout {
       grid-template-columns: 1fr;
     }
-    .logistics-preview-grid {
+
+    .guide-top-bar-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .guide-top-bar-text {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .checklist-grid-2x2 {
       grid-template-columns: 1fr;
+    }
+
+    .fleet-subcard {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .fleet-subcard-img {
+      width: 100%;
+      height: 160px;
+    }
+
+    .guide-hero-title {
+      font-size: 1.6rem;
     }
   }
 </style>
-
