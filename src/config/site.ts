@@ -49,8 +49,8 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   name: "Abyssinian Tour Operator",
   legalName: "Abyssinian Tour Operator PLC",
-  tagline: "White-Label Ground Handling | Wholesale NET Tariffs | Turnkey Ethiopia Operations",
-  subTagline: "Direct Inbound DMC | 20+ Years Native Field Leadership | Addis Ababa, Ethiopia",
+  tagline: "Direct Inbound DMC & Tour Operator | Wholesale NET Tariffs & Private Expeditions | Turnkey Ethiopia Operations",
+  subTagline: "Direct Inbound DMC & Tour Operator | 20+ Years Native Field Leadership | Addis Ababa, Ethiopia",
   url: "https://abyssiniatouroperator.com",
   logo: {
     full: "/images/logo/abyssinian-logo-full.png",
