@@ -65,7 +65,7 @@ $recipients = [
     ABYSSINIAN_BACKUP_EMAIL
 ];
 
-$mail_sent = abyssinian_dispatch_mail($recipients, $subject, $message_body, $contact_name, $email);
+$mail_sent = abyssinian_dispatch_mail($recipients, $subject, $message_body, $contact_name, $email, 'b2b');
 
 echo json_encode([
     'status' => 'success',

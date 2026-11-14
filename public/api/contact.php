@@ -194,7 +194,7 @@ $recipients = [
 ];
 
 // Dispatch email via authenticated SMTP
-$mail_sent = abyssinian_dispatch_mail($recipients, $subject, $message_body, $full_name, $email);
+$mail_sent = abyssinian_dispatch_mail($recipients, $subject, $message_body, $full_name, $email, 'info');
 
 echo json_encode([
     'status' => 'success',

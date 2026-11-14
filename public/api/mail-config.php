@@ -1,9 +1,13 @@
 <?php
 /**
  * ==============================================================================
- * ABYSSINIAN TOUR OPERATOR — PRODUCTION EMAIL & SMTP CONFIGURATION
+ * ABYSSINIAN TOUR OPERATOR — PRODUCTION DUAL EMAIL & SMTP ENGINE
  * Location: public_html/api/mail-config.php
  * Website: abyssiniatouroperator.com
+ *
+ * Supports dual authenticated SMTP channels:
+ * 1. General & Tour Inquiries: info@abyssiniatouroperator.com
+ * 2. B2B Wholesale & Partner Portal: b2b@abyssiniatouroperator.com
  * ==============================================================================
  */
 
@@ -27,17 +31,29 @@ define('ABYSSINIAN_BACKUP_EMAIL', 'abyssiniantouroperator@gmail.com');
 
 define('ABYSSINIAN_FROM_EMAIL',   'info@abyssiniatouroperator.com');
 define('ABYSSINIAN_FROM_NAME',    'Abyssinian Tour Operator');
+define('ABYSSINIAN_B2B_FROM_NAME','Abyssinian Tour Operator — B2B Partner Desk');
 
 // ==============================================================================
-// 2. SMTP PRODUCTION CREDENTIALS
+// 2. SMTP PRODUCTION CREDENTIALS (DUAL MAILBOX SUPPORT)
 // ==============================================================================
 define('SMTP_AUTH_ENABLED', true);
 define('SMTP_HOST',         'mail.abyssiniatouroperator.com');
 define('SMTP_PORT',         465);
 define('SMTP_ENCRYPTION',   'ssl');
-define('SMTP_USERNAME',     'info@abyssiniatouroperator.com');
-define('SMTP_PASSWORD',     '1234@abyssinia');
 define('SMTP_TIMEOUT',      15);
+
+// Both mailboxes share this credentials standard
+define('SMTP_PASSWORD',     '1234@abyssinia');
+
+// Account-specific configurations
+define('SMTP_INFO_USERNAME', 'info@abyssiniatouroperator.com');
+define('SMTP_INFO_PASSWORD', '1234@abyssinia');
+
+define('SMTP_B2B_USERNAME',  'b2b@abyssiniatouroperator.com');
+define('SMTP_B2B_PASSWORD',  '1234@abyssinia');
+
+// Default backward compatibility
+define('SMTP_USERNAME',     SMTP_INFO_USERNAME);
 
 // ==============================================================================
 // 3. INTERNAL LOGGING
@@ -58,7 +74,7 @@ function abyssinian_smtp_read($socket) {
     $response = '';
     while (($line = fgets($socket, 515)) !== false) {
         $response .= $line;
-        // In SMTP, a space after the 3-digit code indicates the last line of a multi-line response
+        // In SMTP, a space after the 3-digit code indicates the last line of a response
         if (strlen($line) >= 4 && $line[3] === ' ') {
             break;
         }
@@ -92,22 +108,22 @@ function abyssinian_smtp_command($socket, $command, $expected_codes) {
 }
 
 // ==============================================================================
-// 5. DIRECT SOCKET SMTP TRANSMISSION
+// 5. DIRECT SOCKET SMTP TRANSMISSION PER MAILBOX
 // ==============================================================================
-function abyssinian_smtp_send($recipients, $subject, $body, $reply_name = '', $reply_email = '') {
+function abyssinian_smtp_send_account($smtp_user, $smtp_pass, $from_email, $from_name, $recipients, $subject, $body, $reply_name = '', $reply_email = '') {
     $socket = null;
     try {
         if (!SMTP_AUTH_ENABLED) {
-            throw new Exception('SMTP authentication disabled.');
+            throw new Exception('SMTP authentication is disabled.');
         }
-        if (empty(SMTP_PASSWORD) || SMTP_PASSWORD === 'YOUR_EMAIL_PASSWORD_HERE') {
-            throw new Exception('SMTP password has not been configured.');
+        if (empty($smtp_pass)) {
+            throw new Exception('SMTP password is not set.');
         }
         if (!extension_loaded('openssl')) {
             throw new Exception('PHP OpenSSL extension is not enabled on this server.');
         }
 
-        // Stream context configured for cPanel SSL / self-signed / hostns.io compatibility
+        // Stream context configured for cPanel Exim SSL compatibility
         $context = stream_context_create([
             'ssl' => [
                 'verify_peer' => false,
@@ -127,12 +143,12 @@ function abyssinian_smtp_send($recipients, $subject, $body, $reply_name = '', $r
         );
 
         if (!$socket) {
-            throw new Exception("SMTP connection failed: $errstr ($errno)");
+            throw new Exception("SMTP connection to " . SMTP_HOST . ":" . SMTP_PORT . " failed: $errstr ($errno)");
         }
 
         stream_set_timeout($socket, SMTP_TIMEOUT);
 
-        // 1. Read Greeting (Handles multi-line 220 banner from Exim)
+        // 1. Read Greeting banner
         abyssinian_smtp_command($socket, null, [220]);
 
         // 2. Identify Client
@@ -142,20 +158,20 @@ function abyssinian_smtp_send($recipients, $subject, $body, $reply_name = '', $r
         }
         $ehlo_response = abyssinian_smtp_command($socket, 'EHLO ' . $hostname, [250]);
 
-        // 3. Authenticate
+        // 3. Authenticate with chosen mailbox
         if (stripos($ehlo_response, 'LOGIN') !== false) {
             abyssinian_smtp_command($socket, 'AUTH LOGIN', [334]);
-            abyssinian_smtp_command($socket, base64_encode(SMTP_USERNAME), [334]);
-            abyssinian_smtp_command($socket, base64_encode(SMTP_PASSWORD), [235]);
+            abyssinian_smtp_command($socket, base64_encode($smtp_user), [334]);
+            abyssinian_smtp_command($socket, base64_encode($smtp_pass), [235]);
         } elseif (stripos($ehlo_response, 'PLAIN') !== false) {
-            $auth_string = base64_encode("\0" . SMTP_USERNAME . "\0" . SMTP_PASSWORD);
+            $auth_string = base64_encode("\0" . $smtp_user . "\0" . $smtp_pass);
             abyssinian_smtp_command($socket, 'AUTH PLAIN ' . $auth_string, [235, 334]);
         } else {
             throw new Exception('SMTP server does not support AUTH LOGIN or AUTH PLAIN.');
         }
 
         // 4. Sender Address
-        abyssinian_smtp_command($socket, 'MAIL FROM:<' . ABYSSINIAN_FROM_EMAIL . '>', [250]);
+        abyssinian_smtp_command($socket, 'MAIL FROM:<' . $from_email . '>', [250]);
 
         // 5. Recipient Addresses
         foreach ($recipients as $recipient) {
@@ -173,7 +189,7 @@ function abyssinian_smtp_send($recipients, $subject, $body, $reply_name = '', $r
 
         $headers = [];
         $headers[] = 'Date: ' . date('r');
-        $headers[] = 'From: ' . ABYSSINIAN_FROM_NAME . ' <' . ABYSSINIAN_FROM_EMAIL . '>';
+        $headers[] = 'From: ' . $from_name . ' <' . $from_email . '>';
         $headers[] = 'To: ' . implode(', ', $recipients);
         $headers[] = 'Subject: ' . $encoded_subject;
         $headers[] = 'MIME-Version: 1.0';
@@ -203,19 +219,34 @@ function abyssinian_smtp_send($recipients, $subject, $body, $reply_name = '', $r
         @fclose($socket);
         $socket = null;
 
-        return ['success' => true, 'response' => trim($response)];
+        return ['success' => true, 'response' => trim($response), 'sender' => $smtp_user];
     } catch (Throwable $e) {
         if (is_resource($socket)) {
             @fclose($socket);
         }
-        return ['success' => false, 'error' => $e->getMessage()];
+        return ['success' => false, 'error' => $e->getMessage(), 'sender' => $smtp_user];
     }
 }
 
+// Backward-compatible single-send wrapper
+function abyssinian_smtp_send($recipients, $subject, $body, $reply_name = '', $reply_email = '') {
+    return abyssinian_smtp_send_account(
+        SMTP_INFO_USERNAME,
+        SMTP_INFO_PASSWORD,
+        ABYSSINIAN_INFO_EMAIL,
+        ABYSSINIAN_FROM_NAME,
+        $recipients,
+        $subject,
+        $body,
+        $reply_name,
+        $reply_email
+    );
+}
+
 // ==============================================================================
-// 6. MAIN EMAIL DISPATCH FUNCTION (SMTP WITH NATIVE FALLBACK)
+// 6. MAIN EMAIL DISPATCH FUNCTION (DUAL-MAILBOX SMTP + FAILOVER + NATIVE MAIL)
 // ==============================================================================
-function abyssinian_dispatch_mail($to, $subject, $body, $reply_name = '', $reply_email = '') {
+function abyssinian_dispatch_mail($to, $subject, $body, $reply_name = '', $reply_email = '', $channel = 'auto') {
     $raw_recipients = is_array($to) ? $to : explode(',', $to);
     $recipients = array_values(array_unique(array_filter(array_map('trim', $raw_recipients))));
 
@@ -224,14 +255,67 @@ function abyssinian_dispatch_mail($to, $subject, $body, $reply_name = '', $reply
         return false;
     }
 
-    // Step 1: Attempt Authenticated Socket SMTP
+    // Determine primary channel ('b2b' vs 'info')
+    $use_b2b = false;
+    if ($channel === 'b2b') {
+        $use_b2b = true;
+    } elseif ($channel === 'info') {
+        $use_b2b = false;
+    } else {
+        // Auto-detect if B2B is target
+        $use_b2b = in_array(ABYSSINIAN_B2B_EMAIL, $recipients, true);
+    }
+
+    $accounts = [];
+    if ($use_b2b) {
+        $accounts[] = [
+            'user' => SMTP_B2B_USERNAME,
+            'pass' => SMTP_B2B_PASSWORD,
+            'email' => ABYSSINIAN_B2B_EMAIL,
+            'name' => ABYSSINIAN_B2B_FROM_NAME
+        ];
+        $accounts[] = [
+            'user' => SMTP_INFO_USERNAME,
+            'pass' => SMTP_INFO_PASSWORD,
+            'email' => ABYSSINIAN_INFO_EMAIL,
+            'name' => ABYSSINIAN_FROM_NAME
+        ];
+    } else {
+        $accounts[] = [
+            'user' => SMTP_INFO_USERNAME,
+            'pass' => SMTP_INFO_PASSWORD,
+            'email' => ABYSSINIAN_INFO_EMAIL,
+            'name' => ABYSSINIAN_FROM_NAME
+        ];
+        $accounts[] = [
+            'user' => SMTP_B2B_USERNAME,
+            'pass' => SMTP_B2B_PASSWORD,
+            'email' => ABYSSINIAN_B2B_EMAIL,
+            'name' => ABYSSINIAN_B2B_FROM_NAME
+        ];
+    }
+
+    // Step 1: Attempt Authenticated Socket SMTP with Primary then Secondary failover
     if (defined('SMTP_AUTH_ENABLED') && SMTP_AUTH_ENABLED === true) {
-        $result = abyssinian_smtp_send($recipients, $subject, $body, $reply_name, $reply_email);
-        if ($result['success']) {
-            abyssinian_mail_log('SUCCESS: SMTP accepted message for ' . implode(', ', $recipients) . ' (' . ($result['response'] ?? '250 OK') . ')');
-            return true;
-        } else {
-            abyssinian_mail_log('SMTP FAILED: ' . $result['error'] . '. Initiating PHP mail() fallback...');
+        foreach ($accounts as $acc) {
+            $result = abyssinian_smtp_send_account(
+                $acc['user'],
+                $acc['pass'],
+                $acc['email'],
+                $acc['name'],
+                $recipients,
+                $subject,
+                $body,
+                $reply_name,
+                $reply_email
+            );
+
+            if ($result['success']) {
+                abyssinian_mail_log('SUCCESS: SMTP accepted message via ' . $acc['user'] . ' for ' . implode(', ', $recipients) . ' (' . ($result['response'] ?? '250 OK') . ')');
+                return true;
+            } else {
+                abyssinian_mail_log('SMTP NOTICE: Mailbox ' . $acc['user'] . ' failed: ' . $result['error'] . '. Trying next failover...');
+            }
         }
     }
 
@@ -240,8 +324,11 @@ function abyssinian_dispatch_mail($to, $subject, $body, $reply_name = '', $reply
     $clean_subject = str_replace(["\r", "\n"], '', $subject);
     $encoded_subject = '=?UTF-8?B?' . base64_encode($clean_subject) . '?=';
 
+    $active_from_email = $use_b2b ? ABYSSINIAN_B2B_EMAIL : ABYSSINIAN_INFO_EMAIL;
+    $active_from_name  = $use_b2b ? ABYSSINIAN_B2B_FROM_NAME : ABYSSINIAN_FROM_NAME;
+
     $headers = [];
-    $headers[] = 'From: ' . ABYSSINIAN_FROM_NAME . ' <' . ABYSSINIAN_FROM_EMAIL . '>';
+    $headers[] = 'From: ' . $active_from_name . ' <' . $active_from_email . '>';
     if (!empty($reply_email) && filter_var($reply_email, FILTER_VALIDATE_EMAIL)) {
         $clean_reply_name = str_replace(["\r", "\n"], '', $reply_name);
         $headers[] = 'Reply-To: ' . (!empty($clean_reply_name) ? $clean_reply_name . ' ' : '') . '<' . $reply_email . '>';
@@ -250,7 +337,7 @@ function abyssinian_dispatch_mail($to, $subject, $body, $reply_name = '', $reply
     $headers[] = 'MIME-Version: 1.0';
     $headers[] = 'Content-Type: text/plain; charset=UTF-8';
 
-    $extra_params = '-f' . ABYSSINIAN_FROM_EMAIL;
+    $extra_params = '-f' . $active_from_email;
     $sent = @mail($to_string, $encoded_subject, $body, implode("\r\n", $headers), $extra_params);
     if (!$sent) {
         $sent = @mail($to_string, $encoded_subject, $body, implode("\r\n", $headers));
@@ -259,7 +346,7 @@ function abyssinian_dispatch_mail($to, $subject, $body, $reply_name = '', $reply
     if ($sent) {
         abyssinian_mail_log('SUCCESS: Native mail() fallback dispatched message to ' . $to_string);
     } else {
-        abyssinian_mail_log('ERROR: Both SMTP and native mail() failed for ' . $to_string);
+        abyssinian_mail_log('ERROR: Both dual SMTP accounts and native mail() failed for ' . $to_string);
     }
 
     return $sent;
