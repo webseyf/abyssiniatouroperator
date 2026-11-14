@@ -1,0 +1,1206 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../config/site';
+
+const pageTitle = "Client Testimonials & Partner Endorsements | Abyssinian Tour Operator";
+const pageDescription = "Read verified reviews and B2B wholesale partner endorsements for Abyssinian Tour Operator. Rated 4.9/5.0 across 350+ private expeditions and tour agency ground handling in Ethiopia.";
+const canonicalUrl = "https://abyssiniatouroperator.com/testimonials";
+
+// Structured Data for Reviews & AggregateRating
+const reviewsSchema = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Abyssinian Tour Operator",
+  "url": "https://abyssiniatouroperator.com",
+  "image": "https://abyssiniatouroperator.com/images/home/hero-lalibela.jpg",
+  "telephone": siteConfig.contact.phone,
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "350",
+    "bestRating": "5.0",
+    "worstRating": "1.0"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Julian & Sarah" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "reviewBody": "Navigating north & Danakil (Erta Ale active volcano & Dallol) was seamless. The active volcano lava lake was unforgettable and the team handled all expedition logistics safely in 45°C heat."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Kanon & Marcus" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "reviewBody": "Privileged access into the heart of the Omo Valley. Dessiew and our native guides established deep, respectful relationships with local elders, ensuring our photography journey was authentic and safe."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Dr. David L." },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "reviewBody": "Gelada baboons at arm's reach and the Simien escarpments are breathtaking. Vehicles and mountain drivers were flawless; veteran navigation on high-altitude passes gave our family complete peace of mind."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Organization", "name": "Apex Overland Travel" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "reviewBody": "As an international tour operator, partnering with Abyssinian has revolutionized our Horn of Africa departures. Their 12-hour turnaround on net rates and zero middleman markups make them our sole ground handler in Ethiopia."
+    }
+  ]
+};
+---
+
+<MainLayout 
+  title={pageTitle}
+  description={pageDescription}
+  canonical={canonicalUrl}
+  image="/images/home/hero-lalibela.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(reviewsSchema)} />
+
+  <!-- ==================================================================== -->
+  <!-- HERO: TESTIMONIALS & REVIEWS -->
+  <!-- ==================================================================== -->
+  <section class="testi-hero-section">
+    <div class="testi-hero-overlay"></div>
+    <div class="container testi-hero-container">
+      <div class="testi-hero-content text-center">
+        <div class="testi-badge-wrap">
+          <span class="testi-pill-badge">&#9733; VERIFIED FIELD REVIEWS</span>
+        </div>
+        
+        <h1 class="testi-hero-title">
+          Trusted by Global Travelers & Wholesale Partners
+        </h1>
+        
+        <p class="testi-hero-sub">
+          Over 20 years of direct ground execution across historic monolithic churches, Danakil active lava lakes, and Omo Valley ethnographic safaris.
+        </p>
+
+        <div class="testi-hero-creds">
+          <span class="cred-item">&#10003; Officially Licensed Inbound DMC</span>
+          <span class="cred-dot">&bull;</span>
+          <span class="cred-item">Ministry of Tourism Accredited</span>
+        </div>
+
+        <div class="testi-hero-actions">
+          <a href="/tours" class="btn btn-hero-gold">
+            [ Explore All 20 Itineraries ]
+          </a>
+          <a href="/b2b" class="btn btn-hero-green">
+            [ Request B2B Confidential Tariffs ]
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- TRUST & AUTHORITY BAR -->
+  <!-- ==================================================================== -->
+  <section class="testi-trust-bar">
+    <div class="container">
+      <div class="trust-bar-grid">
+        <div class="t-bar-item">
+          <span class="t-bar-icon">&#128665;</span>
+          <div class="t-bar-text">
+            <strong>Direct Wholesale NET Rates</strong>
+            <p>No middleman markups &mdash; direct Toyota Land Cruiser and fleet & lodge tariffs.</p>
+          </div>
+        </div>
+
+        <div class="t-bar-item">
+          <span class="t-bar-icon">&#9201;</span>
+          <div class="t-bar-text">
+            <strong>12-Hour Proposal Turnaround</strong>
+            <p>Fast, customized itinerary drafting & net quotes for B2C travelers & travel agents.</p>
+          </div>
+        </div>
+
+        <div class="t-bar-item">
+          <span class="t-bar-icon">&#128100;</span>
+          <div class="t-bar-text">
+            <strong>Native Field Operations</strong>
+            <p>Led by Founder Dessiew Abunie Dejenie with 100% certified multi-lingual local guides.</p>
+          </div>
+        </div>
+
+        <div class="t-bar-item">
+          <span class="t-bar-icon">&#9992;</span>
+          <div class="t-bar-text">
+            <strong>Full Turnkey Execution</strong>
+            <p>Priority domestic flight bookings via Ethiopian Airlines & private wilderness catering.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- MAIN TESTIMONIALS & SOCIAL PROOF SECTION -->
+  <!-- ==================================================================== -->
+  <section class="section-pad testi-main-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-label">TESTIMONIALS & SOCIAL PROOF SECTION</span>
+        <h2>4.9 / 5.0 Rating across 350+ Private Expeditions & B2B Wholesale Operations</h2>
+        <div class="aggregate-stars-row">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="score-text">4.9 out of 5.0 &bull; 100% Verified Field Feedback</span>
+        </div>
+      </div>
+
+      <!-- Private Travelers 3-Card Grid -->
+      <div class="testi-cards-3col">
+        <!-- 1. Danakil Review -->
+        <article class="testi-card">
+          <div class="testi-card-media">
+            <img 
+              src="/images/destinations/erta-ale-volcano.jpg" 
+              alt="Danakil active volcano Erta Ale lava lake" 
+              class="testi-bg-img" 
+              loading="lazy" 
+            />
+            <div class="reviewer-avatar-wrap">
+              <img 
+                src="/images/testimonials/reviewer-danakil.jpg" 
+                alt="Julian and Sarah - Private Expedition Travelers" 
+                class="reviewer-avatar-img" 
+                loading="lazy" 
+              />
+            </div>
+          </div>
+          
+          <div class="testi-card-body">
+            <div class="star-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-num">5.0</span>
+            </div>
+            
+            <h3 class="testi-card-title">Navigating the Danakil</h3>
+            
+            <blockquote class="testi-quote">
+              &ldquo;Navigating north &amp; Danakil (Erta Ale active volcano &amp; Dallol) was seamless. The active volcano lava lake was unforgettable and the team handled all expedition logistics safely in extreme desert conditions.&rdquo;
+            </blockquote>
+
+            <div class="testi-meta-box">
+              <div class="meta-row">
+                <span class="m-label">Reviewer:</span>
+                <span class="m-val">Julian &amp; Sarah</span>
+              </div>
+              <div class="meta-row">
+                <span class="m-label">Traveler Type:</span>
+                <span class="m-val">Private Desert Expedition</span>
+              </div>
+              <div class="meta-row">
+                <span class="m-label">Origin:</span>
+                <span class="m-val">United Kingdom</span>
+              </div>
+              <div class="meta-row">
+                <span class="m-label">Itinerary:</span>
+                <span class="m-val">4-Day Danakil &amp; Erta Ale</span>
+              </div>
+            </div>
+
+            <div class="testi-verified-tag">
+              <span class="v-check">&#10003;</span> Verified Private Traveler
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Omo Valley Review -->
+        <article class="testi-card">
+          <div class="testi-card-media">
+            <img 
+              src="/images/destinations/omo-valley-hamer.jpg" 
+              alt="Omo Valley cultural encounter in Ethiopia" 
+              class="testi-bg-img" 
+              loading="lazy" 
+            />
+            <div class="reviewer-avatar-wrap">
+              <img 
+                src="/images/testimonials/reviewer-omo.jpg" 
+                alt="Kanon and Marcus - Cultural Photography Travelers" 
+                class="reviewer-avatar-img" 
+                loading="lazy" 
+              />
+            </div>
+          </div>
+          
+          <div class="testi-card-body">
+            <div class="star-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-num">5.0</span>
+            </div>
+            
+            <h3 class="testi-card-title">Omo Valley Cultural Encounter</h3>
+            
+            <blockquote class="testi-quote">
+              &ldquo;Privileged access into the heart of the South Omo Valley. Dessiew and our native guides established respectful relationships with the village elders, creating an authentic, ethical, and unforgettable photography journey.&rdquo;
+            </blockquote>
+
+            <div class="testi-meta-box">
+              <div class="meta-row">
+                <span class="m-label">Reviewer:</span>
+                <span class="m-val">Kanon &amp; Marcus</span>
+              </div>
+              <div class="meta-row">
+                <span class="m-label">Traveler Type:</span>
+                <span class="m-val">Cultural Photography Tour</span>
+              </div>
+              <div class="meta-row">
+                <span class="m-label">Origin:</span>
+                <span class="m-val">United States</span>
+              </div>
+              <div class="meta-row">
+                <span class="m-label">Itinerary:</span>
+                <span class="m-val">7-Day Omo Valley Tribal Safari</span>
+              </div>
+            </div>
+
+            <div class="testi-verified-tag">
+              <span class="v-check">&#10003;</span> Verified Private Traveler
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Simien Mountains Review -->
+        <article class="testi-card">
+          <div class="testi-card-media">
+            <img 
+              src="/images/destinations/simien-baboons.jpg" 
+              alt="Gelada baboons and Simien Mountains escarpments" 
+              class="testi-bg-img" 
+              loading="lazy" 
+            />
+            <div class="reviewer-avatar-wrap">
+              <img 
+                src="/images/testimonials/reviewer-simien.jpg" 
+                alt="Dr. David L. - Trekking and Wildlife Traveler" 
+                class="reviewer-avatar-img" 
+                loading="lazy" 
+              />
+            </div>
+          </div>
+          
+          <div class="testi-card-body">
+            <div class="star-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-num">5.0</span>
+            </div>
+            
+            <h3 class="testi-card-title">Simien Mountains Escarpment</h3>
+            
+            <blockquote class="testi-quote">
+              &ldquo;Gelada baboons at arm's reach and the Simien escarpments are breathtaking. Vehicles and mountain drivers were flawless; veteran navigation on high-altitude passes gave our family complete peace of mind.&rdquo;
+            </blockquote>
+
+            <div class="testi-meta-box">
+              <div class="meta-row">
+                <span class="m-label">Reviewer:</span>
+                <span class="m-val">Dr. David L. &amp; Family</span>
+              </div>
+              <div class="meta-row">
+                <span class="m-label">Traveler Type:</span>
+                <span class="m-val">Wildlife &amp; Mountain Trek</span>
+              </div>
+              <div class="meta-row">
+                <span class="m-label">Origin:</span>
+                <span class="m-val">Germany</span>
+              </div>
+              <div class="meta-row">
+                <span class="m-label">Itinerary:</span>
+                <span class="m-val">6-Day Simien Mountains Trek</span>
+              </div>
+            </div>
+
+            <div class="testi-verified-tag">
+              <span class="v-check">&#10003;</span> Verified Private Traveler
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- FEATURED SPOTLIGHT REVIEWS (Matching Left Column in Client Wireframe) -->
+      <!-- ============================================================== -->
+      <div class="spotlight-reviews-grid">
+        <!-- Spotlight 1: Historic North & Danakil -->
+        <div class="spotlight-card">
+          <div class="spotlight-content">
+            <div class="star-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-num">5.0</span>
+            </div>
+            <h3 class="spotlight-title">Historic North &amp; Danakil Grand Circuit</h3>
+            <blockquote class="spotlight-quote">
+              &ldquo;Translating complex travel logistics across Lalibela rock churches, Gondar castles, and the extreme active Erta Ale lava lake into a seamless journey. It was by far our finest expedition in Africa.&rdquo;
+            </blockquote>
+            <div class="spotlight-meta">
+              <p><strong>Reviewer:</strong> Dena &bull; <strong>Traveler Type:</strong> Private Cultural &bull; <strong>Origin:</strong> Addis Ababa / UK &bull; <strong>Itinerary:</strong> Historic North &amp; Danakil</p>
+            </div>
+            <div class="spotlight-footer">
+              <span class="testi-verified-tag"><span class="v-check">&#10003;</span> Verified Private Traveler</span>
+              <a href="/contact-us" class="btn btn-gold btn-sm">[ Get B2C Quote ]</a>
+            </div>
+          </div>
+          <div class="spotlight-visual">
+            <img 
+              src="/images/destinations/lalibela-st-george.jpg" 
+              alt="Lalibela Rock-Hewn Church of St. George" 
+              class="spotlight-img" 
+              loading="lazy" 
+            />
+            <div class="spotlight-caption">Historic Monolithic Heritage &bull; Northern Circuit</div>
+          </div>
+        </div>
+
+        <!-- Spotlight 2: Omo Valley & B2B Operations -->
+        <div class="spotlight-card">
+          <div class="spotlight-content">
+            <div class="star-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-num">5.0</span>
+            </div>
+            <h3 class="spotlight-title">Omo Valley Cultural Circuit</h3>
+            <blockquote class="spotlight-quote">
+              &ldquo;Meticulous ground execution across Hamer and Mursi territories. Deep ancestral ties with local elders and flawless 4x4 Land Cruiser convoys gave our agency absolute confidence.&rdquo;
+            </blockquote>
+            <div class="spotlight-meta">
+              <p><strong>Reviewer:</strong> Daniel K. &bull; <strong>Traveler Type:</strong> Tour Operator / B2B &bull; <strong>Origin:</strong> Germany / Addis Ababa &bull; <strong>Itinerary:</strong> South Omo Valley</p>
+            </div>
+            <div class="spotlight-footer">
+              <span class="testi-verified-tag"><span class="v-check">&#10003;</span> Verified B2B Partner Desk</span>
+              <a href="/b2b" class="btn btn-gold btn-sm">[ Get B2B Quote ]</a>
+            </div>
+          </div>
+          <div class="spotlight-visual">
+            <img 
+              src="/images/destinations/mursi-tribe.jpg" 
+              alt="Omo Valley Cultural and Ethnographic Safari" 
+              class="spotlight-img" 
+              loading="lazy" 
+            />
+            <div class="spotlight-caption">Mursi &bull; Hamer &bull; South Omo Operations</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- B2B WHOLESALE AGENT ENDORSEMENTS -->
+      <!-- ============================================================== -->
+      <div class="b2b-endorsements-wrap">
+        <div class="text-center" style="margin-bottom: 2rem;">
+          <span class="section-label">TRAVEL AGENCY PARTNERS</span>
+          <h2 class="b2b-section-title">B2B Wholesale Agent Endorsements (Travel Agencies)</h2>
+          <p class="b2b-section-sub">Direct feedback from international tour operators and travel designers who rely on our native ground handling.</p>
+        </div>
+
+        <div class="b2b-cards-grid">
+          <!-- B2B Partner 1: Apex Overland Travel -->
+          <article class="b2b-partner-card">
+            <div class="b2b-card-top">
+              <div class="b2b-card-left">
+                <div class="star-rating">
+                  <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                  <span class="rating-num">5.0</span>
+                </div>
+                <span class="partner-role-tag">Role: Professional Adventure Travel Agency</span>
+                <span class="partner-company-name">Apex Overland Travel</span>
+              </div>
+              <div class="b2b-logo-badge">
+                <span class="b2b-logo-icon">&#9650;</span>
+                <span class="b2b-logo-text">APEX OVERLAND<br/>TRAVEL</span>
+              </div>
+            </div>
+
+            <blockquote class="b2b-partner-quote">
+              &ldquo;As an international tour operator, partnering with Abyssinian has revolutionized our Horn of Africa departures. Their 12-hour turnaround on net rates, 100% white-label execution, and zero middleman markups make them our sole ground handler in Ethiopia.&rdquo;
+            </blockquote>
+
+            <div class="b2b-card-bottom">
+              <div class="b2b-meta-col">
+                <div class="b-meta-item"><strong>Location:</strong> Colorado, United States</div>
+                <div class="b-meta-item"><strong>Scope of operations:</strong> Turnkey Inbound Ground Handling</div>
+                <div class="b-verified-badge"><span class="v-check">&#10003;</span> Verified B2B Partner Desk</div>
+              </div>
+              <div class="partner-portrait-col">
+                <img 
+                  src="/images/testimonials/partner-apex.jpg" 
+                  alt="Apex Overland Travel Managing Director" 
+                  class="partner-portrait-img" 
+                  loading="lazy" 
+                />
+              </div>
+            </div>
+          </article>
+
+          <!-- B2B Partner 2: Horizon Expeditions -->
+          <article class="b2b-partner-card">
+            <div class="b2b-card-top">
+              <div class="b2b-card-left">
+                <div class="star-rating">
+                  <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                  <span class="rating-num">5.0</span>
+                </div>
+                <span class="partner-role-tag">Role: Professional Expeditions &amp; Wholesale Partner</span>
+                <span class="partner-company-name">Horizon Expeditions</span>
+              </div>
+              <div class="b2b-logo-badge">
+                <span class="b2b-logo-icon">&#9670;</span>
+                <span class="b2b-logo-text">HORIZON<br/>EXPEDITIONS</span>
+              </div>
+            </div>
+
+            <blockquote class="b2b-partner-quote">
+              &ldquo;Our discerning travelers expect uncompromising safety, reliable 4x4 Land Cruisers, and native experts. Dessiew and the Abyssinian team deliver flawlessly on every departure across the historical and desert circuits.&rdquo;
+            </blockquote>
+
+            <div class="b2b-card-bottom">
+              <div class="b2b-meta-col">
+                <div class="b-meta-item"><strong>Location:</strong> London, United Kingdom</div>
+                <div class="b-meta-item"><strong>Scope of operations:</strong> White-Label Ground Operations</div>
+                <div class="b-verified-badge"><span class="v-check">&#10003;</span> Verified B2B Partner Desk</div>
+              </div>
+              <div class="partner-portrait-col">
+                <img 
+                  src="/images/testimonials/partner-horizon.jpg" 
+                  alt="Horizon Expeditions Director" 
+                  class="partner-portrait-img" 
+                  loading="lazy" 
+                />
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Action Button to All 20 Itineraries -->
+      <div class="text-center" style="margin-top: 3rem;">
+        <a href="/tours" class="btn btn-gold btn-lg">
+          [ Explore All 20 Master Itineraries ]
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- B2B GATEWAY CALL TO ACTION STRIP -->
+  <!-- ==================================================================== -->
+  <section class="section-pad b2b-gateway-section">
+    <div class="container">
+      <div class="b2b-gateway-box card-sand text-center">
+        <h2 class="b2b-gateway-title">INTERNATIONAL B2B TRAVEL AGENT GATEWAY</h2>
+        <h3 class="b2b-gateway-sub">Partner with Ethiopia's Leading Inbound Ground Operator</h3>
+        
+        <div class="b2b-gateway-points">
+          <div class="b2b-gw-item">
+            <span class="gw-check">&#10003;</span>
+            <strong>100% White-Label Execution</strong>
+            <p>Direct native execution across all Ethiopian ground circuits.</p>
+          </div>
+          <div class="b2b-gw-item">
+            <span class="gw-check">&#10003;</span>
+            <strong>Confidential Net Tariffs</strong>
+            <p>Itemized route proposals, vehicle hire, and wholesale pricing within 12 hours.</p>
+          </div>
+          <div class="b2b-gw-item">
+            <span class="gw-check">&#10003;</span>
+            <strong>Safety &amp; Security Standards</strong>
+            <p>Satellite GPS phone tracking, first-aid certified crews, robust risk management.</p>
+          </div>
+        </div>
+
+        <div class="b2b-gw-action">
+          <a href="/b2b" class="btn btn-gold btn-lg">
+            [ Access B2B Partner Portal ]
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* -------------------------------------------------- */
+  /* HERO SECTION */
+  /* -------------------------------------------------- */
+  .testi-hero-section {
+    position: relative;
+    padding: 7rem 0 5rem 0;
+    background-image: url('/images/home/hero-lalibela.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #FFFFFF;
+  }
+
+  .testi-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20, 16, 12, 0.75) 0%, rgba(20, 16, 12, 0.92) 100%);
+  }
+
+  .testi-hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .testi-badge-wrap {
+    margin-bottom: 1.25rem;
+  }
+
+  .testi-pill-badge {
+    background: rgba(194, 139, 56, 0.2);
+    border: 1px solid var(--color-gold-deep);
+    color: #E5C158;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+  }
+
+  .testi-hero-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.18;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+  }
+
+  .testi-hero-sub {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 760px;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .testi-hero-creds {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #E5C158;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .cred-dot {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .testi-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-hero-gold {
+    background-color: var(--color-gold-deep);
+    color: #FFFFFF !important;
+    padding: 0.75rem 1.6rem;
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-hero-gold:hover {
+    background-color: var(--color-gold-light);
+    color: #1C1814 !important;
+    transform: translateY(-2px);
+  }
+
+  .btn-hero-green {
+    background-color: var(--color-green-cta);
+    color: #FFFFFF !important;
+    padding: 0.75rem 1.6rem;
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-hero-green:hover {
+    background-color: #246B43;
+    transform: translateY(-2px);
+  }
+
+  /* -------------------------------------------------- */
+  /* TRUST BAR */
+  /* -------------------------------------------------- */
+  .testi-trust-bar {
+    background-color: #FAF8F5;
+    border-bottom: 1px solid var(--color-sand-border);
+    padding: 1.5rem 0;
+  }
+
+  .trust-bar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .t-bar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .t-bar-icon {
+    font-size: 1.35rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .t-bar-text strong {
+    display: block;
+    font-size: 0.86rem;
+    font-weight: 800;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.2rem;
+  }
+
+  .t-bar-text p {
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* -------------------------------------------------- */
+  /* TESTIMONIALS MAIN */
+  /* -------------------------------------------------- */
+  .testi-main-section {
+    background-color: #FFFFFF;
+    padding: 4rem 0;
+  }
+
+  .aggregate-stars-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .stars {
+    color: #E5A93B;
+    font-size: 1.15rem;
+    letter-spacing: 2px;
+  }
+
+  .score-text {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+  }
+
+  /* 3-Column Cards */
+  .testi-cards-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .testi-card {
+    background: #FAF8F5;
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .testi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .testi-card-media {
+    position: relative;
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .testi-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .reviewer-avatar-wrap {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background: #231C16;
+  }
+
+  .reviewer-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .testi-card-body {
+    padding: 1.5rem 1.25rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .star-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .rating-num {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--color-primary-dark);
+  }
+
+  .testi-card-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--color-primary-dark);
+    margin: 0 0 0.65rem 0;
+  }
+
+  .testi-quote {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--color-text-main);
+    margin: 0 0 1rem 0;
+    font-style: italic;
+    flex-grow: 1;
+  }
+
+  .testi-meta-box {
+    background: #FFFFFF;
+    border: 1px solid var(--color-sand-border);
+    border-radius: 3px;
+    padding: 0.65rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .m-label {
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+
+  .m-val {
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .testi-verified-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-green-cta);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .v-check {
+    font-weight: 900;
+  }
+
+  /* -------------------------------------------------- */
+  /* SPOTLIGHT CARDS */
+  /* -------------------------------------------------- */
+  .spotlight-reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .spotlight-card {
+    background: #FAF8F5;
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .spotlight-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .spotlight-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-primary-dark);
+    margin: 0.25rem 0 0.65rem 0;
+  }
+
+  .spotlight-quote {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--color-text-main);
+    font-style: italic;
+    margin: 0 0 1rem 0;
+  }
+
+  .spotlight-meta p {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin: 0 0 1rem 0;
+    line-height: 1.4;
+  }
+
+  .spotlight-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .spotlight-visual {
+    position: relative;
+    height: 100%;
+    min-height: 220px;
+  }
+
+  .spotlight-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .spotlight-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(28, 24, 20, 0.85);
+    color: #E5C158;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0.35rem 0.5rem;
+  }
+
+  /* -------------------------------------------------- */
+  /* B2B WHOLESALE AGENT ENDORSEMENTS */
+  /* -------------------------------------------------- */
+  .b2b-endorsements-wrap {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-sand-border);
+  }
+
+  .b2b-section-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary-dark);
+    margin-top: 0.35rem;
+  }
+
+  .b2b-section-sub {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    max-width: 680px;
+    margin: 0.35rem auto 0 auto;
+  }
+
+  .b2b-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .b2b-partner-card {
+    background: #FFFFFF;
+    border: 2px solid var(--color-sand-border);
+    border-radius: var(--radius-sm);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+
+  .b2b-partner-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-gold-deep);
+  }
+
+  .b2b-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+  }
+
+  .partner-role-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-gold-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  .partner-company-name {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--color-primary-dark);
+    display: block;
+    margin-top: 0.2rem;
+  }
+
+  .b2b-logo-badge {
+    background: #FAF8F5;
+    border: 1px solid var(--color-sand-border);
+    padding: 0.4rem 0.75rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .b2b-logo-icon {
+    font-size: 1.1rem;
+    color: var(--color-gold-deep);
+  }
+
+  .b2b-logo-text {
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    color: var(--color-primary-dark);
+    line-height: 1.15;
+  }
+
+  .b2b-partner-quote {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-main);
+    font-style: italic;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .b2b-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid var(--color-sand-border);
+    padding-top: 1rem;
+    gap: 1rem;
+  }
+
+  .b2b-meta-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .b-meta-item {
+    font-size: 0.78rem;
+    color: var(--color-text-main);
+  }
+
+  .b-verified-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--color-green-cta);
+    margin-top: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .partner-portrait-col {
+    width: 68px;
+    height: 78px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 2px solid var(--color-sand-border);
+    flex-shrink: 0;
+  }
+
+  .partner-portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* -------------------------------------------------- */
+  /* B2B GATEWAY SECTION */
+  /* -------------------------------------------------- */
+  .b2b-gateway-section {
+    padding: 3.5rem 0;
+    background-color: var(--color-sand-bg);
+  }
+
+  .b2b-gateway-box {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 4px 16px rgba(28, 24, 20, 0.05);
+  }
+
+  .b2b-gateway-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    color: var(--color-primary-dark);
+    margin: 0 0 0.4rem 0;
+  }
+
+  .b2b-gateway-sub {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-gold-deep);
+    margin: 0 0 1.75rem 0;
+  }
+
+  .b2b-gateway-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .b2b-gw-item {
+    background-color: #FAF8F5;
+    border: 1px solid var(--color-sand-border);
+    padding: 1.25rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .gw-check {
+    color: var(--color-green-cta);
+    font-weight: 900;
+    font-size: 1.1rem;
+    margin-right: 0.35rem;
+  }
+
+  .b2b-gw-item strong {
+    font-size: 0.92rem;
+    color: var(--color-primary-dark);
+    display: inline;
+  }
+
+  .b2b-gw-item p {
+    font-size: 0.84rem;
+    color: var(--color-text-muted);
+    margin: 0.5rem 0 0 0;
+    line-height: 1.45;
+  }
+
+  /* -------------------------------------------------- */
+  /* RESPONSIVE */
+  /* -------------------------------------------------- */
+  @media (max-width: 992px) {
+    .trust-bar-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testi-cards-3col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .spotlight-reviews-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .b2b-cards-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .b2b-gateway-points {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .testi-hero-title {
+      font-size: 1.75rem;
+    }
+
+    .trust-bar-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .testi-cards-3col {
+      grid-template-columns: 1fr;
+    }
+
+    .spotlight-card {
+      grid-template-columns: 1fr;
+    }
+
+    .b2b-card-top {
+      flex-direction: column;
+    }
+
+    .b2b-card-bottom {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .partner-portrait-col {
+      width: 60px;
+      height: 70px;
+    }
+  }
+</style>

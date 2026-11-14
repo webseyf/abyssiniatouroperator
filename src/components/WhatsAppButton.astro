@@ -81,22 +81,31 @@ const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
 
   @media (max-width: 680px) {
     .floating-whatsapp-wrap {
-      bottom: 18px;
-      left: 16px;
-    }
-
-    .whatsapp-float-label {
-      display: none;
+      bottom: 16px;
+      left: 14px;
     }
 
     .whatsapp-float-btn {
-      padding: 0;
-      border-radius: 50%;
+      padding: 0.35rem 0.85rem 0.35rem 0.35rem;
+      border-radius: 9999px;
+      gap: 0.5rem;
     }
 
     .whatsapp-icon-circle {
-      width: 50px;
-      height: 50px;
+      width: 36px;
+      height: 36px;
+    }
+
+    .whatsapp-icon-circle svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .whatsapp-float-label {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
     }
   }
 </style>

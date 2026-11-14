@@ -2,149 +2,154 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core Static Pages -->
   <url>
-    <loc>https://www.abyssiniatouroperator.com/</loc>
+    <loc>https://abyssiniatouroperator.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours</loc>
+    <loc>https://abyssiniatouroperator.com/tours</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/destinations</loc>
+    <loc>https://abyssiniatouroperator.com/destinations</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/about-us</loc>
+    <loc>https://abyssiniatouroperator.com/testimonials</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://abyssiniatouroperator.com/about-us</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/b2b</loc>
+    <loc>https://abyssiniatouroperator.com/b2b</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/travel-guide</loc>
+    <loc>https://abyssiniatouroperator.com/travel-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/contact-us</loc>
+    <loc>https://abyssiniatouroperator.com/contact-us</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/blog</loc>
+    <loc>https://abyssiniatouroperator.com/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/image-attributions</loc>
+    <loc>https://abyssiniatouroperator.com/image-attributions</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <!-- 20 Master Itineraries -->
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/8-day-historic-north-lalibela-unesco-circuit</loc>
+    <loc>https://abyssiniatouroperator.com/tours/8-day-historic-north-lalibela-unesco-circuit</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/5-day-compact-lalibela-gondar-heritage</loc>
+    <loc>https://abyssiniatouroperator.com/tours/5-day-compact-lalibela-gondar-heritage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/10-day-grand-historic-route-tigray-cliff-churches</loc>
+    <loc>https://abyssiniatouroperator.com/tours/10-day-grand-historic-route-tigray-cliff-churches</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/3-day-lalibela-monolith-pilgrimage-express</loc>
+    <loc>https://abyssiniatouroperator.com/tours/3-day-lalibela-monolith-pilgrimage-express</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/6-day-lake-tana-monasteries-source-of-nile</loc>
+    <loc>https://abyssiniatouroperator.com/tours/6-day-lake-tana-monasteries-source-of-nile</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/4-day-danakil-depression-erta-ale-lava-lake</loc>
+    <loc>https://abyssiniatouroperator.com/tours/4-day-danakil-depression-erta-ale-lava-lake</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/6-day-simien-mountains-escarpment-trek</loc>
+    <loc>https://abyssiniatouroperator.com/tours/6-day-simien-mountains-escarpment-trek</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/7-day-bale-mountains-wilderness-ethiopian-wolf-safari</loc>
+    <loc>https://abyssiniatouroperator.com/tours/7-day-bale-mountains-wilderness-ethiopian-wolf-safari</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/5-day-omo-river-suri-tribal-wilderness-expedition</loc>
+    <loc>https://abyssiniatouroperator.com/tours/5-day-omo-river-suri-tribal-wilderness-expedition</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/3-day-erta-ale-volcano-quick-ascent</loc>
+    <loc>https://abyssiniatouroperator.com/tours/3-day-erta-ale-volcano-quick-ascent</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/7-day-omo-valley-tribal-cultural-photography-safari</loc>
+    <loc>https://abyssiniatouroperator.com/tours/7-day-omo-valley-tribal-cultural-photography-safari</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/5-day-compact-omo-valley-tribal-encounter</loc>
+    <loc>https://abyssiniatouroperator.com/tours/5-day-compact-omo-valley-tribal-encounter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/9-day-indepth-omo-valley-rift-valley-lakes-safari</loc>
+    <loc>https://abyssiniatouroperator.com/tours/9-day-indepth-omo-valley-rift-valley-lakes-safari</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/6-day-great-rift-valley-lakes-birdwatching-safari</loc>
+    <loc>https://abyssiniatouroperator.com/tours/6-day-great-rift-valley-lakes-birdwatching-safari</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/5-day-kaffa-wild-arabica-coffee-origin-rainforest</loc>
+    <loc>https://abyssiniatouroperator.com/tours/5-day-kaffa-wild-arabica-coffee-origin-rainforest</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/4-day-awash-national-park-wildlife-safari</loc>
+    <loc>https://abyssiniatouroperator.com/tours/4-day-awash-national-park-wildlife-safari</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/14-day-grand-ethiopia-combined-north-south-voyage</loc>
+    <loc>https://abyssiniatouroperator.com/tours/14-day-grand-ethiopia-combined-north-south-voyage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/21-day-complete-all-ethiopia-grand-expedition</loc>
+    <loc>https://abyssiniatouroperator.com/tours/21-day-complete-all-ethiopia-grand-expedition</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/1-day-addis-ababa-layover-city-heritage-tour</loc>
+    <loc>https://abyssiniatouroperator.com/tours/1-day-addis-ababa-layover-city-heritage-tour</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abyssiniatouroperator.com/tours/1-day-debre-libanos-monastery-blue-nile-gorge</loc>
+    <loc>https://abyssiniatouroperator.com/tours/1-day-debre-libanos-monastery-blue-nile-gorge</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

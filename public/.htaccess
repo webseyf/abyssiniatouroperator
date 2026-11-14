@@ -1,5 +1,6 @@
 # ==============================================================================
 # Abyssinian Tour Operator — Production .htaccess for cPanel / Apache
+# Canonical Domain: https://abyssiniatouroperator.com
 # ==============================================================================
 
 # Enable Rewrite Engine
@@ -7,21 +8,48 @@
   RewriteEngine On
   RewriteBase /
 
-  # Redirect HTTP to HTTPS (standard cPanel SSL)
-  RewriteCond %{HTTPS} off
-  RewriteCond %{HTTP_HOST} ^(www\.)?abyssiniatouroperator\.com [NC]
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # ----------------------------------------------------------------------------
+  # 1. DOMAIN MIGRATION: 301 Permanent Redirect from Old Domain
+  # Old: abyssiniantouroperator.com (with an extra "n") -> New: abyssiniatouroperator.com
+  # Preserves full URI path and query string parameters ($1, QSA)
+  # ----------------------------------------------------------------------------
+  RewriteCond %{HTTP_HOST} ^(www\.)?abyssiniantouroperator\.com$ [NC]
+  RewriteRule ^(.*)$ https://abyssiniatouroperator.com/$1 [R=301,L,QSA]
 
-  # Redirect old WordPress URLs or index.php
+  # ----------------------------------------------------------------------------
+  # 2. CANONICAL HOSTNAME: Force non-www (https://abyssiniatouroperator.com)
+  # ----------------------------------------------------------------------------
+  RewriteCond %{HTTP_HOST} ^www\.abyssiniatouroperator\.com$ [NC]
+  RewriteRule ^(.*)$ https://abyssiniatouroperator.com/$1 [R=301,L,QSA]
+
+  # ----------------------------------------------------------------------------
+  # 3. FORCE HTTPS (SSL)
+  # ----------------------------------------------------------------------------
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://abyssiniatouroperator.com/$1 [R=301,L,QSA]
+
+  # ----------------------------------------------------------------------------
+  # 4. REMOVE INDEX.PHP / LEGACY WORDPRESS URLS
+  # ----------------------------------------------------------------------------
   RewriteCond %{THE_REQUEST} ^.*/index\.php
   RewriteRule ^(.*)index\.php$ /$1 [R=301,L]
 
-  # Clean URLs: Serve .html if exists
+  # ----------------------------------------------------------------------------
+  # 5. LEGACY & HELPER ALIAS REDIRECTS
+  # ----------------------------------------------------------------------------
+  RewriteRule ^(tour-inquiry|inquiry)/?$ /contact-us [R=301,L]
+  RewriteRule ^(reviews)/?$ /testimonials [R=301,L]
+
+  # ----------------------------------------------------------------------------
+  # 6. CLEAN URLS: Serve static .html files if exist
+  # ----------------------------------------------------------------------------
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}\.html -f
   RewriteRule ^(.*)$ $1.html [L]
 
-  # Directory fallback to index.html
+  # ----------------------------------------------------------------------------
+  # 7. DIRECTORY FALLBACK: Serve index.html inside directories
+  # ----------------------------------------------------------------------------
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_FILENAME}/index.html -f
   RewriteRule ^(.*)$ $1/index.html [L]

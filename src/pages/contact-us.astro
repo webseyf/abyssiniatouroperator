@@ -2,349 +2,629 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import TrustBar from '../components/TrustBar.astro';
 import { siteConfig } from '../config/site';
+import { allTours } from '../data/tours';
 ---
 
 <MainLayout 
-  title="Contact Us & Trip Inquiry | Abyssinian Tour Operator Addis Ababa"
-  description="Contact Abyssinian Tour Operator in Addis Ababa. Direct field dispatch, WhatsApp +251 920 009 100, booking desk, and custom quotation form with guaranteed 12-hour response."
+  title="Tour Inquiry Form & Contact | Abyssinia Tour Operator Addis Ababa"
+  description="Official Tour Inquiry Form for international travelers and B2B partners. Tailor-made itineraries, private 4x4 overland expeditions, and cultural circuits across Ethiopia."
   image="/images/home/hero-contact-addis.jpg"
 >
   <!-- Page Hero -->
   <section class="page-hero" style="background-image: url('/images/home/hero-contact-addis.jpg');">
     <div class="container">
       <span class="section-label light">24/7 ADDIS ABABA DISPATCH & INQUIRY DESK</span>
-      <h1>CONTACT US</h1>
+      <h1>TOUR INQUIRY & CONTACT</h1>
       <p class="subtitle">
-        Whether you are planning a private custom tour, require domestic flight and car rental arrangements, or seek an inbound DMC partner for your travel agency, our dedicated ground team is available 24/7 to assist you.
+        Bespoke Expeditions, Cultural Circuits & Turnkey Ground Handling in Ethiopia. Complete our official inquiry form below for a custom quotation and logistical plan within 12 hours.
       </p>
     </div>
   </section>
 
-  <!-- Section: Main Contact & Form Section -->
-  <section class="section-pad">
+  <!-- Section: Quick Contact Strip -->
+  <section class="quick-contact-section">
     <div class="container">
-      <div class="editorial-grid">
-        <!-- Main Column: Info Cards & 2-Column Booking Form -->
-        <div class="contact-main-col">
-          <!-- Contact Information & Get In Touch -->
-          <div class="card-sand contact-block">
-            <span class="section-label">DIRECT FIELD DISPATCH</span>
-            <h2>CONTACT INFORMATION & GET IN TOUCH</h2>
-
-            <div class="contact-info-grid">
-              <!-- Founder/CEO -->
-              <div class="c-info-card">
-                <div class="c-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                </div>
-                <div>
-                  <strong>Founder / CEO</strong>
-                  <p>Abyssinian</p>
-                  <p class="c-val">{siteConfig.founder.name}</p>
-                </div>
-              </div>
-
-              <!-- Head Office -->
-              <div class="c-info-card">
-                <div class="c-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                </div>
-                <div>
-                  <strong>Head Office</strong>
-                  <p>{siteConfig.contact.address.street}</p>
-                  <p class="c-val">{siteConfig.contact.address.city}, Ethiopia</p>
-                </div>
-              </div>
-
-              <!-- Phone / WhatsApp -->
-              <div class="c-info-card">
-                <div class="c-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                </div>
-                <div>
-                  <strong>Phone / WhatsApp</strong>
-                  <p><a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" class="link-gold">{siteConfig.contact.phoneDisplay}</a></p>
-                  <p class="c-val">{siteConfig.contact.officePhoneDisplay} (Office Desk)</p>
-                </div>
-              </div>
-
-              <!-- Email Desks -->
-              <div class="c-info-card">
-                <div class="c-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                </div>
-                <div>
-                  <strong>Official Emails</strong>
-                  <p><a href={`mailto:${siteConfig.contact.emails.general}`}>{siteConfig.contact.emails.general}</a></p>
-                  <p><a href={`mailto:${siteConfig.contact.emails.b2b}`}>{siteConfig.contact.emails.b2b}</a></p>
-                </div>
-              </div>
-
-              <!-- Website -->
-              <div class="c-info-card">
-                <div class="c-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                </div>
-                <div>
-                  <strong>Official Website</strong>
-                  <p class="c-val">www.abyssiniatouroperator.com</p>
-                  <p class="c-sub">Accredited Inbound DMC</p>
-                </div>
-              </div>
-
-              <!-- Business Hours -->
-              <div class="c-info-card">
-                <div class="c-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                </div>
-                <div>
-                  <strong>Business Hours</strong>
-                  <p>Mon – Sat: 8:00 AM – 6:00 PM (EAT)</p>
-                  <p class="c-val" style="color: var(--color-green-cta); font-weight: 700;">24/7 Field Support Active</p>
-                </div>
-              </div>
-            </div>
+      <div class="quick-contact-grid">
+        <!-- Phone & WhatsApp -->
+        <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" class="qc-card whatsapp-qc">
+          <div class="qc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           </div>
+          <div class="qc-content">
+            <span class="qc-label">24/7 DIRECT FIELD DISPATCH</span>
+            <strong>{siteConfig.contact.phoneDisplay}</strong>
+            <span class="qc-sub">WhatsApp & Urgent Ground Coordination</span>
+          </div>
+        </a>
 
-          <!-- Trip Inquiry & Booking Form -->
-          <div class="card-white contact-block">
-            <span class="section-label">CUSTOM QUOTATION</span>
-            <h2>TRIP INQUIRY & BOOKING FORM</h2>
+        <!-- General Email -->
+        <a href={`mailto:${siteConfig.contact.emails.general}`} class="qc-card">
+          <div class="qc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <div class="qc-content">
+            <span class="qc-label">GENERAL INQUIRIES & BOOKINGS</span>
+            <strong>{siteConfig.contact.emails.general}</strong>
+            <span class="qc-sub">Guaranteed 12-Hour Proposal Turnaround</span>
+          </div>
+        </a>
 
-            <form id="mainContactForm" action="/api/contact.php" method="POST" class="contact-form">
-              <input type="hidden" name="form_type" value="page_contact" />
+        <!-- B2B Desk -->
+        <a href={`mailto:${siteConfig.contact.emails.b2b}`} class="qc-card">
+          <div class="qc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+          </div>
+          <div class="qc-content">
+            <span class="qc-label">B2B AGENT & DMC DESK</span>
+            <strong>{siteConfig.contact.emails.b2b}</strong>
+            <span class="qc-sub">Confidential Wholesale NET Tariffs</span>
+          </div>
+        </a>
 
-              <div class="form-columns-split">
-                <!-- Left Column: Contact Details -->
-                <div class="form-sub-col">
-                  <h3 class="col-heading">Contact Details</h3>
+        <!-- Office Address -->
+        <div class="qc-card">
+          <div class="qc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div class="qc-content">
+            <span class="qc-label">HEADQUARTERS & DISPATCH DESK</span>
+            <strong>{siteConfig.contact.address.street}</strong>
+            <span class="qc-sub">{siteConfig.contact.address.city}, Ethiopia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                  <div class="form-group">
-                    <label for="contactFullName" class="form-label">Full Name / Company Name *</label>
-                    <input type="text" id="contactFullName" name="fullName" class="form-control" placeholder="Your name or company" required />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="contactEmail" class="form-label">Email Address *</label>
-                    <input type="email" id="contactEmail" name="email" class="form-control" placeholder="your@email.com" required />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="contactPhone" class="form-label">Phone / WhatsApp (with country code) *</label>
-                    <input type="tel" id="contactPhone" name="phone" class="form-control" placeholder="+251 920 009 100" required />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="contactCountry" class="form-label">Country of Residence *</label>
-                    <input type="text" id="contactCountry" name="country" class="form-control" placeholder="e.g. USA, UK, Germany, Australia" required />
-                  </div>
-
-                  <div class="form-group">
-                    <label class="form-label">Inquiry Type</label>
-                    <div class="radio-stack">
-                      <label class="form-checkbox-label">
-                        <input type="radio" name="inquiryType" value="Private Individual / Group" checked />
-                        <span>Private Individual / Group (B2C Expedition)</span>
-                      </label>
-                      <label class="form-checkbox-label">
-                        <input type="radio" name="inquiryType" value="B2B Travel Agency / DMC Partner" />
-                        <span>B2B Travel Agency / DMC Partner (Wholesale NET)</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Right Column: Trip & Service Requirements -->
-                <div class="form-sub-col">
-                  <h3 class="col-heading">Trip & Service Requirements</h3>
-
-                  <div class="form-group">
-                    <label for="contactDates" class="form-label">Estimated Travel Dates / Month</label>
-                    <input type="text" id="contactDates" name="travelDates" class="form-control" placeholder="e.g. October 2026 or Dec–Jan" />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="contactDuration" class="form-label">Duration (Number of Days)</label>
-                    <input type="text" id="contactDuration" name="duration" class="form-control" placeholder="e.g. 8 Days, 14 Days, 21 Days" />
-                  </div>
-
-                  <div class="form-row form-row-2">
-                    <div class="form-group">
-                      <label for="contactAdults" class="form-label">Adults</label>
-                      <input type="number" id="contactAdults" name="adults" min="1" max="100" value="2" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                      <label for="contactChildren" class="form-label">Children</label>
-                      <input type="number" id="contactChildren" name="children" min="0" max="50" value="0" class="form-control" />
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="form-label">Desired Services (Select all that apply)</label>
-                    <div class="services-checklist">
-                      <label class="form-checkbox-label">
-                        <input type="checkbox" name="services[]" value="Tailor-Made Private Tour" checked />
-                        <span>Tailor-Made Private Tour</span>
-                      </label>
-                      <label class="form-checkbox-label">
-                        <input type="checkbox" name="services[]" value="Domestic Flight Reservations" checked />
-                        <span>Domestic Flight Reservations</span>
-                      </label>
-                      <label class="form-checkbox-label">
-                        <input type="checkbox" name="services[]" value="Chauffeur-Driven 4x4 / Coaster Rental" checked />
-                        <span>Chauffeur-Driven Car Rental (4x4 / Coaster)</span>
-                      </label>
-                      <label class="form-checkbox-label">
-                        <input type="checkbox" name="services[]" value="Hotel & Lodge Bookings" />
-                        <span>Hotel & Lodge Bookings</span>
-                      </label>
-                      <label class="form-checkbox-label">
-                        <input type="checkbox" name="services[]" value="Conference & Event MICE" />
-                        <span>Conference & Event Management (MICE)</span>
-                      </label>
-                      <label class="form-checkbox-label">
-                        <input type="checkbox" name="services[]" value="Extreme Wilderness / Camping Expedition" />
-                        <span>Extreme Wilderness / Camping Expedition</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Full-width: Additional Details -->
-              <div class="form-group" style="margin-top: 1.25rem;">
-                <label for="contactNotes" class="form-label">Additional Details or Special Requests</label>
-                <textarea id="contactNotes" name="notes" rows="3" class="form-control" placeholder="Dietary preferences, photography requirements, physical mobility notes, or specific route preferences..."></textarea>
-              </div>
-
-              <!-- Section: Our Service Guarantee (Matching Screenshot 1) -->
-              <div class="service-guarantee-strip">
-                <h4 class="guarantee-title">OUR SERVICE GUARANTEE</h4>
-                <div class="guarantee-items-grid">
-                  <div class="g-item">
-                    <div class="g-icon">&#9200;</div>
-                    <div class="g-text">
-                      <strong>Response Time</strong>
-                      <p>All inquiries answered within 12 to 24 hours with a detailed custom proposal.</p>
-                    </div>
-                  </div>
-                  <div class="g-item">
-                    <div class="g-icon">&#128176;</div>
-                    <div class="g-text">
-                      <strong>Transparent Pricing</strong>
-                      <p>Direct local operator rates with zero hidden fees or pass-through commissions.</p>
-                    </div>
-                  </div>
-                  <div class="g-item">
-                    <div class="g-icon">&#128737;</div>
-                    <div class="g-text">
-                      <strong>Uncompromised Safety</strong>
-                      <p>First-aid trained crews, satellite tracking, and 24/7 field coordination.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div id="contactFormAlert" class="form-alert" style="display: none;"></div>
-
-              <button type="submit" class="btn btn-green btn-lg btn-submit" style="width: 100%; margin-top: 1.5rem;">
-                [ Submit Your Inquiry ]
-              </button>
-            </form>
+  <!-- Section: Official Master Tour Inquiry Form -->
+  <section class="inquiry-form-section">
+    <div class="container">
+      <div class="dossier-wrapper">
+        <!-- Form Header Matching Official PDF -->
+        <div class="dossier-header">
+          <div class="dossier-brand-col">
+            <div class="dossier-company-name">ABYSSINIA TOUR OPERATOR</div>
+            <div class="dossier-company-sub">Bespoke Expeditions, Cultural Circuits & Ground Handling in Ethiopia</div>
+          </div>
+          <div class="dossier-title-col">
+            <div class="dossier-doc-title">TOUR INQUIRY FORM</div>
+            <div class="dossier-doc-sub">International Client & B2B Partner Request</div>
           </div>
         </div>
 
-        <!-- Sidebar: Founder Quote, Fleet Specs & Circuits (Matching Screenshot 1) -->
-        <aside class="contact-sidebar">
-          <!-- Founder Message & Portrait -->
-          <div class="card-sand sidebar-card founder-contact-box">
-            <div class="founder-contact-header">
-              <img src={siteConfig.founder.image} alt={siteConfig.founder.name} width="72" height="72" class="fc-avatar" />
-              <div>
-                <span class="section-label">DIRECT OVERSIGHT</span>
-                <h4 style="margin: 0; font-size: 1.05rem;">{siteConfig.founder.name}</h4>
-                <span class="fc-role">Founder & CEO</span>
+        <!-- Official Intro Notice -->
+        <div class="dossier-intro-box">
+          <p>
+            Thank you for your interest in exploring Ethiopia with us. Please complete this form so our team can design a tailored itinerary, logistics plan, and quotation suited to your group's exact needs.
+          </p>
+        </div>
+
+        <!-- Master Inquiry Form -->
+        <form id="masterInquiryForm" action="/api/contact.php" method="POST" class="dossier-form">
+          <input type="hidden" name="form_type" value="official_dossier" />
+          <!-- Anti-Spam Honeypot Field -->
+          <div style="display:none;" aria-hidden="true">
+            <input type="text" name="website_hp_check" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <!-- ==================================================================== -->
+          <!-- 1. TRAVELER / PARTNER INFORMATION -->
+          <!-- ==================================================================== -->
+          <div class="dossier-section">
+            <div class="dossier-section-title">
+              <span class="sec-num">1.</span> TRAVELER / PARTNER INFORMATION
+            </div>
+            <div class="dossier-section-body">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="fullName" class="d-label">Full Name (Primary Contact) <span class="req">*</span></label>
+                  <input type="text" id="fullName" name="fullName" class="d-input" placeholder="e.g. Dr. Marcus Vance / Elena Rostova" required />
+                </div>
+                <div class="form-group">
+                  <label for="companyName" class="d-label">Company / Agency Name <span class="opt">(If B2B / Group Organizer)</span></label>
+                  <input type="text" id="companyName" name="companyName" class="d-input" placeholder="e.g. Silk Road Expeditions / Private Group" />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="email" class="d-label">Email Address <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" class="d-input" placeholder="primary.contact@domain.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone" class="d-label">Phone / WhatsApp Number (with Country Code) <span class="req">*</span></label>
+                  <input type="tel" id="phone" name="phone" class="d-input" placeholder="+1 555 123 4567 or +44 7700 900077" required />
+                </div>
+              </div>
+
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label for="country" class="d-label">Nationality / Country of Residence <span class="req">*</span></label>
+                  <input type="text" id="country" name="country" class="d-input" placeholder="e.g. United Kingdom, USA, Germany" required />
+                </div>
+                <div class="form-group">
+                  <label for="guideLanguage" class="d-label">Preferred Guide Language</label>
+                  <select id="guideLanguage" name="guideLanguage" class="d-select">
+                    <option value="English">English</option>
+                    <option value="French">French (Français)</option>
+                    <option value="German">German (Deutsch)</option>
+                    <option value="Spanish">Spanish (Español)</option>
+                    <option value="Italian">Italian (Italiano)</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Chinese">Chinese (Mandarin)</option>
+                    <option value="Other">Other / Specific Dialect</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="ageRange" class="d-label">Age Range of Travelers</label>
+                  <input type="text" id="ageRange" name="ageRange" class="d-input" placeholder="e.g. 35–60 / Family with kids (8, 12)" />
+                </div>
               </div>
             </div>
-            <blockquote class="fc-quote">
-              "Whether you are planning a private custom tour, require domestic flight and car rental arrangements, or seek an inbound DMC partner for your travel agency, our dedicated ground team is available 24/7 to assist you."
-            </blockquote>
           </div>
 
-          <!-- Ground Infrastructure & Fleet Specifications -->
-          <div class="card-white sidebar-card">
-            <span class="section-label">FLEET STANDARDS</span>
-            <h3 class="side-title">GROUND INFRASTRUCTURE & FLEET SPECIFICATIONS</h3>
-            <p style="font-size: 0.8rem; font-weight: 700; color: var(--color-gold-deep); margin-bottom: 0.65rem;">
-              Private 4x4 Transport Fleet
+          <!-- ==================================================================== -->
+          <!-- 2. TRAVEL DATES & GROUP COMPOSITION -->
+          <!-- ==================================================================== -->
+          <div class="dossier-section">
+            <div class="dossier-section-title">
+              <span class="sec-num">2.</span> TRAVEL DATES & GROUP COMPOSITION
+            </div>
+            <div class="dossier-section-body">
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label for="arrivalDate" class="d-label">Estimated Arrival Date <span class="req">*</span></label>
+                  <input type="text" id="arrivalDate" name="arrivalDate" class="d-input" placeholder="e.g. 15 Oct 2026 or DD/MM/YYYY" required />
+                </div>
+                <div class="form-group">
+                  <label for="departureDate" class="d-label">Estimated Departure Date <span class="req">*</span></label>
+                  <input type="text" id="departureDate" name="departureDate" class="d-input" placeholder="e.g. 29 Oct 2026 or DD/MM/YYYY" required />
+                </div>
+                <div class="form-group">
+                  <label for="duration" class="d-label">Total Duration (Days / Nights)</label>
+                  <input type="text" id="duration" name="duration" class="d-input" placeholder="e.g. 10 Days / 9 Nights" />
+                </div>
+              </div>
+
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label for="adults" class="d-label">Number of Adults <span class="req">*</span></label>
+                  <input type="number" id="adults" name="adults" min="1" max="100" value="2" class="d-input" required />
+                </div>
+                <div class="form-group">
+                  <label for="children" class="d-label">Number of Children (with Ages)</label>
+                  <input type="text" id="children" name="children" class="d-input" placeholder="e.g. 0 or 2 Children (Ages 7, 11)" />
+                </div>
+                <div class="form-group">
+                  <label class="d-label">Dates Flexible?</label>
+                  <div class="flex-dates-row">
+                    <label class="d-radio-label">
+                      <input type="radio" name="datesFlexible" value="Yes" checked />
+                      <span>Yes (±</span>
+                      <input type="number" name="flexibleDays" class="d-input-inline" min="1" max="30" value="3" placeholder="3" />
+                      <span>days)</span>
+                    </label>
+                    <label class="d-radio-label">
+                      <input type="radio" name="datesFlexible" value="No (Fixed)" />
+                      <span>No (Fixed)</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================== -->
+          <!-- 3. DESTINATIONS & TOUR INTERESTS -->
+          <!-- ==================================================================== -->
+          <div class="dossier-section">
+            <div class="dossier-section-title">
+              <span class="sec-num">3.</span> DESTINATIONS & TOUR INTERESTS
+            </div>
+            <div class="dossier-section-body">
+              <!-- Preferred Regions & Circuits -->
+              <div class="form-group">
+                <label class="d-subheading">Preferred Regions & Circuits <span class="opt">(Select all that apply)</span>:</label>
+                <div class="checkbox-matrix-2">
+                  <label class="d-check-card">
+                    <input type="checkbox" name="regions[]" value="Northern Historic Route (Lalibela, Axum, Gondar, Bahir Dar)" checked />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">
+                      <strong>Northern Historic Route</strong>
+                      <span class="check-desc">Lalibela rock-hewn churches, Axum stelae, Gondar castles, Lake Tana monasteries</span>
+                    </span>
+                  </label>
+
+                  <label class="d-check-card">
+                    <input type="checkbox" name="regions[]" value="Danakil Depression & Tigray Rock Churches" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">
+                      <strong>Danakil Depression & Tigray Rock Churches</strong>
+                      <span class="check-desc">Erta Ale active lava lake, Dallol hydro-thermal acid springs, Gheralta cliff churches</span>
+                    </span>
+                  </label>
+
+                  <label class="d-check-card">
+                    <input type="checkbox" name="regions[]" value="Omo Valley & Southern Cultural Circuit (Arba Minch, Dorze, Turmi)" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">
+                      <strong>Omo Valley & Southern Cultural Circuit</strong>
+                      <span class="check-desc">Hamer bull-jumping, Mursi lip plates, Karo body painting, Dorze bamboo huts</span>
+                    </span>
+                  </label>
+
+                  <label class="d-check-card">
+                    <input type="checkbox" name="regions[]" value="Bale Mountains & Rift Valley Lakes" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">
+                      <strong>Bale Mountains & Rift Valley Lakes</strong>
+                      <span class="check-desc">Sanetti Plateau, endemic Ethiopian Wolf, Harenna cloud forest, Great Rift birdlife</span>
+                    </span>
+                  </label>
+
+                  <label class="d-check-card">
+                    <input type="checkbox" name="regions[]" value="Harar & Eastern Ethiopia" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">
+                      <strong>Harar & Eastern Ethiopia</strong>
+                      <span class="check-desc">Walled Islamic city of Jugol, Arthur Rimbaud house, nocturnal hyena feeding</span>
+                    </span>
+                  </label>
+
+                  <label class="d-check-card">
+                    <input type="checkbox" name="regions[]" value="Addis Ababa City & Day Excursions (Wonchi, Debre Libanos)" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">
+                      <strong>Addis Ababa City & Day Excursions</strong>
+                      <span class="check-desc">National Museum (Lucy), Entoto panoramic ridge, Wonchi crater lake, Blue Nile Gorge</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Tour Style & Pace -->
+              <div class="form-group" style="margin-top: 1.5rem;">
+                <label class="d-subheading">Tour Style & Pace <span class="opt">(Select all that apply)</span>:</label>
+                <div class="checkbox-matrix-3">
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="tourStyle[]" value="Private Tailor-Made" checked />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text"><strong>Private Tailor-Made</strong></span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="tourStyle[]" value="Small Group" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text"><strong>Small Group</strong></span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="tourStyle[]" value="4x4 Overland" checked />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text"><strong>4x4 Overland</strong></span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="tourStyle[]" value="Cultural & Photography" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text"><strong>Cultural & Photography</strong></span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="tourStyle[]" value="Trekking & Wildlife" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text"><strong>Trekking & Wildlife</strong></span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="tourStyle[]" value="Vehicle & Driver Only" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text"><strong>Vehicle & Driver Only</strong></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Optional Pre-configured Master Tour Linkage -->
+              <div class="form-group" style="margin-top: 1.25rem;">
+                <label for="tourName" class="d-label">Base Master Catalogue Itinerary <span class="opt">(Optional - select if building upon a catalogue tour)</span></label>
+                <select id="tourName" name="tourName" class="d-select">
+                  <option value="Custom Bespoke Itinerary">-- Fully Custom / Tailor-Made Itinerary --</option>
+                  {allTours.map(t => (
+                    <option value={t.title}>{t.title} ({t.duration})</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================== -->
+          <!-- 4. ACCOMMODATION, TRANSPORT & MEAL PLAN PREFERENCES -->
+          <!-- ==================================================================== -->
+          <div class="dossier-section">
+            <div class="dossier-section-title">
+              <span class="sec-num">4.</span> ACCOMMODATION, TRANSPORT & MEAL PLAN PREFERENCES
+            </div>
+            <div class="dossier-section-body">
+              <div class="form-grid-2">
+                <!-- Accommodation Standard -->
+                <div class="form-group">
+                  <label class="d-subheading">Accommodation Standard <span class="opt">(Select all acceptable)</span>:</label>
+                  <div class="checkbox-stack">
+                    <label class="d-check-line">
+                      <input type="checkbox" name="accommodation[]" value="Luxury / Boutique Lodges" checked />
+                      <span class="check-box-custom"></span>
+                      <span><strong>Luxury / Boutique Lodges</strong> (e.g. Limalimo, Mezena, Haile Resorts)</span>
+                    </label>
+                    <label class="d-check-line">
+                      <input type="checkbox" name="accommodation[]" value="Mid-Range (3–4 Star)" checked />
+                      <span class="check-box-custom"></span>
+                      <span><strong>Mid-Range (3–4 Star)</strong> (Clean, comfortable, air-conditioned en-suite hotels)</span>
+                    </label>
+                    <label class="d-check-line">
+                      <input type="checkbox" name="accommodation[]" value="Standard / Guesthouses" />
+                      <span class="check-box-custom"></span>
+                      <span><strong>Standard / Guesthouses</strong> (Authentic local community & regional guesthouses)</span>
+                    </label>
+                    <label class="d-check-line">
+                      <input type="checkbox" name="accommodation[]" value="Expedition Camping" />
+                      <span class="check-box-custom"></span>
+                      <span><strong>Expedition Camping</strong> (Full wilderness mobile camp setup in Danakil / Simien / Suri)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Room Configuration -->
+                <div class="form-group">
+                  <label class="d-subheading">Room Configuration:</label>
+                  <div class="checkbox-stack">
+                    <label class="d-check-line">
+                      <input type="checkbox" name="roomConfig[]" value="Single" />
+                      <span class="check-box-custom"></span>
+                      <span><strong>Single Room</strong> (1 Bed, solo occupancy)</span>
+                    </label>
+                    <label class="d-check-line">
+                      <input type="checkbox" name="roomConfig[]" value="Double" checked />
+                      <span class="check-box-custom"></span>
+                      <span><strong>Double Room</strong> (1 King / Queen bed for couples)</span>
+                    </label>
+                    <label class="d-check-line">
+                      <input type="checkbox" name="roomConfig[]" value="Twin" checked />
+                      <span class="check-box-custom"></span>
+                      <span><strong>Twin Room</strong> (2 Separate single beds)</span>
+                    </label>
+                    <label class="d-check-line">
+                      <input type="checkbox" name="roomConfig[]" value="Triple" />
+                      <span class="check-box-custom"></span>
+                      <span><strong>Triple Room</strong> (3 Separate beds or family suite)</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-grid-2" style="margin-top: 1.25rem;">
+                <!-- Preferred Meal Plan -->
+                <div class="form-group">
+                  <label class="d-subheading">Preferred Meal Plan:</label>
+                  <div class="radio-stack-custom">
+                    <label class="d-radio-line">
+                      <input type="radio" name="mealPlan" value="Full Board (B, L, D)" checked />
+                      <span><strong>Full Board (B, L, D)</strong> — Breakfast, Lunch & Dinner Included</span>
+                    </label>
+                    <label class="d-radio-line">
+                      <input type="radio" name="mealPlan" value="Half Board (B & D)" />
+                      <span><strong>Half Board (B & D)</strong> — Breakfast & Dinner Included</span>
+                    </label>
+                    <label class="d-radio-line">
+                      <input type="radio" name="mealPlan" value="Bed & Breakfast" />
+                      <span><strong>Bed & Breakfast</strong> — Breakfast only (Dine around locally)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Domestic Flights -->
+                <div class="form-group">
+                  <label class="d-subheading">Domestic Flights (Include in Quote?):</label>
+                  <div class="radio-stack-custom">
+                    <label class="d-radio-line">
+                      <input type="radio" name="domesticFlights" value="Yes (Ethiopian Airlines)" checked />
+                      <span><strong>Yes (Ethiopian Airlines)</strong> — Booked via our corporate desk</span>
+                    </label>
+                    <label class="d-radio-line">
+                      <input type="radio" name="domesticFlights" value="Overland Only" />
+                      <span><strong>Overland Only</strong> — 100% scenic surface 4x4 expedition</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-grid-2" style="margin-top: 1.25rem;">
+                <div class="form-group">
+                  <label for="budget" class="d-label">Estimated Budget per Person <span class="opt">(USD / EUR, excl. international flights)</span></label>
+                  <input type="text" id="budget" name="budget" class="d-input" placeholder="e.g. $2,500 – $4,500 USD per person" />
+                </div>
+                <div class="form-group">
+                  <label for="vehiclePreference" class="d-label">Vehicle Preference <span class="opt">(e.g., 4x4 Land Cruiser, Minibus, Coaster)</span></label>
+                  <input type="text" id="vehiclePreference" name="vehiclePreference" class="d-input" placeholder="e.g. Toyota Land Cruiser 76/79 Series or Toyota HiAce" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================== -->
+          <!-- 5. DIETARY REQUIREMENTS, HEALTH & MOBILITY NEEDS -->
+          <!-- ==================================================================== -->
+          <div class="dossier-section">
+            <div class="dossier-section-title">
+              <span class="sec-num">5.</span> DIETARY REQUIREMENTS, HEALTH & MOBILITY NEEDS
+            </div>
+            <div class="dossier-section-body">
+              <div class="form-group">
+                <label class="d-subheading">Dietary Preferences & Restrictions <span class="opt">(Select all that apply)</span>:</label>
+                <div class="checkbox-matrix-4">
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="dietary[]" value="No Restrictions" checked />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">No Restrictions</span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="dietary[]" value="Vegetarian" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">Vegetarian</span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="dietary[]" value="Vegan" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">Vegan (Fasting Food)</span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="dietary[]" value="Gluten-Free" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">Gluten-Free</span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="dietary[]" value="Halal" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">Halal</span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="dietary[]" value="Kosher" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">Kosher</span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="dietary[]" value="Dairy-Free / Lactose Intolerant" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">Dairy-Free</span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="dietary[]" value="Nut / Severe Food Allergy" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">Nut / Severe Allergy</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-grid-2" style="margin-top: 1.25rem;">
+                <div class="form-group">
+                  <label for="dietaryNotes" class="d-label">Specify Food Allergies or Medical Dietary Details:</label>
+                  <textarea id="dietaryNotes" name="dietaryNotes" rows="2" class="d-textarea" placeholder="Detail any specific allergy triggers, severity, or dietary preferences for field chef planning..."></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="healthMobilityNotes" class="d-label">Mobility, Altitude Sensitivity, or Medical Conditions to Note:</label>
+                  <textarea id="healthMobilityNotes" name="healthMobilityNotes" rows="2" class="d-textarea" placeholder="Note any altitude sensitivity (Simien/Bale), knee mobility concerns, heart conditions, or walking pace preferences..."></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================================== -->
+          <!-- 6. SPECIAL OCCASIONS, EQUIPMENT & CUSTOM REQUESTS -->
+          <!-- ==================================================================== -->
+          <div class="dossier-section">
+            <div class="dossier-section-title">
+              <span class="sec-num">6.</span> SPECIAL OCCASIONS, EQUIPMENT & CUSTOM REQUESTS
+            </div>
+            <div class="dossier-section-body">
+              <div class="form-group">
+                <label class="d-subheading">Special Occasion or Expedition Enhancements:</label>
+                <div class="checkbox-matrix-4">
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="specialOccasions[]" value="Honeymoon / Anniversary" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">Honeymoon / Anniversary</span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="specialOccasions[]" value="Birthday Celebration" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">Birthday Celebration</span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="specialOccasions[]" value="Photography / Drone / Filming Permit Needed" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">Photo / Drone / Film Permit</span>
+                  </label>
+                  <label class="d-check-card compact">
+                    <input type="checkbox" name="specialOccasions[]" value="Airport VIP / Fast-Track" />
+                    <span class="check-box-custom"></span>
+                    <span class="check-text">Airport VIP / Fast-Track</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top: 1.25rem;">
+                <label for="notes" class="d-label">Additional Notes, Specific Landmarks, or Custom Itinerary Requests:</label>
+                <textarea id="notes" name="notes" rows="4" class="d-textarea" placeholder="Tell us about specific tribes you wish to photograph, specific rock churches in Tigray/Lalibela, special coffee plantation tours, or custom pacing requests..."></textarea>
+              </div>
+
+              <div class="form-grid-3" style="margin-top: 1.25rem;">
+                <div class="form-group">
+                  <label for="referralSource" class="d-label">How did you hear about us?</label>
+                  <select id="referralSource" name="referralSource" class="d-select">
+                    <option value="Website Direct">Website / Google Search</option>
+                    <option value="Personal Referral">Friend or Colleague Referral</option>
+                    <option value="Social Media">Social Media (Instagram, LinkedIn, YouTube)</option>
+                    <option value="Trade Fair / Expo">International Travel Trade Fair (ITB, WTM)</option>
+                    <option value="Travel Agency / Tour Wholesaler">Travel Agency / Tour Wholesaler</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="signatureDate" class="d-label">Date</label>
+                  <input type="text" id="signatureDate" name="signatureDate" class="d-input" value={new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })} />
+                </div>
+                <div class="form-group">
+                  <label for="signature" class="d-label">Client / Partner Digital Signature <span class="req">*</span></label>
+                  <input type="text" id="signature" name="signature" class="d-input" placeholder="Type your full legal name as signature" required />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Official Form Footer Strip Matching Document -->
+          <div class="dossier-footer-strip">
+            <div class="d-legal-text">
+              <strong>Abyssinia Tour Operator</strong> • Office 201, 2nd Floor, Tango Building, Gerji Mebrat, Bole Sub-city, Addis Ababa, Ethiopia<br />
+              Web: <a href="https://www.abyssiniatouroperator.com" target="_blank" rel="noopener noreferrer">www.abyssiniatouroperator.com</a> • Licensed Tour Operator & Ground Handler
+            </div>
+          </div>
+
+          <!-- Alert Status Box -->
+          <div id="dossierFormAlert" class="form-alert" style="display: none;"></div>
+
+          <!-- Submission Action Bar -->
+          <div class="dossier-action-bar">
+            <button type="submit" class="btn btn-green btn-xl btn-submit">
+              <span class="btn-text">SUBMIT TOUR INQUIRY & DISPATCH REQUEST</span>
+              <span class="btn-subtext">GUARANTEED 12-HOUR BESPOKE PROPOSAL TURNAROUND</span>
+            </button>
+            <p class="action-bar-note">
+              Need immediate assistance? Reach our 24/7 Addis Ababa Ground Dispatch via <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp: {siteConfig.contact.phoneDisplay}</a>
             </p>
+          </div>
+        </form>
+      </div>
 
-            <div class="side-fleet-img">
-              <img src="/images/about/fleet-4x4-landcruiser.jpg" alt="Toyota 4x4 Fleet" width="340" height="180" class="fleet-side-photo" />
-            </div>
-
-            <div class="side-fleet-badges">
-              <span class="sfb">Dual A/C</span>
-              <span class="sfb">Seatbelts for all</span>
-              <span class="sfb">Satellite Phone</span>
-              <span class="sfb">Mineral Water</span>
-              <span class="sfb">First-Aid Kit</span>
-              <span class="sfb">Dual Spare Tires</span>
+      <!-- Service Guarantees Strip -->
+      <div class="service-guarantee-strip" style="margin-top: 3.5rem;">
+        <h4 class="guarantee-title">OUR DIRECT INBOUND OPERATING GUARANTEES</h4>
+        <div class="guarantee-items-grid">
+          <div class="g-item">
+            <div class="g-icon">&#9200;</div>
+            <div class="g-text">
+              <strong>12-Hour Proposal Turnaround</strong>
+              <p>Every inquiry is personally reviewed by CEO Dessiew Abunie Dejenie with a custom itemized route proposal.</p>
             </div>
           </div>
-
-          <!-- Destinations / Circuits of Interest (Matching Screenshot 1) -->
-          <div class="card-sand sidebar-card">
-            <span class="section-label">ROUTE PREFERENCES</span>
-            <h3 class="side-title">Circuits of Interest</h3>
-            <div class="circuit-checkboxes">
-              <label class="form-checkbox-label">
-                <input type="checkbox" checked />
-                <span><strong>Historic Northern Circuit</strong> (Lalibela, Gondar, Simien)</span>
-              </label>
-              <label class="form-checkbox-label">
-                <input type="checkbox" />
-                <span><strong>Afar & Danakil Depression</strong> (Erta Ale, Dallol)</span>
-              </label>
-              <label class="form-checkbox-label">
-                <input type="checkbox" />
-                <span><strong>Omo Valley Cultural Heritage</strong> (Tribes & Markets)</span>
-              </label>
-              <label class="form-checkbox-label">
-                <input type="checkbox" />
-                <span><strong>Rift Valley & Coffee Region</strong> (Sidama, Harar)</span>
-              </label>
-              <label class="form-checkbox-label">
-                <input type="checkbox" />
-                <span><strong>Customized Nationwide Circuit</strong></span>
-              </label>
+          <div class="g-item">
+            <div class="g-icon">&#128176;</div>
+            <div class="g-text">
+              <strong>Transparent Local Pricing</strong>
+              <p>Direct native operator rates with zero pass-through broker markups. Wholesale NET tariffs for B2B partners.</p>
             </div>
           </div>
-
-          <!-- Preferred Accommodation Grade (Matching Screenshot 1) -->
-          <div class="card-white sidebar-card">
-            <span class="section-label">LODGING STANDARD</span>
-            <h3 class="side-title">Preferred Accommodation Grade</h3>
-            <div class="circuit-checkboxes">
-              <label class="form-checkbox-label">
-                <input type="checkbox" checked />
-                <span><strong>Luxury / Boutique Lodges:</strong> Exclusive high-end lodges with full amenities.</span>
-              </label>
-              <label class="form-checkbox-label">
-                <input type="checkbox" />
-                <span><strong>Mid-Range Comfort:</strong> Clean, comfortable, and well-managed hotels.</span>
-              </label>
-              <label class="form-checkbox-label">
-                <input type="checkbox" />
-                <span><strong>Eco-Camping Setup:</strong> Mobile wilderness camps in remote zones.</span>
-              </label>
-              <label class="form-checkbox-label">
-                <input type="checkbox" />
-                <span><strong>Combination:</strong> A tailored mix of accommodation types.</span>
-              </label>
+          <div class="g-item">
+            <div class="g-icon">&#128737;</div>
+            <div class="g-text">
+              <strong>Native Ground Infrastructure</strong>
+              <p>Company-owned 4x4 Toyota Land Cruiser fleet, wilderness mobile camp setups, and licensed native multi-lingual guides.</p>
             </div>
           </div>
-        </aside>
+        </div>
       </div>
     </div>
   </section>
@@ -354,44 +634,48 @@ import { siteConfig } from '../config/site';
 </MainLayout>
 
 <style>
-  .contact-main-col {
-    display: flex;
-    flex-direction: column;
-    gap: 2.25rem;
+  /* -------------------------------------------------- */
+  /* Quick Contact Cards */
+  /* -------------------------------------------------- */
+  .quick-contact-section {
+    padding: 2.5rem 0 1rem 0;
+    background-color: var(--color-sand-bg);
   }
 
-  .contact-block {
-    padding: 2.25rem;
-  }
-
-  .contact-block h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1.25rem;
-    color: var(--color-primary-dark);
-  }
-
-  .contact-info-grid {
+  .quick-contact-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
-    margin-top: 1rem;
   }
 
-  .c-info-card {
+  .qc-card {
     background-color: #FFFFFF;
     border: 1px solid var(--color-sand-border);
     border-radius: var(--radius-sm);
-    padding: 1.15rem;
+    padding: 1.25rem 1.15rem;
     display: flex;
-    gap: 0.85rem;
     align-items: flex-start;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--color-text-main);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   }
 
-  .c-icon {
-    width: 38px;
-    height: 38px;
-    background-color: var(--color-sand-card);
+  .qc-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    border-color: var(--color-gold-deep);
+  }
+
+  .whatsapp-qc {
+    border-left: 4px solid var(--color-green-cta);
+  }
+
+  .qc-icon {
+    width: 42px;
+    height: 42px;
     border-radius: var(--radius-sm);
+    background-color: var(--color-sand-card);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -399,249 +683,551 @@ import { siteConfig } from '../config/site';
     flex-shrink: 0;
   }
 
-  .c-info-card strong {
-    display: block;
-    font-size: 0.82rem;
-    color: var(--color-primary-dark);
+  .whatsapp-qc .qc-icon {
+    background-color: rgba(43, 90, 60, 0.12);
+    color: var(--color-green-cta);
+  }
+
+  .qc-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .qc-label {
+    font-size: 0.68rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.15rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: var(--color-gold-deep);
+    margin-bottom: 0.2rem;
   }
 
-  .c-info-card p {
-    font-size: 0.82rem;
+  .qc-content strong {
+    font-size: 0.95rem;
+    color: var(--color-primary-dark);
+    line-height: 1.3;
+    font-family: var(--font-sans);
+  }
+
+  .qc-sub {
+    font-size: 0.78rem;
     color: var(--color-text-muted);
-    line-height: 1.4;
+    margin-top: 0.2rem;
   }
 
-  .c-val {
-    color: var(--color-text-main) !important;
+  /* -------------------------------------------------- */
+  /* Master Tour Inquiry Form (Dossier Design) */
+  /* -------------------------------------------------- */
+  .inquiry-form-section {
+    padding: 2.5rem 0 4.5rem 0;
+    background-color: var(--color-sand-bg);
+  }
+
+  .dossier-wrapper {
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 12px 36px rgba(28, 24, 20, 0.08);
+    overflow: hidden;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  /* Dossier Document Header (Rich Mahogany / Dark Warm Brown) */
+  .dossier-header {
+    background: linear-gradient(135deg, #4A2E18 0%, #351C0E 100%);
+    color: #FFFFFF;
+    padding: 2.25rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--color-gold-deep);
+  }
+
+  .dossier-brand-col {
+    max-width: 58%;
+  }
+
+  .dossier-company-name {
+    font-family: var(--font-serif);
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #FFFFFF;
+    margin-bottom: 0.25rem;
+  }
+
+  .dossier-company-sub {
+    font-size: 0.85rem;
+    color: #E6D5C3;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  .dossier-title-col {
+    text-align: right;
+  }
+
+  .dossier-doc-title {
+    font-family: var(--font-sans);
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: #F7E7CE;
+  }
+
+  .dossier-doc-sub {
+    font-size: 0.82rem;
+    color: #E6D5C3;
+    margin-top: 0.2rem;
     font-weight: 600;
   }
 
-  .c-sub {
-    font-size: 0.75rem !important;
+  /* Intro Notice Box */
+  .dossier-intro-box {
+    background-color: #FAF6F0;
+    border-bottom: 1px solid var(--color-sand-border);
+    padding: 1.15rem 2.5rem;
   }
 
-  .link-gold {
+  .dossier-intro-box p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-primary-dark);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* Form Body & Sections */
+  .dossier-form {
+    padding: 2.5rem;
+  }
+
+  .dossier-section {
+    margin-bottom: 2.25rem;
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background-color: #FFFFFF;
+  }
+
+  .dossier-section-title {
+    background-color: #F4EDE4;
+    color: var(--color-primary-dark);
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 0.85rem 1.35rem;
+    border-bottom: 1px solid var(--color-sand-border);
+    border-left: 4px solid var(--color-gold-deep);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sec-num {
     color: var(--color-gold-deep);
-    font-weight: 700;
+    font-weight: 900;
   }
 
-  /* 2-column form split */
-  .form-columns-split {
+  .dossier-section-body {
+    padding: 1.5rem 1.35rem;
+  }
+
+  /* Form Layout Grids */
+  .form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .col-heading {
-    font-size: 1.15rem;
+    gap: 1.25rem;
     margin-bottom: 1rem;
-    color: var(--color-primary-dark);
-    border-bottom: 1px solid var(--color-sand-border);
-    padding-bottom: 0.4rem;
   }
 
-  .radio-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    background-color: var(--color-sand-bg);
-    border: 1px solid var(--color-sand-border);
-    padding: 0.75rem;
-    border-radius: var(--radius-sm);
+  .form-grid-2:last-child {
+    margin-bottom: 0;
   }
 
-  .services-checklist {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-    background-color: var(--color-sand-bg);
-    border: 1px solid var(--color-sand-border);
-    padding: 0.75rem;
-    border-radius: var(--radius-sm);
-  }
-
-  /* Service Guarantee Strip */
-  .service-guarantee-strip {
-    margin-top: 1.75rem;
-    background-color: var(--color-sand-card);
-    border: 1px solid var(--color-sand-border);
-    border-radius: var(--radius-sm);
-    padding: 1.25rem;
-  }
-
-  .guarantee-title {
-    font-size: 0.82rem;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--color-gold-deep);
-    margin-bottom: 0.85rem;
-  }
-
-  .guarantee-items-grid {
+  .form-grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
+    margin-bottom: 1rem;
   }
 
-  .g-item {
-    display: flex;
-    gap: 0.65rem;
-    align-items: flex-start;
+  .form-grid-3:last-child {
+    margin-bottom: 0;
   }
 
-  .g-icon {
-    font-size: 1.25rem;
-    line-height: 1;
-  }
-
-  .g-text strong {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--color-primary-dark);
-    margin-bottom: 0.15rem;
-  }
-
-  .g-text p {
-    font-size: 0.78rem;
-    color: var(--color-text-muted);
-    line-height: 1.4;
-  }
-
-  .form-alert {
-    padding: 0.75rem 1rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.88rem;
-    margin-top: 1rem;
-  }
-
-  .form-alert.success {
-    background-color: #DEF7EC;
-    color: #03543F;
-    border: 1px solid #BCF0DA;
-  }
-
-  /* Sidebar */
-  .contact-sidebar {
+  .form-group {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
   }
 
-  .sidebar-card {
-    padding: 1.5rem;
+  /* Labels & Helpers */
+  .d-label {
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.35rem;
   }
 
-  .side-title {
-    font-size: 1.15rem;
-    margin: 0.35rem 0 1rem 0;
+  .d-subheading {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .req {
+    color: #B93826;
+    font-weight: 800;
+  }
+
+  .opt {
+    font-weight: 400;
+    color: var(--color-text-muted);
+    font-size: 0.76rem;
+  }
+
+  /* Form Controls */
+  .d-input, .d-select, .d-textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    font-size: 0.9rem;
+    border: 1px solid #D6CBC0;
+    border-radius: var(--radius-sm);
+    background-color: #FAFAF8;
+    color: var(--color-text-main);
+    font-family: inherit;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .d-input:focus, .d-select:focus, .d-textarea:focus {
+    outline: none;
+    border-color: var(--color-gold-deep);
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(194, 139, 56, 0.15);
+  }
+
+  .d-input-inline {
+    width: 48px;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.88rem;
+    border: 1px solid #D6CBC0;
+    border-radius: 3px;
+    text-align: center;
+    margin: 0 0.25rem;
+  }
+
+  .flex-dates-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    height: 42px;
+  }
+
+  .d-radio-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--color-text-main);
+    cursor: pointer;
+  }
+
+  /* Checkbox Matrix & Cards */
+  .checkbox-matrix-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+  }
+
+  .checkbox-matrix-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .checkbox-matrix-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+
+  .checkbox-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .d-check-card {
+    background-color: #FAF8F5;
+    border: 1px solid var(--color-sand-border);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .d-check-card:hover {
+    background-color: #F4EFEA;
+    border-color: #C28B38;
+  }
+
+  .d-check-card.compact {
+    padding: 0.65rem 0.85rem;
+    align-items: center;
+  }
+
+  .d-check-card input[type="checkbox"],
+  .d-check-line input[type="checkbox"] {
+    margin-top: 0.2rem;
+    cursor: pointer;
+    width: 17px;
+    height: 17px;
+    accent-color: var(--color-primary-dark);
+  }
+
+  .d-check-card.compact input[type="checkbox"] {
+    margin-top: 0;
+  }
+
+  .check-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.86rem;
+  }
+
+  .check-text strong {
     color: var(--color-primary-dark);
   }
 
-  .founder-contact-box {
-    border-left: 4px solid var(--color-gold);
+  .check-desc {
+    font-size: 0.76rem;
+    color: var(--color-text-muted);
+    margin-top: 0.15rem;
+    line-height: 1.35;
   }
 
-  .founder-contact-header {
+  .d-check-line {
     display: flex;
     align-items: center;
-    gap: 0.85rem;
-    margin-bottom: 0.85rem;
-  }
-
-  .fc-avatar {
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--color-gold);
-  }
-
-  .fc-role {
-    font-size: 0.78rem;
-    color: var(--color-gold-deep);
-    font-weight: 700;
-  }
-
-  .fc-quote {
-    font-size: 0.85rem;
-    font-style: italic;
+    gap: 0.65rem;
+    font-size: 0.86rem;
+    cursor: pointer;
     color: var(--color-text-main);
-    line-height: 1.55;
   }
 
-  .side-fleet-img {
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    margin-bottom: 0.85rem;
-    background-color: #2F2720;
-  }
-
-  .fleet-side-photo {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-  }
-
-  .side-fleet-badges {
+  .radio-stack-custom {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
+    flex-direction: column;
+    gap: 0.65rem;
   }
 
-  .sfb {
-    background-color: var(--color-sand-bg);
-    border: 1px solid var(--color-sand-border);
-    font-size: 0.72rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: var(--radius-sm);
+  .d-radio-line {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.86rem;
+    cursor: pointer;
     color: var(--color-text-main);
+  }
+
+  .d-radio-line input[type="radio"] {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--color-primary-dark);
+    cursor: pointer;
+  }
+
+  /* Official Form Footer Strip */
+  .dossier-footer-strip {
+    border-top: 1px solid var(--color-sand-border);
+    padding: 1.25rem 0;
+    text-align: center;
+    margin-top: 1rem;
+    background-color: #FAF8F5;
+    border-radius: var(--radius-sm);
+  }
+
+  .d-legal-text {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .d-legal-text strong {
+    color: var(--color-primary-dark);
+  }
+
+  .d-legal-text a {
+    color: var(--color-gold-deep);
+    text-decoration: underline;
+  }
+
+  /* Submit Action Bar */
+  .dossier-action-bar {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .btn-xl {
+    padding: 1.15rem 2.5rem;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 620px;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 6px 20px rgba(43, 90, 60, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(43, 90, 60, 0.45);
+  }
+
+  .btn-text {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: #FFFFFF;
+  }
+
+  .btn-subtext {
+    font-size: 0.72rem;
+    letter-spacing: 1.2px;
+    color: #D2E4D8;
+    margin-top: 0.25rem;
+    text-transform: uppercase;
     font-weight: 600;
   }
 
-  .circuit-checkboxes {
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-    font-size: 0.82rem;
+  .action-bar-note {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 1rem;
   }
 
-  .circuit-checkboxes span {
-    line-height: 1.4;
+  .action-bar-note a {
+    color: var(--color-green-cta);
+    font-weight: 700;
+    text-decoration: underline;
   }
 
-  @media (max-width: 1024px) {
-    .form-columns-split {
-      grid-template-columns: 1fr;
+  /* Alert Box */
+  .form-alert {
+    padding: 1.15rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .form-alert.success {
+    background-color: #EAF4EE;
+    color: #1E5128;
+    border: 1px solid #B8DEC3;
+    font-weight: 600;
+  }
+
+  .form-alert.error {
+    background-color: #FDF2F0;
+    color: #9E2A1E;
+    border: 1px solid #F5C6CB;
+    font-weight: 600;
+  }
+
+  /* Responsive Rules */
+  @media (max-width: 992px) {
+    .quick-contact-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
-    .guarantee-items-grid {
+
+    .dossier-header {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.25rem;
+    }
+
+    .dossier-brand-col {
+      max-width: 100%;
+    }
+
+    .dossier-title-col {
+      text-align: center;
+    }
+
+    .checkbox-matrix-3, .checkbox-matrix-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-grid-3 {
       grid-template-columns: 1fr;
     }
   }
 
   @media (max-width: 640px) {
-    .contact-info-grid {
+    .quick-contact-grid {
       grid-template-columns: 1fr;
+    }
+
+    .dossier-form {
+      padding: 1.25rem 1rem;
+    }
+
+    .dossier-header {
+      padding: 1.75rem 1.25rem;
+    }
+
+    .dossier-intro-box {
+      padding: 1rem 1.25rem;
+    }
+
+    .form-grid-2 {
+      grid-template-columns: 1fr;
+    }
+
+    .checkbox-matrix-2, .checkbox-matrix-3, .checkbox-matrix-4 {
+      grid-template-columns: 1fr;
+    }
+
+    .dossier-company-name {
+      font-size: 1.25rem;
+    }
+
+    .dossier-doc-title {
+      font-size: 1.3rem;
     }
   }
 </style>
 
 <script>
-  const contactForm = document.getElementById('mainContactForm') as HTMLFormElement;
-  const alertBox = document.getElementById('contactFormAlert') as HTMLDivElement;
+  const form = document.getElementById('masterInquiryForm') as HTMLFormElement;
+  const alertBox = document.getElementById('dossierFormAlert') as HTMLDivElement;
 
-  contactForm?.addEventListener('submit', async (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const submitBtn = contactForm.querySelector('.btn-submit') as HTMLButtonElement;
-    const origText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'TRANSMITTING INQUIRY...';
+    const submitBtn = form.querySelector('.btn-submit') as HTMLButtonElement;
+    const btnText = submitBtn.querySelector('.btn-text') as HTMLElement;
+    const origText = btnText ? btnText.textContent : submitBtn.textContent;
 
-    const formData = new FormData(contactForm);
+    submitBtn.disabled = true;
+    if (btnText) {
+      btnText.textContent = 'TRANSMITTING INQUIRY DOSSIER...';
+    }
+
+    const formData = new FormData(form);
 
     try {
-      const response = await fetch(contactForm.action, {
+      const response = await fetch(form.action, {
         method: 'POST',
         body: formData
       });
@@ -650,23 +1236,27 @@ import { siteConfig } from '../config/site';
 
       if (response.ok && result && result.status === 'success') {
         alertBox.className = 'form-alert success';
-        alertBox.textContent = result.message || 'Inquiry successfully transmitted! Our Addis Ababa team will reply within 12 hours.';
+        alertBox.textContent = result.message || 'Your official Tour Inquiry Form has been securely received by Dessiew Abunie Dejenie and our Addis Ababa operations team. We will formulate and transmit your tailored itinerary and quotation within 12 hours.';
         alertBox.style.display = 'block';
-        contactForm.reset();
+        form.reset();
+        alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
         alertBox.className = 'form-alert success';
-        alertBox.textContent = 'Your booking request is received! Upon cPanel deployment, this feeds directly into info@abyssiniatouroperator.com. For urgent inquiries, WhatsApp: +251 920 009 100.';
+        alertBox.textContent = 'Your inquiry dossier has been safely logged! On local preview, our PHP handler will fully dispatch upon server deployment. For urgent ground requests, WhatsApp our dispatch desk at +251 920 009 100.';
         alertBox.style.display = 'block';
-        contactForm.reset();
+        form.reset();
+        alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     } catch (err) {
       alertBox.className = 'form-alert success';
-      alertBox.textContent = 'Inquiry recorded! Our operations desk will formulate your proposal shortly. Direct WhatsApp: +251 920 009 100.';
+      alertBox.textContent = 'Inquiry recorded! Our operations desk will formulate your proposal shortly. Direct WhatsApp dispatch: +251 920 009 100.';
       alertBox.style.display = 'block';
+      alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = origText;
+      if (btnText) {
+        btnText.textContent = origText;
+      }
     }
   });
 </script>
-
