@@ -63,13 +63,12 @@ const { tour } = Astro.props;
       <a href={`/tours/${tour.slug}`} class="btn-card-view">
         [ View Itinerary ]
       </a>
-      <button 
-        type="button" 
-        class="btn btn-gold btn-sm js-open-quote-modal" 
-        data-tour={tour.title}
+      <a 
+        href={`/contact-us?tour=${encodeURIComponent(tour.title)}`}
+        class="btn btn-gold btn-sm"
       >
         Get Quote
-      </button>
+      </a>
     </div>
   </div>
 </article>

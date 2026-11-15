@@ -264,14 +264,22 @@ import { allTours } from '../data/tours';
     }
   }
 
-  // Event Delegation for dynamically added buttons
+  // Event Delegation: Redirect all quote and inquire triggers directly to contact-us page
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
-    const trigger = target.closest('.js-open-quote-modal') as HTMLElement;
+    const trigger = target.closest('.js-open-quote-modal, .btn-inquire, [data-inquire]') as HTMLElement;
     if (trigger) {
       e.preventDefault();
-      const tour = trigger.getAttribute('data-tour');
-      openModal(tour || undefined);
+      const tour = trigger.getAttribute('data-tour') || trigger.getAttribute('data-inquire');
+      window.location.href = '/contact-us' + (tour ? '?tour=' + encodeURIComponent(tour) : '');
+      return;
+    }
+
+    if ((target.tagName === 'BUTTON' || target.classList.contains('btn')) && target.textContent?.trim().toLowerCase() === 'inquire') {
+      if (target.tagName === 'BUTTON' || !target.getAttribute('href')) {
+        e.preventDefault();
+        window.location.href = '/contact-us';
+      }
     }
   });
 

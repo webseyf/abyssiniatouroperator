@@ -191,14 +191,13 @@ const relatedTours = allTours
             </div>
 
             <div class="sidebar-actions">
-              <button 
-                type="button" 
-                class="btn btn-green btn-block js-open-quote-modal" 
-                data-tour={tour.title}
-                style="width: 100%; margin-bottom: 0.75rem;"
+              <a 
+                href={`/contact-us?tour=${encodeURIComponent(tour.title)}`}
+                class="btn btn-green btn-block" 
+                style="width: 100%; margin-bottom: 0.75rem; text-decoration: none; text-align: center; display: block;"
               >
                 REQUEST CUSTOM QUOTE
-              </button>
+              </a>
 
               <a 
                 href={`https://wa.me/251920009100?text=Hello%20Abyssinian%20Tour%20Operator%2C%20I%20am%20interested%20in%20the%20${encodeURIComponent(tour.title)}.`}

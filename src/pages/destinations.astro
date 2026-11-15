@@ -81,9 +81,9 @@ const categories = Array.from(new Set(destinationsList.map(d => d.category)));
         Our founder Dessiew Abunie Dejenie designs custom, cross-country expeditions connecting flights, 4x4 convoys, and private mobile camping seamlessly.
       </p>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <button type="button" class="btn btn-green btn-lg js-open-quote-modal" data-tour="Multi-Destination Combined Circuit">
+        <a href="/contact-us?tour=Multi-Destination%20Combined%20Circuit" class="btn btn-green btn-lg" style="text-decoration: none;">
           REQUEST MULTI-DESTINATION QUOTE
-        </button>
+        </a>
         <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">
           WHATSAPP DISPATCH: {siteConfig.contact.phoneDisplay}
         </a>

@@ -106,7 +106,7 @@ const flagshipTours = [
       <div class="dmc-value-card">
         <!-- Title matching client reference (Without section numbering) -->
         <h2 class="dmc-value-header">
-          DIRECT DMC VALUE PROPOSITION (Trust & Authority Bar)
+          DIRECT DMC VALUE PROPOSITION
         </h2>
 
         <!-- 4 Rows with Icons & Explanations, Fully Linked -->
@@ -277,13 +277,12 @@ const flagshipTours = [
                 <a href={`/tours/${tour.slug}`} class="btn-f-view">
                   [ View Itinerary ]
                 </a>
-                <button 
-                  type="button" 
-                  class="btn-f-quote js-open-quote-modal" 
-                  data-tour={tour.title}
+                <a 
+                  href={`/contact-us?tour=${encodeURIComponent(tour.title)}`}
+                  class="btn-f-quote"
                 >
                   Get Quote
-                </button>
+                </a>
               </div>
             </div>
           </article>
@@ -352,7 +351,6 @@ const flagshipTours = [
           data-tab="dmc"
         >
           <div class="tab-btn-inner">
-            <span class="tab-index-badge">01</span>
             <span class="tab-icon">🏢</span>
             <div class="tab-title-col">
               <span class="tab-text">Direct Inbound DMC</span>
@@ -371,7 +369,6 @@ const flagshipTours = [
           data-tab="founder"
         >
           <div class="tab-btn-inner">
-            <span class="tab-index-badge">02</span>
             <span class="tab-icon">👤</span>
             <div class="tab-title-col">
               <span class="tab-text">Founder Leadership</span>
@@ -390,7 +387,6 @@ const flagshipTours = [
           data-tab="fleet"
         >
           <div class="tab-btn-inner">
-            <span class="tab-index-badge">03</span>
             <span class="tab-icon">🚙</span>
             <div class="tab-title-col">
               <span class="tab-text">Company 4x4 Fleet</span>
@@ -409,7 +405,6 @@ const flagshipTours = [
           data-tab="license"
         >
           <div class="tab-btn-inner">
-            <span class="tab-index-badge">04</span>
             <span class="tab-icon">📜</span>
             <div class="tab-title-col">
               <span class="tab-text">Government License</span>
@@ -473,7 +468,7 @@ const flagshipTours = [
           <div class="panel-nav-footer">
             <div class="pnav-status">
               <span class="pnav-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
-              <span class="pnav-text">Pillar 1 of 4: Direct Inbound DMC</span>
+              <span class="pnav-text">Direct Inbound DMC</span>
             </div>
             <button type="button" class="btn-next-pillar js-switch-tab" data-next="founder">
               <span>Next Pillar: 👤 Founder Leadership</span> &rarr;
@@ -531,7 +526,7 @@ const flagshipTours = [
             </button>
             <div class="pnav-status">
               <span class="pnav-dots"><span class="dot"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span></span>
-              <span class="pnav-text">Pillar 2 of 4: Founder Leadership</span>
+              <span class="pnav-text">Founder Leadership</span>
             </div>
             <button type="button" class="btn-next-pillar js-switch-tab" data-next="fleet">
               <span>Next: 🚙 Company-Owned 4x4</span> &rarr;
@@ -602,7 +597,7 @@ const flagshipTours = [
             </button>
             <div class="pnav-status">
               <span class="pnav-dots"><span class="dot"></span><span class="dot"></span><span class="dot active"></span><span class="dot"></span></span>
-              <span class="pnav-text">Pillar 3 of 4: Company 4x4 Fleet</span>
+              <span class="pnav-text">Company 4x4 Fleet</span>
             </div>
             <button type="button" class="btn-next-pillar js-switch-tab" data-next="license">
               <span>Next: 📜 Government License</span> &rarr;
@@ -680,7 +675,7 @@ const flagshipTours = [
             </button>
             <div class="pnav-status">
               <span class="pnav-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot active"></span></span>
-              <span class="pnav-text">Pillar 4 of 4: Government License</span>
+              <span class="pnav-text">Government License</span>
             </div>
             <button type="button" class="btn-next-pillar js-switch-tab" data-next="dmc">
               <span>Return to Pillar 1: Direct DMC</span> &circlearrowright;
@@ -1323,6 +1318,10 @@ const flagshipTours = [
   }
 
   .btn-f-quote {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
     background-color: var(--color-gold-deep);
     color: #FFFFFF;
     font-size: 0.78rem;
@@ -1825,8 +1824,9 @@ const flagshipTours = [
 
   .founder-main-photo {
     width: 100%;
-    height: 250px;
+    height: 300px;
     object-fit: cover;
+    object-position: top center;
     display: block;
   }
 
@@ -2542,6 +2542,23 @@ const flagshipTours = [
 
     .home-review-card {
       grid-template-columns: 1fr;
+    }
+
+    .founder-card-visual {
+      max-width: 320px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .founder-img-wrapper {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .founder-main-photo {
+      height: 330px;
+      object-fit: cover;
+      object-position: top center;
     }
 
     .hr-media {
